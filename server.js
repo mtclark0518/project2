@@ -54,6 +54,6 @@ app.post('/league', function(req, res) {
 ///////////////////////////
 ///////START SERVER////////
 ///////////////////////////
-app.listen(3000, function() {
+app.listen(process.env.PORT || 3000, function() {
 	console.log("listening at http://localhost:3000");
 });
