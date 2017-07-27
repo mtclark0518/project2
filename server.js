@@ -1,13 +1,9 @@
-//////////////////////
-/////DEPENDENCIES/////
+//CONFIGURATION
 //////////////////////
 
 //EXPRESS
-var express = require('express'),
-	app = express();
-
-var db = require('./models');
-
+var express = require('express');
+var	app = express();
 
 // serve static files in public
 app.use(express.static('public'));
@@ -23,9 +19,13 @@ app.set('views', __dirname);
 app.engine('ejs', require('ejs').renderFile);
 app.set('view engine', 'ejs');
 
+
+var db = require('./models');
+
+
+//ROUTES
 ///////////////////////
-///////ROUTES//////////
-///////////////////////
+
 app.get('/', function (req, res) {
   res.sendFile('views/index.html' , { root : __dirname});
 });
