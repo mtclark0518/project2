@@ -40,6 +40,9 @@ app.get('/league', function(req, res) {
 app.get('/league/newChamp', function(req, res) { //look at that controller
 	res.sendFile(__dirname+'/views/newChamp.html'); 
 });
+app.get('/league/search', function(req,res){
+	res.sendFile(__dirname+'/views/partials/summoner_search.html');
+});
 
 //Add new champ
 app.post('/league', function(req, res) { 
