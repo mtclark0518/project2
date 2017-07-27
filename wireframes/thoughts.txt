@@ -1,0 +1,45 @@
+What api calls do i need to make
+
+
+how consistently do I need to make those api calls
+	dynamic(active user)
+		log in makes call
+	GET--UserInfo--by SummonerName	/lol/summoner/v3/summoners/by-name/{summonerName}
+		{
+    "profileIconId": 1670,
+    "name": "EnderWillSaveU",
+    "summonerLevel": 30,
+    "accountId": 237365985,  //<--------------------THIS GUY
+    "id": 84409711,
+    "revisionDate": 1499543216000
+		}
+	GET----UsersRecentMatches--by accountId	/lol/match/v3/matchlists/by-account/{accountId}/recent
+	{
+    "matches": [
+        {
+            "lane": "MID",
+            "gameId": 2543580309,
+            "champion": 23, 	//<---------------THIS GUY BUT DISPLAY TOP5 -- AVERAGE RECENT GAME
+            "platformId": "NA1",
+            "timestamp": 1499541524136,
+            "queue": 65,
+            "role": "NONE",
+            "season": 9
+        },
+	
+
+	static seeding my database with data //<-------------MAKE REQUEST AT UPDATES AND RESEED COLLECTIONS
+		
+	//Path to Pull Champion Info + Stats 
+	GET-----https://na1.api.riotgames.com/lol/static-data/v3/champions?locale=en_US&tags=info&tags=stats&dataById=false&api_key=";
+
+
+	champions
+			user 
+	user can access dynamic information
+		what champion have they played with lately		
+
+summoner name as registration? 
+
+
+			items
