@@ -7,49 +7,28 @@
   <title>Project 2</title>
 
   <!-- STYLESHEETS -->
-
+  <link rel="stylesheet" href="styles/reset.css">
   <link rel="stylesheet" href="styles/styles.css">
   <!-- VENDOR SCRIPTS -->
- 
-
-
-  <!-- APPLICATION SCRIPTS -->
-
 </head>
+
+
 <body>
   <div class="container">
-    <h1 class="text-center">Summoner App</h1>
-    <div class="row">
-      <div class=>
-        <form>
-          <div>
-            <label for="title">Title</label>
-            <input type="text"  name="title" placeholder="placeholder">
-          </div>
-          <div>
-            <label for="title">Author</label>
-            <input type="text"  name="author" placeholder="placeholder">
-          </div>
-          <button type="submit">Submit</button>
-        </form>
-        <div>
-            <hr>
-            <p>
-              <br>
-              
-              <button type="button" name="button">Delete</button>
-            </p>
-            <form >
-              <div>
-                <input type="text" name="name" placeholder="placeholder">
-              </div>
-              <button type="submit">Submit</button>
-            </form>
-        </div>
-      </div>
-    </div>
-  </div>
-  <script src="scripts/app.js"></script>
+      <form method="post" action="/login">
+          <div class="container">
+            <button type="submit" class="button">Log In</button>
+            <button type="submot" class="button">Sign Up</button>
+          </div><!--container-->
+      </form>
+  </div><!--container-->
 
+
+<!-- APPLICATION SCRIPTS -->
+<script
+  src="http://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<script src="scripts/app.js"></script>
 </body>
 </html>
