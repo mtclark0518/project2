@@ -4,10 +4,7 @@ UserSchema = new Schema({
 	email : String,
 	password : String,
 	summoner_name: String,
-	accountId: Number,
-
-
-	
+	accountId: Number,	
 });
 
 var User = mongoose.model('User', UserSchema);
