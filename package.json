@@ -18,6 +18,9 @@
   },
   "devDependencies": {
     "chai": "^4.1.0",
-    "mocha": "^3.4.2"
+    "grunt": "^1.0.1",
+    "grunt-sass": "^2.0.0",
+    "mocha": "^3.4.2",
+    "sass": "^1.0.0-beta.2"
   }
 }
