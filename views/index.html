@@ -1,30 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Project 2</title>
+  <title>Landing</title>
 
-  <!-- STYLESHEETS -->
-  <link rel="stylesheet" href="styles/reset.css">
+  <link rel="stylesheet" href="./styles/reset.css">
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" href="styles/styles.css">
-  <!-- VENDOR SCRIPTS -->
+  <link rel="stylesheet" href="./styles/styles.css">
 </head>
-
 <body>
+
+  <div class="jumbotron">
+    <div class="text-center container-fluid">
+      <div class="row">
+        <h1 class="col-xs-6 col-xs-offset-3">Working Title</h1>
+      </div>
+    </div>
+  </div>
   <div class="container">
-      <form method="post" action="/login">
-          <div class="container">
-            <button type="submit" class="button">Log In</button>
-            <button type="submot" class="button">Sign Up</button>
-          </div><!--container-->
-      </form>
-  </div><!--container-->
-
-
-<!-- APPLICATION SCRIPTS -->
+    <div class="row text-center">
+      <div class="btn-group" data-toggle="button" aria-pressed="false">
+        <button class="btn btn-default btn-lg" data-toggle="collapse" data-target="#sign-in-form" aria-expanded="false" aria-controls="sign-in-form">Log In</button>
+        <button class="btn btn-default btn-lg" data-toggle="collapse" data-target="#sign-up-form" aria-expanded="false" aria-controls="sign-up-form">Register</button>
+      </div>  
+    </div>
+    <div class="row">
+        <div id="sign-in-form" class="container collapse">
+          <form class="form-horizontal">
+            <div class="form-group">
+              <div class="col-xs-10">
+                <h1>Sign-In</h1>
+              </div>
+            </div>
+            <div class="form-group has-error">
+              <label class="control-label col-xs-2">Email</label>
+              <div class="col-xs-9">
+                <input class="form-control" type="email" name="email" placeholder="Email">
+              </div>
+            </div>
+            <div class="form-group has-error">
+              <label class="control-label col-xs-2">Password</label>
+              <div class="col-xs-9">
+                <input class="form-control" type="password" name="password" placeholder="Password">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-xs-2 col-xs-offset-2">
+                <input type="checkbox" name="remember-me">Remember Me
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-xs-2 col-xs-offset-2">
+                <button class="btn btn-default" type="submit" name="sign-in-btn">Sign In</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+        <div id="sign-up-form" class="container collapse">
+          <form class="form-horizontal">
+            <div class="form-group">
+              <div class="col-xs-10">
+                <h1>Sign-Up</h1>
+              </div>
+            </div>
+            <div class="form-group has-error">
+              <label class="control-label col-xs-2">Email</label>
+              <div class="col-xs-9">
+                <input class="form-control" type="email" name="email" placeholder="Email">
+              </div>
+            </div>
+            <div class="form-group has-error">
+              <label class="control-label col-xs-2">Password</label>
+              <div class="col-xs-9">
+                <input class="form-control" type="password" name="password" placeholder="Password">
+              </div>
+            </div>
+            <div class="form-group has-error has-success">
+              <label class="control-label col-xs-2">Summonner Name</label>
+              <div class="col-xs-9">
+                <input class="form-control" type="text" name="summoner-name" placeholder="Summonner Name">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-xs-2 col-xs-offset-2">
+                <input type="checkbox" name="remember-me">Remember Me
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-xs-2 col-xs-offset-2">
+                <button class="btn btn-default" type="submit" name="sign-up-btn">Sign Up</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<!-------------------- SCRIPTS -------------------------->
   <script
     src="http://code.jquery.com/jquery-3.2.1.min.js"
     integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -34,7 +111,8 @@
     src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
     integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
   </script>
-  <script src="scripts/app.js">
+  <script 
+    src="./scripts/app.js">
   </script>
 </body>
 </html>
