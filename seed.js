@@ -14,10 +14,11 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 
 var apiKey = require('./apikey.js');
-var requestUrl = "https://na1.api.riotgames.com/lol/static-data/v3/champions?api_key=";
+var champPath = "https://na1.api.riotgames.com/lol/static-data/v3/champions?";
+var champQuery = "locale=en_US&tags=image&tags=info&tags=stats&tags=tags&dataById=true";
 
 
-request(requestUrl + apiKey, function (error, response, body) {
+request(champPath + champQuery + apiKey, function (error, response, body) {
 	console.log('error:', error); // Print the error if one occurred 
 	console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received 
 	body = JSON.parse(body);
@@ -34,4 +35,4 @@ request(requestUrl + apiKey, function (error, response, body) {
 	// });
 });
 
-
+module.exports = champion_list;

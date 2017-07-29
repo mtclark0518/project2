@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Candy App</title>
+	<link rel="stylesheet" type="text/css" href="styles/styles.css">
+</head>
+
+
+<body>
+	<h1> 
+		<a href="https://www.youtube.com/">Candy Shoppe</a>
+	</h1>
+	<div class="container">
+			<% for(var i = 0; i < candies.length; i++) { %>
+			<ul>
+				<li><b>Name: </b>  <%= candies[i].name %> </li>
+				<li><b>Color: </b> <%= candies[i].color %> </li>
+			</ul>
+			<%} %>
+		
+	</div>
+	<hr>
+	<div class="container">
+		<% include ./partials/candy/form %>
+	</div>
+	<div class="container">
+		<% include ./partials/candy/footer %>
+	</div>
+</body>
+</html>
