@@ -1,21 +1,26 @@
 // GET ----  Rendering Various View Routes 
 
 
-function launch(request, response) {
-    response.render('index');
+function launch(req, res) {
+    res.render('index');
 }
 
-function login(request, response) {
-    response.render('profile');
+function login(req, res) {
+    res.render('profile');
 }
 
-function champion_search(request, response) {
-    response.render('layout');
+function champion_search(req, res) {
+    res.render('layout');
+}
+
+function register(req, res) {
+    res.redirect('/profile');	
 }
 
 
 module.exports = {
     launch: launch,
     login: login,
-    champion_search: champion_search
+    champion_search: champion_search,
+    register: register
 };

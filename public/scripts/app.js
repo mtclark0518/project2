@@ -1,5 +1,6 @@
 
 var $login = $("#sign-in-btn");
+var $register = $("#sign-up-btn");
 
 $(document).ready(function () {
     console.log("hello world");
@@ -19,6 +20,14 @@ $(document).ready(function () {
         });
     });
 
+    // $register.click(function (event) {
+    //     event.preventDefault();
+    //     $.ajax({
+    //         method: "post",
+    //         url: www.google.com,
+    //         data: userString
+    //     });
+    // });
 
 
 

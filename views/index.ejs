@@ -22,9 +22,14 @@
   </div>
   <div class="container">
     <div class="row text-center">
-      <div class="btn-group" data-toggle="button" aria-pressed="false">
-        <label class="btn btn-default btn-lg" data-toggle="collapse" data-target="#sign-in-form" aria-expanded="false" aria-controls="sign-in-form" autocomplete="off">Sign-In</label>
-        <button class="btn btn-default btn-lg" data-toggle="collapse" data-target="#sign-up-form" aria-expanded="false" aria-controls="sign-up-form">Register</button>
+      <div class="btn-group" data-toggle="buttons">
+        <label class="btn btn-default btn-lg" data-toggle="collapse" data-target="#sign-in-form" aria-expanded="false" aria-controls="sign-in-form">
+          <input type="radio" autocomplete="off">Sign-In
+        </label>
+        
+        <label class="btn btn-default btn-lg" data-toggle="collapse" data-target="#sign-up-form" aria-expanded="false" aria-controls="sign-up-form">
+          <input type="radio" autocomplete="off">Register
+        </label>
       </div>  
     </div>
     <div class="row">
@@ -92,7 +97,7 @@
             </div>
             <div class="form-group">
               <div class="col-xs-2 col-xs-offset-2">
-                <button class="btn btn-default" type="submit" name="sign-up-btn">Sign Up</button>
+                <button id="sign-up-btn" class="btn btn-default" type="submit" name="sign-up-btn">Sign Up</button>
               </div>
             </div>
           </form>
@@ -101,8 +106,9 @@
     </div>
   </div>
   
-  <div class="container"> <% include ./partials/footer %> </div>
-  <div class="container"> <% include ./partials/scripts %> </div>
+  <% include ./partials/footer %> 
+  <% include ./partials/scripts %>
+
 
 </body>
 </html>
