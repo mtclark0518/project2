@@ -11,6 +11,7 @@ var flash        	= require('connect-flash');
 var morgan       	= require('morgan');
 var cookieParser 	= require('cookie-parser');
 var bodyParser   	= require('body-parser');
+var ejs 			= require('ejs');
 var session      	= require('express-session');
 var db 				= require('./models');
 var apiKey 			= require('./apikey.js');

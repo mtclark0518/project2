@@ -1,14 +1,14 @@
 var passport = require('passport');
 
 //GET 
-function getSignup (request, response){
+function getSignup (request, response, next){
 	response.render('signup', { message: request.flash('signupMessage') });
 }
 
 //POST
-function postSignup (request, response, next) {
+function postSignup(request, response, next) {
 	var signupStrategy = passport.authenticate('local-signup', {
-		successRedirect 	: '/',
+		successRedirect 	: '/profile',
 		failureRedirect 	: '/signup',
 		failureFlash 		: true
 	});
@@ -16,8 +16,8 @@ function postSignup (request, response, next) {
 }
 
 //GET 
-function getLogin (request, response){
-	response.render('login', {message: request.flash('loginMessage')});
+function getLogin (request, response, next){
+	response.render('login', {message: request.flash('loginMessage') });
 }
 
 //POST
@@ -36,10 +36,10 @@ function getLogout (request, response, next){
 }
 
 module.exports = {
-	getSignup	: getSignup,
-	postSignup	: postSignup,
 	getLogin 	: getLogin,
 	postLogin	: postLogin,
+	getSignup	: getSignup,
+	postSignup	: postSignup,
 	getLogout 	: getLogout
 };
 

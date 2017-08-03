@@ -17,7 +17,7 @@ module.exports = function(passport) {
 		passwordField: "password",
 		passReqToCallback: true
 	}, function(req, email, password, callback) {
-		User.findOne({'local.email' : email }, function(err, user) {
+		User.findOne({ 'local.email' : email }, function(err, user) {
 			if (err) return callback(err);
 
 			//Email already exists
