@@ -12,7 +12,7 @@ var cookieParser 	= require('cookie-parser');
 var bodyParser   	= require('body-parser');
 var session      	= require('express-session');
 var db 				= require('./models');
-var apiKey 			= require("./apikey.js");
+var apiKey 			= require('./apikey.js');
 
 
 //EXPRESS
@@ -38,7 +38,7 @@ app.use(passport.initialize());
 app.use(passport.session()); 
 app.use(flash()); 
 
-require('./config/passport')(passport);
+// var passRoutes = app.require('./config/passport')(passport);
 
 app.use(function(req, res, next) {
 	res.locals.currentUser = req.user;

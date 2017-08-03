@@ -1,5 +1,5 @@
 var mongoose = require('mongoose'),
-    bcrypt = require('bcrypt');
+    bcrypt = require('bcrypt-nodejs');
 
 var User = new mongoose.Schema({
     email : String,
@@ -7,7 +7,9 @@ var User = new mongoose.Schema({
     summoner_name: String,
 });
 
-User.
+User.methods.encrypt = function(password) {
+	return bcrypt.hashSync(password, bcrypt.genSaltSync(8));
+};
 
 
 

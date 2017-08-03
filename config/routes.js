@@ -1,31 +1,34 @@
 var express = require('express');
 var router = express.Router();
-var controller = require('../controllers/viewController.js');
+var methodOverride = require('method-override');
+var bodyParser = require('body-parser');
+var viewController = require('../controllers/viewController.js');
+var user_controller = require('../controllers/user_controller.js');
 
 //HTTP RESPONSE
 
 
 router.route("/")
 //GET----------
-    .get(controller.launch);
+    .get(viewController.launch);
 
 
 //JSON RESPONSE
 
 //----------------------------------------------------------------//
 
-router.route("/champions")
-//GET----------
-    .get(controller.champion_search);
+// router.route("/champions")
+// //GET----------
+//     .get(controller.champion_search);
 
 //----------------------------------------------------------------//
 
 
-router.route("/profile/")
-    .get(controller.login);
+// router.route("/profile/")
+//     .get(controller.login);
 
-router.route("/register")
-    .get(controller.register);
+// router.route("/register")
+//     .get(controller.register);
 
 module.exports = router;
 
