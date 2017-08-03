@@ -5,13 +5,14 @@ function launch(req, res) {
     res.render('landing');
 }
 
-function registerSucess(req, res) {
+
+function success(req, res) {
 	res.render('profile');
 }
 
 
 
 module.exports = {
-    launch: launch,
-    registerSucess: registerSucess,
+    launch				: launch,
+    success				: success
 };

@@ -1,5 +1,5 @@
 var LocalStrategy = 	require('passport-local').Strategy;
-var db = 				require('../models');
+var User = 				require('../models/user_model');
 
 module.exports = function(passport) {
 
@@ -7,7 +7,7 @@ module.exports = function(passport) {
 		callback(null, user.id);
 	});
 	passport.deserializeUser(function(id, callback) {
-		db.User.findById(id, function(err, user) {
+		User.findById(id, function(err, user) {
 			callback(err, user); 
 		});
 	});
@@ -17,7 +17,7 @@ module.exports = function(passport) {
 		passwordField: "password",
 		passReqToCallback: true
 	}, function(req, email, password, callback) {
-		db.User.findOne({'local.email' : email }, function(err, user) {
+		User.findOne({'local.email' : email }, function(err, user) {
 			if (err) return callback(err);
 
 			//Email already exists
@@ -26,7 +26,7 @@ module.exports = function(passport) {
 			} else {
 			//No user wit dis email
 				//make new user
-				var newUser 			= new db.User();
+				var newUser 			= new User();
 				newUser.local.email 		= email;
 				newUser.local.password 	= newUser.hash(password);
 
@@ -35,9 +35,27 @@ module.exports = function(passport) {
 					return callback(null, newUser);
 				});
 			}
-
 		});
 	}));
 
-
+	passport.use('local-login', new LocalStrategy ({
+		usernameField: "email",
+		passwordField: "password",
+		passReqToCallback: true
+	}, function(req, email, password, callback) {
+		User.findOne({ 'local.email' : email}, function(err, user) {
+			if (err) return callback(err);
+			
+			//Username doesn't exist
+			if (!user) {
+				return callback(null, false, req.flash('loginMessage', "no account found for this email"));
+			} 
+			
+			//Password incorrect
+			if(!user.validate(password)) {
+				return callback(null, false, req.flash('loginMessage', "password incorrect"));
+			}
+			return callback(null, user);
+		});
+	}));
 };

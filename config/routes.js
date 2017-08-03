@@ -22,7 +22,15 @@ router.route("/signup")
 	.post(userController.postSignup);
 
 router.route("/profile")
-	.get(viewController.registerSucess);
+	.get(viewController.success);
+
+router.route("/login")
+	.get(userController.getLogin)
+	.post(userController.postLogin);
+
+router.route("/logout")
+	.get(userController.getLogout);
+
 //JSON RESPONSE
 
 //----------------------------------------------------------------//
