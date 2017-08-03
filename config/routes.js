@@ -1,7 +1,13 @@
 var express = require('express');
 var router = express.Router();
-var methodOverride = require('method-override');
+
+// Parse info from POST
 var bodyParser = require('body-parser');
+
+//Use to manipulate POST methods
+var methodOverride = require('method-override');
+
+var passport = require('passport');
 var viewController = require('../controllers/viewController.js');
 var userController = require('../controllers/user_controller.js');
 
@@ -9,7 +15,6 @@ var userController = require('../controllers/user_controller.js');
 
 
 router.route("/")
-//GET----------
     .get(viewController.launch);
 
 router.route("/signup")
