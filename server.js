@@ -20,6 +20,8 @@ var app = express();
 
 app.use(morgan('dev')); 
 app.use(cookieParser());
+app.use(bodyParser()); 
+
 
 //BODY-PARSER
 app.use(bodyParser.json());
@@ -27,18 +29,19 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 
 //EJS VIEW ENGINE
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', './views');
 app.engine('ejs', require('ejs').renderFile);
 app.set('view engine', 'ejs');
 
 
 app.use(express.static(__dirname + '/public'));
+
 app.use(session({ secret: 'WDI-GENERAL-ASSEMBLY-EXPRESS' })); 
 app.use(passport.initialize());
 app.use(passport.session()); 
 app.use(flash()); 
 
-// var passRoutes = app.require('./config/passport')(passport);
+require('./config/passport')(passport);
 
 app.use(function(req, res, next) {
 	res.locals.currentUser = req.user;

@@ -1,18 +1,20 @@
 var passport = require('passport');
 
 //GET 
-function getSignup (){
-
+function getSignup (request, response, next){
+	response.render('signup', { message: request.flash('signupMessage') });
 }
+
 //POST
 function postSignup (request, response, next){
 	var signupStrategy = passport.authenticate('local-signup', {
-		successRedirect : '/profile',
+		successRedirect : '/',
 		failureRedirect : '/signup',
 		failureFlash : true
 	});
 	return signupStrategy(request, response, next);
 }
+
 //GET 
 function getLogin (){
 
@@ -27,7 +29,8 @@ function getLogout (){
 }
 
 module.exports = {
-	postSignup : postSignup
+	getSignup: getSignup,
+	postSignup: postSignup
 };
 
 // function login(req, res) {

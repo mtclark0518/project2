@@ -3,7 +3,7 @@ var router = express.Router();
 var methodOverride = require('method-override');
 var bodyParser = require('body-parser');
 var viewController = require('../controllers/viewController.js');
-var user_controller = require('../controllers/user_controller.js');
+var userController = require('../controllers/user_controller.js');
 
 //HTTP RESPONSE
 
@@ -12,7 +12,12 @@ router.route("/")
 //GET----------
     .get(viewController.launch);
 
+router.route("/signup")
+	.get(userController.getSignup)
+	.post(userController.postSignup);
 
+router.route("/profile")
+	.get(viewController.registerSucess);
 //JSON RESPONSE
 
 //----------------------------------------------------------------//
