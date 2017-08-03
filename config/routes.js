@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
-var controller = require('../controllers/controller');
-var bodyParser = require('body-parser'); //parses information from POST
+var controller = require('../controllers/viewController.js');
 
+//HTTP RESPONSE
 
 
 router.route("/")
@@ -10,6 +10,7 @@ router.route("/")
     .get(controller.launch);
 
 
+//JSON RESPONSE
 
 //----------------------------------------------------------------//
 
@@ -23,7 +24,8 @@ router.route("/champions")
 router.route("/profile/")
     .get(controller.login);
 
-
+router.route("/register")
+    .get(controller.register);
 
 module.exports = router;
 

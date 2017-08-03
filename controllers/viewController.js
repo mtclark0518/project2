@@ -2,7 +2,7 @@
 
 
 function launch(req, res) {
-    res.render('index');
+    res.render('landing');
 }
 
 function login(req, res) {
@@ -14,7 +14,7 @@ function champion_search(req, res) {
 }
 
 function register(req, res) {
-    res.redirect('/profile');	
+    res.render('newUserForm');	
 }
 
 
