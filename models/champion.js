@@ -1,7 +1,6 @@
-var mongoose = require('mongoose'),
-	Schema = mongoose.Schema;
+var mongoose = require('mongoose');
 
-var ChampionSchema = new Schema({
+var Champion = new mongoose.Schema({
 	name : String,
 	tags : String,
 	title : String,
@@ -36,9 +35,8 @@ var ChampionSchema = new Schema({
 		hpperlevel: Number
 	}
 });
-var Champion = mongoose.model('Champion', ChampionSchema);
 
-module.exports = Champion;
+module.exports = mongoose.model('Champion', Champion);
 
 // "data": {
 //         "1": {

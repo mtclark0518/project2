@@ -1,12 +1,15 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
-var UserSchema = new Schema({
+var mongoose = require('mongoose'),
+    bcrypt = require('bcrypt');
+
+var User = new mongoose.Schema({
     email : String,
     password : String,
     summoner_name: String,
-    accountId: Number,
 });
 
-var User = mongoose.model('User', UserSchema);
+User.
 
-module.exports = User;
+
+
+
+module.exports = mongoose.model('User', User);
