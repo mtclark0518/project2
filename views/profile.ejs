@@ -4,7 +4,11 @@
 	<% include ./partials/navbar %>
 
 	<div class="container-fluid">
-		<h1 class="text-center">Summonner Name</h1>
+	<% if(currentUser) { %>
+		<h1 class="text-center"><%= currentUser.local.email + "'s Homepage" %></h1>
+	<% } else { %>
+		<h1 class="text-center">Summoner Name</h1>
+	<% } %>
 	</div>	
 	<div class="container">
 		<div class="row">
