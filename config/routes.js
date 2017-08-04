@@ -21,9 +21,11 @@ router.route("/signup")
 	.get(userController.getSignup)
 	.post(userController.postSignup);
 
+router.route("/newaccount")
+	.get(viewController.registerSuccess);
+
 router.route("/profile")
-	.get(viewController.registerSucess);
-//JSON RESPONSE
+	.get(viewController.loginSuccess);
 
 router.route("/login")
 	.get(userController.getLogin)
@@ -46,6 +48,7 @@ router.route("/logout")
 
 // router.route("/register")
 //     .get(controller.register);
+//JSON RESPONSE
 
 module.exports = router;
 

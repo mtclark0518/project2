@@ -5,7 +5,11 @@ function launch(req, res) {
     res.render('landing');
 }
 
-function registerSucess(req, res) {
+function registerSuccess(req, res) {
+	res.render('newaccount');
+}
+
+function loginSuccess(req, res) {
 	res.render('profile');
 }
 
@@ -13,5 +17,6 @@ function registerSucess(req, res) {
 
 module.exports = {
     launch: launch,
-    registerSucess: registerSucess,
+    registerSuccess: registerSuccess,
+    loginSuccess: loginSuccess
 };

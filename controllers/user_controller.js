@@ -8,7 +8,7 @@ function getSignup (request, response, next){
 //POST
 function postSignup (request, response, next){
 	var signupStrategy = passport.authenticate('local-signup', {
-		successRedirect : '/profile',
+		successRedirect : '/newaccount',
 		failureRedirect : '/signup',
 		failureFlash : true
 	});
@@ -35,6 +35,7 @@ function getLogout (request, response, next){
 }
 
 module.exports = {
+	
 	getLogout: getLogout,
 	getLogin: getLogin,
 	postLogin: postLogin,
