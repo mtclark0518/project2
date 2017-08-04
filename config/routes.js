@@ -25,6 +25,10 @@ router.route("/profile")
 	.get(viewController.registerSucess);
 //JSON RESPONSE
 
+router.route("/login")
+	.get(userController.getLogin)
+	.post(userController.postLogin);
+
 //----------------------------------------------------------------//
 
 // router.route("/champions")

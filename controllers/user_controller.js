@@ -16,12 +16,17 @@ function postSignup (request, response, next){
 }
 
 //GET 
-function getLogin (){
-
+function getLogin (request, response, next){
+	response.render('login', { message: request.flash('loginMessage')});
 }
 //POST
- function postLogin (){
-
+ function postLogin (request, response, next){
+ 	var loginStrategy = passport.authenticate('local-login', {
+ 		successRedirect : '/profile',
+ 		failureRedirect : '/login',
+ 		failureFlash : true
+ 	});
+ 	return loginStrategy(request, response, next);
 }
 //GET 
 function getLogout (){
@@ -29,6 +34,8 @@ function getLogout (){
 }
 
 module.exports = {
+	getLogin: getLogin,
+	postLogin: postLogin,
 	getSignup: getSignup,
 	postSignup: postSignup
 };
