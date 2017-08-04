@@ -3,6 +3,8 @@ var mongoose = require('mongoose'),
 
 var User = new mongoose.Schema({
     summoner_name: String,
+    summonerLevel: Number,
+    accountId: String,
     local: {
     	email 			: String,
     	password 		: String,
