@@ -11,7 +11,6 @@ var flash        	= require('connect-flash');
 var morgan       	= require('morgan');
 var cookieParser 	= require('cookie-parser');
 var bodyParser   	= require('body-parser');
-var ejs 			= require('ejs');
 var session      	= require('express-session');
 var db 				= require('./models');
 var apiKey 			= require('./apikey.js');
@@ -23,7 +22,7 @@ app.use(cookieParser());
 
 
 //BODY-PARSER
-app.use(bodyParser()); 
+app.use(bodyParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
@@ -36,7 +35,7 @@ app.set('view engine', 'ejs');
 
 app.use(express.static(__dirname + '/public'));
 
-app.use(session({ secret: 'WDI-GENERAL-ASSEMBLY-EXPRESS' })); 
+app.use(session({ secret: 'PROJECT-2' })); 
 app.use(passport.initialize());
 app.use(passport.session()); 
 app.use(flash()); 

@@ -15,14 +15,14 @@ var userController = require('../controllers/user_controller.js');
 
 
 router.route("/")
-    .get(viewController.launch);
-
-router.route("/signup")
-	.get(userController.getSignup)
-	.post(userController.postSignup);
+    .get(viewController.landing);
 
 router.route("/profile")
-	.get(viewController.success);
+	.get(viewController.profile);
+
+router.route("/signup")
+	.post(userController.postSignup)
+	.get(userController.getSignup);
 
 router.route("/login")
 	.get(userController.getLogin)
