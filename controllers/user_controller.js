@@ -29,11 +29,13 @@ function getLogin (request, response, next){
  	return loginStrategy(request, response, next);
 }
 //GET 
-function getLogout (){
-
+function getLogout (request, response, next){
+	request.logout();
+	response.redirect('./');
 }
 
 module.exports = {
+	getLogout: getLogout,
 	getLogin: getLogin,
 	postLogin: postLogin,
 	getSignup: getSignup,

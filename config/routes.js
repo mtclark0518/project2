@@ -29,6 +29,9 @@ router.route("/login")
 	.get(userController.getLogin)
 	.post(userController.postLogin);
 
+router.route("/logout")
+	.get(userController.getLogout);
+
 //----------------------------------------------------------------//
 
 // router.route("/champions")
