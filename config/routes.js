@@ -24,8 +24,11 @@ router.route("/signup")
 // router.route("/newaccount")
 // 	.get(viewController.registerSuccess);
 
-router.route("/profile/:user")
-	.get(viewController.loginSuccess);
+router.route("/profile/:email")
+	.get(viewController.showUser);
+
+// router.route("/profile/:email")
+// 	.get(viewController.showUser);
 
 router.route("/login")
 	.get(userController.getLogin)

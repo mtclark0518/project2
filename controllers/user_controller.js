@@ -9,7 +9,7 @@ function getSignup (request, response, next){
 //POST
 function postSignup (request, response, next){
 	var signupStrategy = passport.authenticate('local-signup', {
-		successRedirect : '/profile',
+		successRedirect : '/profile/' + request.body.email,
 		failureRedirect : '/signup',
 		failureFlash : true
 	});
@@ -35,12 +35,13 @@ function getLogin (request, response, next){
 //POST
  function postLogin (request, response, next){
  	var loginStrategy = passport.authenticate('local-login', {
- 		successRedirect : '/profile',
+ 		successRedirect : '/profile/'+ request.body.email,
  		failureRedirect : '/login',
  		failureFlash : true
  	});
  	return loginStrategy(request, response, next);
 }
+
 //GET 
 function getLogout (request, response, next){
 	request.logout();
