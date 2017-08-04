@@ -21,8 +21,8 @@ router.route("/signup")
 	.get(userController.getSignup)
 	.post(userController.postSignup);
 
-router.route("/newaccount")
-	.get(viewController.registerSuccess);
+// router.route("/newaccount")
+// 	.get(viewController.registerSuccess);
 
 router.route("/profile")
 	.get(viewController.loginSuccess);

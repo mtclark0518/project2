@@ -26,9 +26,10 @@ module.exports = function(passport) {
 			} else {
 			//No user wit dis email
 				//make new user
-				var newUser 			= new db.User();
+				var newUser 				= new db.User();
 				newUser.local.email 		= email;
-				newUser.local.password 	= newUser.hash(password);
+				newUser.local.password 		= newUser.hash(password);
+				newUser.summoner_name = req.body.summoner_name;
 
 				newUser.save(function(err) {
 					if (err) throw err;

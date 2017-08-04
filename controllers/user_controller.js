@@ -1,4 +1,5 @@
 var passport = require('passport');
+var db = require('../models');
 
 //GET 
 function getSignup (request, response, next){
@@ -8,12 +9,24 @@ function getSignup (request, response, next){
 //POST
 function postSignup (request, response, next){
 	var signupStrategy = passport.authenticate('local-signup', {
-		successRedirect : '/newaccount',
+		successRedirect : '/profile',
 		failureRedirect : '/signup',
 		failureFlash : true
 	});
 	return signupStrategy(request, response, next);
 }
+// function postNewaccount (request, response) {
+// 	var summonerId = request.body.summoner_name;
+// 	db.User.findOne({'req.body.email' : email }, function(err, user) {
+// 		if (err) return callback(err);
+
+// 		user.summoner_name = summonerId;
+// 		user.save(function(err) {
+// 			if (err) throw err;
+// 		});
+// 		response.redirect('/profile');
+// 	});
+// }
 
 //GET 
 function getLogin (request, response, next){
@@ -34,8 +47,9 @@ function getLogout (request, response, next){
 	response.redirect('./');
 }
 
+
 module.exports = {
-	
+	// postNewaccount: postNewaccount,
 	getLogout: getLogout,
 	getLogin: getLogin,
 	postLogin: postLogin,
