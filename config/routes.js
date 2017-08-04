@@ -17,12 +17,9 @@ var userController = require('../controllers/user_controller.js');
 router.route("/")
     .get(viewController.landing);
 
-router.route("/profile")
-	.get(viewController.profile);
-
 router.route("/signup")
-	.post(userController.postSignup)
-	.get(userController.getSignup);
+	.get(userController.getSignup)
+	.post(userController.postSignup);
 
 router.route("/login")
 	.get(userController.getLogin)
@@ -30,6 +27,9 @@ router.route("/login")
 
 router.route("/logout")
 	.get(userController.getLogout);
+
+router.route("/profile")
+	.get(viewController.profile);
 
 //JSON RESPONSE
 
