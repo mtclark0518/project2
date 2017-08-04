@@ -1,5 +1,5 @@
 var request = require('request'),
-    db = require('./models');
+    db = require('../models');
 
 var champion_list = [];
 
@@ -13,9 +13,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 
-var apiKey = require('./apikey.js');
+var apiKey = require('../apikey.js');
 var champPath = "https://na1.api.riotgames.com/lol/static-data/v3/champions?";
-var champQuery = "locale=en_US&tags=image&tags=info&tags=stats&tags=tags&dataById=true";
+var champQuery = "locale=en_US&dataById=true";
 
 
 request(champPath + champQuery + apiKey, function (error, response, body) {
@@ -25,8 +25,24 @@ request(champPath + champQuery + apiKey, function (error, response, body) {
     body = body.data;
     champion_list.push(body);
     console.log(champion_list);
+    console.log(champion_list.length);
     // response.send(champion_list);
-
+    db.Champion.remove({}, function(err, champions) {
+    	var new_champion_list = [];
+    	for(var i = 0; i < champion_list.length; i++){
+    		new_champion_list.push(champion_list[i]);
+    		console.log(champion_list[i]);
+    	}
+    		// champion_list.forEach(function(data) {
+    		// var champion = new db.Champion({
+    		// 	name : data.name
+    		// });
+    		// champion.save(function(err) {
+    		// 	if (err) throw err;
+    		// 	console.log( "champion: " + champion.name + " saved" );
+    		// });
+    	// });
+    });
 // db.Champion.find(function(err, champions) {
 // if (err) {
 //     return console.log("index error: " + err);
@@ -34,4 +50,3 @@ request(champPath + champQuery + apiKey, function (error, response, body) {
 // });
 });
 
-module.exports = champion_list;

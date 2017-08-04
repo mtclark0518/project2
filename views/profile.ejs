@@ -45,8 +45,18 @@
 						</div>
 						<div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
 							    <ul class="list-group">
+							   
+							    <% if(currentUser) { %>
+							    	<li><%= $userData %></li>
+								
+
+								<% } else { %>
+							    	<li class="list-group-item">LiSt item</li>
 								    <li class="list-group-item">LiSt item</li>
-								    <li class="list-group-item">LiSt item</li>
+							    <% } %>
+								    
+								
+
 								</ul>
 						</div>
 					</div>
@@ -89,6 +99,7 @@
 
     <% include ./partials/footer %>
     <% include ./partials/scripts %>
+
 
 </body>
 </html>

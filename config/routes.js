@@ -21,14 +21,8 @@ router.route("/signup")
 	.get(userController.getSignup)
 	.post(userController.postSignup);
 
-// router.route("/newaccount")
-// 	.get(viewController.registerSuccess);
-
 router.route("/profile/:email")
 	.get(viewController.showUser);
-
-// router.route("/profile/:email")
-// 	.get(viewController.showUser);
 
 router.route("/login")
 	.get(userController.getLogin)
@@ -44,7 +38,8 @@ router.route("/logout")
 //     .get(controller.champion_search);
 
 //----------------------------------------------------------------//
-
+// router.route("/newaccount")
+// 	.get(viewController.registerSuccess);
 
 // router.route("/profile/")
 //     .get(controller.login);

@@ -1,39 +1,39 @@
 var mongoose = require('mongoose');
 
 var Champion = new mongoose.Schema({
-	name : String,
-	tags : String,
-	title : String,
-	key : String,
-	id : Number,
-	info : {
-		difficulty : Number,
-		attack : Number,
-		defense : Number,
-		magic : Number
-	},
-	stats : {
-		armorperlevel: Number,
-		attackdamage: Number,
-		mpperlevel: Number,
-		attackspeedoffset: Number,
-		mp: Number,
-		armor: Number,
-		hp: Number,
-		hpregenperlevel: Number,
-		attackspeedperlevel: Number,
-		attackrange: Number,
-		movespeed: Number,
-		attackdamageperlevel: Number,
-		mpregenperlevel: Number,
-		critperlevel: Number,
-		spellblockperlevel: Number,
-		crit: Number,
-		mpregen: Number,
-		spellblock: Number,
-		hpregen: Number,
-		hpperlevel: Number
-	}
+	name : String
+	// tags : String,
+	// title : String,
+	// key : String,
+	// id : Number,
+	// info : {
+	// 	difficulty : Number,
+	// 	attack : Number,
+	// 	defense : Number,
+	// 	magic : Number
+	// },
+	// stats : {
+	// 	armorperlevel: Number,
+	// 	attackdamage: Number,
+	// 	mpperlevel: Number,
+	// 	attackspeedoffset: Number,
+	// 	mp: Number,
+	// 	armor: Number,
+	// 	hp: Number,
+	// 	hpregenperlevel: Number,
+	// 	attackspeedperlevel: Number,
+	// 	attackrange: Number,
+	// 	movespeed: Number,
+	// 	attackdamageperlevel: Number,
+	// 	mpregenperlevel: Number,
+	// 	critperlevel: Number,
+	// 	spellblockperlevel: Number,
+	// 	crit: Number,
+	// 	mpregen: Number,
+	// 	spellblock: Number,
+	// 	hpregen: Number,
+	// 	hpperlevel: Number
+	// }
 });
 
 module.exports = mongoose.model('Champion', Champion);

@@ -15,18 +15,7 @@ function postSignup (request, response, next){
 	});
 	return signupStrategy(request, response, next);
 }
-// function postNewaccount (request, response) {
-// 	var summonerId = request.body.summoner_name;
-// 	db.User.findOne({'req.body.email' : email }, function(err, user) {
-// 		if (err) return callback(err);
 
-// 		user.summoner_name = summonerId;
-// 		user.save(function(err) {
-// 			if (err) throw err;
-// 		});
-// 		response.redirect('/profile');
-// 	});
-// }
 
 //GET 
 function getLogin (request, response, next){
@@ -58,6 +47,11 @@ module.exports = {
 	postSignup: postSignup
 };
 
+
+
+
+
+
 // function login(req, res) {
 //     res.render('profile');
 // }
@@ -72,3 +66,18 @@ module.exports = {
 //     login: login,
 //     champion_search: champion_search,
 //     register: register
+// function postNewaccount (request, response) {
+// 	var summonerId = request.body.summoner_name;
+// 	db.User.findOne({'req.body.email' : email }, function(err, user) {
+// 		if (err) return callback(err);
+
+// 		user.summoner_name = summonerId;
+// 		user.save(function(err) {
+// 			if (err) throw err;
+// 		});
+// 		response.redirect('/profile');
+// 	});
+// }
+
+
+

@@ -1,14 +1,12 @@
 // GET ----  Rendering Various View Routes 
 var db = require('../models');
 
+
+
+
+
 function launch(req, res) {
     res.render('landing');
-}
-
-function loginSuccess(req, res) {
-
-	console.log(paramaters);
-	res.render('profile');
 }
 
 function showUser(req, res) {
@@ -19,8 +17,28 @@ function showUser(req, res) {
 	});
 }
 
+
+
+
+
 module.exports = {
     launch: launch,
-    loginSuccess: loginSuccess,
     showUser: showUser
 };
+
+
+
+
+
+
+
+
+
+
+
+
+// function loginSuccess(req, res) {
+
+// 	console.log(paramaters);
+// 	res.render('profile');
+// }
