@@ -1,11 +1,13 @@
 var mongoose = require('mongoose');
 
 var Champion = new mongoose.Schema({
-	name : String
-	// tags : String,
-	// title : String,
-	// key : String,
-	// id : Number,
+	tags : [ String ],
+	id : Number,
+	name : String,
+	title : String,
+	key : String,
+
+
 	// info : {
 	// 	difficulty : Number,
 	// 	attack : Number,
