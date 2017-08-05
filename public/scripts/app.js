@@ -30,7 +30,7 @@ function renderUser(user) {
 //         }
 
 
-function renderChampion(champion) {
+function $renderChampion(champion) {
     var championHTML = 
 
     "<div class='col-xs-12 col-sm-6 col-lg-4' data-champion-id=" + " ' " + champion._id + " ' " + ">" +
@@ -61,6 +61,11 @@ function renderChampion(champion) {
 
 
 
+
+
+
+// function 
+
 $(document).ready(function () {
     console.log("hello world");
 
@@ -78,7 +83,7 @@ $(document).ready(function () {
         .done(function (data) {
             var parsedChampion = JSON.parse(champions.responseText);
             for (var i = 0; i < parsedChampion.length; i++) {
-                renderChampion(parsedChampion[i]);
+                $renderChampion(parsedChampion[i]);
             }
         });
 

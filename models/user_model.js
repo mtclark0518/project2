@@ -8,19 +8,15 @@ var User = new mongoose.Schema({
     summoner_name: String,
     summonerLevel: Number,
     accountId: String,
+    hasList: Boolean,
     local: {
     	email 			: String,
     	password 		: String,
     }
 });
 
-User.methods = {
-	hash: function(password) {
-		return bcrypt.hashSync(password, bcrypt.genSaltSync(8));
-	},
-	validate: function(password) {
-		return bcrypt.compareSync(password, this.local.password);
-	}
+User.methods.hash = function(password) {
+	return bcrypt.hashSync(password, bcrypt.genSaltSync(8));
 };
 	
 

@@ -11,18 +11,15 @@ function showChamps(req, res){
 	res.render('layout');
 }
 
-function showOneChamp(req, res){
-	res.render();
-}
 
-function postChamps(req, res){
-
+ 
+function postChampToList(req, res){
+	console.log('i will eventually post a champ to favorites');
 }
 
 
 module.exports = {
 	getChamps : getChamps,
 	showChamps : showChamps,
-	showOneChamp : showOneChamp,
-	postChamps : postChamps
+	postChampToList : postChampToList
 };

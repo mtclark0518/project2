@@ -1,6 +1,7 @@
 var passport = require('passport');
 var db = require('../models');
 
+//LOGIN
 //GET 
 function getSignup(request, response, next){
 	response.render('signup', { message: request.flash('signupMessage') });
@@ -18,7 +19,7 @@ function postSignup(request, response, next) {
 }
 
 
-
+////LOGOUT
 //GET 
 function getLogin (request, response, next){
 	response.render('login', { message: request.flash('loginMessage')});
@@ -33,7 +34,7 @@ function getLogin (request, response, next){
  	return loginStrategy(request, response, next);
 }
 
-//GET 
+//GET LOGOUT
 function getLogout (request, response, next){
 	request.logout();
 	response.redirect('./');
@@ -42,12 +43,11 @@ function getLogout (request, response, next){
 
 module.exports = {
 
-	// postNewaccount: postNewaccount,
-	getLogout: getLogout,
-	getLogin: getLogin,
-	postLogin: postLogin,
-	getSignup: getSignup,
-	postSignup: postSignup
+	getLogout 	: getLogout,
+	getLogin 	: getLogin,
+	postLogin	: postLogin,
+	getSignup	: getSignup,
+	postSignup	: postSignup
 };
 
 

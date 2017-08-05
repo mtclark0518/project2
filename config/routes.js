@@ -38,9 +38,6 @@ router.route("/profile/:email")
 router.route("/champions")
 	.get(championController.showChamps);
 
-router.route("/champions/:id")
-	.get(championController.showOneChamp);
-
 
 //JSON RESPONSE
 router.route("/api/champions")

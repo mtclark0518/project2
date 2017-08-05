@@ -29,8 +29,8 @@ module.exports = function(passport) {
 				var newUser 				= new db.User();
 				newUser.local.email 		= email;
 				newUser.local.password 		= newUser.hash(password);
-				newUser.summoner_name = req.body.summoner_name;
-
+				newUser.summoner_name 		= req.body.summoner_name;
+				newUser.hasList 			= false;
 				newUser.save(function(err) {
 					if (err) throw err;
 					return callback(null, newUser);
