@@ -7,6 +7,10 @@ function getChamps(req, res){
 	});
 }
 
+function showChamps(req, res){
+	res.render('layout');
+}
+
 
 
 function postChamps(req, res){
@@ -16,5 +20,6 @@ function postChamps(req, res){
 
 module.exports = {
 	getChamps : getChamps,
+	showChamps : showChamps,
 	postChamps : postChamps
 };

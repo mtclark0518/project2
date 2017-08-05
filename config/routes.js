@@ -32,8 +32,11 @@ router.route("/login")
 router.route("/logout")
 	.get(userController.getLogout);
 
-router.route("/champions")
+router.route("/api/champions")
 	.get(championController.getChamps);
+
+router.route("/champions")
+	.get(championController.showChamps);
 
 //----------------------------------------------------------------//
 

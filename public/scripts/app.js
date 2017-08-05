@@ -30,15 +30,47 @@ function renderUser(user) {
 //         }
 
 
+function renderChampion(champion) {
+    var championHTML = 
 
-//     });
+    "<div class='col-xs-6 col-md-4'>"    + 
+        "<div class='row'>"    + 
+            "<div class='col-xs-12 col-md-3 thumbnail champion-sprite'>"    + 
+                "<img src='" +  "http://placehold.it/400x400"  + "'>"    + 
+            "</div>"    + 
+            "<div class='col-xs-12 col-md-9'>"    + 
+               " <ul class='list-group'>"    + 
+                    "<li class='list-group-item'>"    + 
+                        "<h5 class='inline-header'>Name:</h5>"    + 
+                        "<span class='champion-name'>" + champion.name + "</span>"    + 
+                    "</li>"    + 
+
+                "</ul>"    + 
+            "</div>"    + 
+        "</div>"    + 
+    "</div>";    
+
+    $('#champions').append(championHTML);
+}
+
+
+
 $(document).ready(function () {
     console.log("hello world");
 
 
-    
 
-    
+
+//AJAX
+    var champions = $.get('/api/champions')
+        .done(function (data) {
+            var parsedChampion = JSON.parse(champions.responseText);
+            for (var i = 0; i < parsedChampion.length; i++) {
+                renderChampion(parsedChampion[i]);
+            }
+        });
+
+        
 
 });
 
