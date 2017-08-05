@@ -33,24 +33,26 @@ function renderUser(user) {
 function renderChampion(champion) {
     var championHTML = 
 
-    "<div class='col-xs-6 col-md-4'>"    + 
-        "<div class='row'>"    + 
-            "<div class='col-xs-12 col-md-6 thumbnail champion-sprite'>"    + 
-                "<img class='img-responsive img-thumbnail' src= '" +  "http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/" + champion.name + ".png'>"    + 
-            "</div>"    + 
-            "<div class='col-xs-12 col-md-6'>"    + 
-               " <ul class='list-group'>"    + 
-                    "<li class='list-group-item'>"    + 
-                        "<h5 class='inline-header'>Name:</h5>"    + 
-                        "<span class='champion-name'>" + champion.name + "</span>"    + 
-                    "</li>"    + 
-                    "<li class='list-group-item'>"    + 
-                        "<span class='champion-title'>" + champion.title + "</span>"    + 
-                    "</li>"    + 
-                "</ul>"    + 
-            "</div>"    + 
-        "</div>"    + 
-    "</div>";    
+    "<div class='col-xs-12 col-sm-6 col-lg-4' data_id=" + " ' " + champion._id + " ' " + ">" +
+            "<div class='container-fluid list-group-item'>" +
+                    
+                        "<div class='col-xs-4 col-sm-5 champion-sprite'>" +
+                            "<img class='img-responsive img-thumbnail' src= '" +  "http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/" + champion.name + ".png'>"    + 
+                        "</div>" +
+                        "<div class='col-xs-7 col-sm-6'> " +
+                            "<ul>  " +
+                                "<li class='list-item'>" +
+                                    "<span class='champion-name'><b>" + champion.name + "</b></span>  " +
+                                "</li>" +
+                                "<li class='list-item'>  " +
+                                    "<span class='champion-title'>" + champion.title + "</span> " +
+                                "</li>" +
+                            "</ul>" +
+                        "</div>" +
+                    
+                
+            "</div> " +
+    "</div>";   
 
     $('#champions').append(championHTML);
 }
