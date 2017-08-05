@@ -10,6 +10,7 @@ var methodOverride = require('method-override');
 var passport = require('passport');
 var viewController = require('../controllers/viewController.js');
 var userController = require('../controllers/user_controller.js');
+var championController = require('../controllers/champion_controller.js');
 
 //HTTP RESPONSE
 
@@ -30,6 +31,9 @@ router.route("/login")
 
 router.route("/logout")
 	.get(userController.getLogout);
+
+router.route("/champions")
+	.get(championController.getChamps);
 
 //----------------------------------------------------------------//
 

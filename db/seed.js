@@ -1075,13 +1075,13 @@ var champions = [
         }
 ];
 
-console.log(champions);
 
-// db.Champion.remove({}, function(err, champions) {
-//     db.Champion.create(champion_list, function(err, champions) {
-//         console.log(champions);
-//     });
-// });
+
+db.Champion.remove({}, function(err, champions) {
+    db.Champion.create(champion_list, function(err, champions) {
+        console.log(champions);
+    });
+});
 
 //EXPRESS
      // var express = require('express');
