@@ -1,14 +1,17 @@
 <% include ./partials/head %>
 
-<body>
-	<% include ./partials/navbar %>
-
 	<div class="container-fluid">
 	<% if(currentUser) { %>
+<<<<<<< HEAD
 		<h1 class="text-center"><%= currentUser.local.email + "'s Homepage" %></h1>
 	<% } else { %>
 		<h1 class="text-center">Summoner Name</h1>
 
+=======
+		<h1 class="text-center"><%= currentUser.summoner_name + "'s Homepage" %></h1>
+	<% } else { %>
+		<h1 class="text-center">Summoner Name</h1>
+>>>>>>> c3d735a511072bdda29dd3ac3252c5ecae9b5ef8
 	<% } %>
 	</div>	
 	<div class="container">
@@ -46,8 +49,18 @@
 						</div>
 						<div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
 							    <ul class="list-group">
+							   
+							    <% if(currentUser) { %>
+							    	<li><%= "Fuck You "+ currentUser.local.email %></li>
+								
+
+								<% } else { %>
+							    	<li class="list-group-item">LiSt item</li>
 								    <li class="list-group-item">LiSt item</li>
-								    <li class="list-group-item">LiSt item</li>
+							    <% } %>
+								    
+								
+
 								</ul>
 						</div>
 					</div>
@@ -89,7 +102,3 @@
 	</div>
 
     <% include ./partials/footer %>
-    <% include ./partials/scripts %>
-
-</body>
-</html>

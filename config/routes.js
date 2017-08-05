@@ -10,6 +10,7 @@ var methodOverride = require('method-override');
 var passport = require('passport');
 var viewController = require('../controllers/viewController.js');
 var userController = require('../controllers/user_controller.js');
+var championController = require('../controllers/champion_controller.js');
 
 //HTTP RESPONSE
 
@@ -21,6 +22,12 @@ router.route("/signup")
 	.get(userController.getSignup)
 	.post(userController.postSignup);
 
+<<<<<<< HEAD
+=======
+router.route("/profile/:email")
+	.get(viewController.showUser);
+
+>>>>>>> c3d735a511072bdda29dd3ac3252c5ecae9b5ef8
 router.route("/login")
 	.get(userController.getLogin)
 	.post(userController.postLogin);
@@ -28,10 +35,18 @@ router.route("/login")
 router.route("/logout")
 	.get(userController.getLogout);
 
+<<<<<<< HEAD
 router.route("/profile")
 	.get(viewController.profile);
 
 //JSON RESPONSE
+=======
+router.route("/api/champions")
+	.get(championController.getChamps);
+
+router.route("/champions")
+	.get(championController.showChamps);
+>>>>>>> c3d735a511072bdda29dd3ac3252c5ecae9b5ef8
 
 //----------------------------------------------------------------//
 
@@ -40,13 +55,15 @@ router.route("/profile")
 //     .get(controller.champion_search);
 
 //----------------------------------------------------------------//
-
+// router.route("/newaccount")
+// 	.get(viewController.registerSuccess);
 
 // router.route("/profile/")
 //     .get(controller.login);
 
 // router.route("/register")
 //     .get(controller.register);
+//JSON RESPONSE
 
 module.exports = router;
 

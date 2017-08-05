@@ -5,9 +5,12 @@ var bcrypt = require('bcrypt-nodejs');
 
 
 var User = new mongoose.Schema({
+    summoner_name: String,
+    summonerLevel: Number,
+    accountId: String,
     local: {
-    	email 		: String,
-    	password 	: String,
+    	email 			: String,
+    	password 		: String,
     }
 });
 
@@ -21,5 +24,9 @@ User.methods = {
 };
 	
 
+
+User.methods.validPassword = function(password) {
+	return bcrypt.compareSync(password, this.local.password);
+};
 
 module.exports = mongoose.model('User', User);
