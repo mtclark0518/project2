@@ -35,16 +35,18 @@ function renderChampion(champion) {
 
     "<div class='col-xs-6 col-md-4'>"    + 
         "<div class='row'>"    + 
-            "<div class='col-xs-12 col-md-3 thumbnail champion-sprite'>"    + 
+            "<div class='col-xs-12 col-md-6 thumbnail champion-sprite'>"    + 
                 "<img src='" +  "http://placehold.it/400x400"  + "'>"    + 
             "</div>"    + 
-            "<div class='col-xs-12 col-md-9'>"    + 
+            "<div class='col-xs-12 col-md-6'>"    + 
                " <ul class='list-group'>"    + 
                     "<li class='list-group-item'>"    + 
                         "<h5 class='inline-header'>Name:</h5>"    + 
                         "<span class='champion-name'>" + champion.name + "</span>"    + 
                     "</li>"    + 
-
+                    "<li class='list-group-item'>"    + 
+                        "<span class='champion-title'>" + champion.title + "</span>"    + 
+                    "</li>"    + 
                 "</ul>"    + 
             "</div>"    + 
         "</div>"    + 
