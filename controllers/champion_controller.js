@@ -11,7 +11,9 @@ function showChamps(req, res){
 	res.render('layout');
 }
 
-
+function showOneChamp(req, res){
+	res.render();
+}
 
 function postChamps(req, res){
 
@@ -21,5 +23,6 @@ function postChamps(req, res){
 module.exports = {
 	getChamps : getChamps,
 	showChamps : showChamps,
+	showOneChamp : showOneChamp,
 	postChamps : postChamps
 };

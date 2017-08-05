@@ -1,6 +1,9 @@
 * {
 }
-
+.fav-champ-img {
+	height: 450px;
+	display: none;
+}
 
 footer {
 	padding-top: 35px;

@@ -33,11 +33,12 @@ function renderUser(user) {
 function renderChampion(champion) {
     var championHTML = 
 
-    "<div class='col-xs-12 col-sm-6 col-lg-4' data_id=" + " ' " + champion._id + " ' " + ">" +
+    "<div class='col-xs-12 col-sm-6 col-lg-4' data-champion-id=" + " ' " + champion._id + " ' " + ">" +
             "<div class='container-fluid list-group-item'>" +
                     
+                       "<a>" +
                         "<div class='col-xs-4 col-sm-5 champion-sprite'>" +
-                            "<img class='img-responsive img-thumbnail' src= '" +  "http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/" + champion.name + ".png'>"    + 
+                            "<img class='champ-img-small img-responsive img-thumbnail' src= '" +  "http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/" + champion.name + ".png'>"    + 
                         "</div>" +
                         "<div class='col-xs-7 col-sm-6'> " +
                             "<ul>  " +
@@ -49,6 +50,7 @@ function renderChampion(champion) {
                                 "</li>" +
                             "</ul>" +
                         "</div>" +
+                        "</a>" +
                     
                 
             "</div> " +
@@ -62,7 +64,12 @@ function renderChampion(champion) {
 $(document).ready(function () {
     console.log("hello world");
 
-
+//CHAMPION MODAL
+    $('#champions').on('click', '.champ-img-small', function(e) {
+        var id = $(this).parents('.champion').data('champ-id');
+        var $champ_modal = $('#champModal').data('champ-id', id);
+        $champ_modal.modal();
+    });
 
 
 

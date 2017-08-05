@@ -3,7 +3,7 @@ var db = require('../models');
 
 //GET 
 function getSignup(request, response, next){
-	response.render('signup.ejs', { message: request.flash('signupMessage') });
+	response.render('signup', { message: request.flash('signupMessage') });
 }
 
 //POST

@@ -13,23 +13,28 @@
 			
 			<div class="container">
 	    		<div class="col-sm-4 text-left">
-					<h3>Your Trending Champs</h3>
+					<h3 class="panel-title">Your Trending Champs</h3>
+					<hr>
 					<div class="row">
 						<div class="col-sm-3 col-sm-offset-1"><img class="img-responsive img-thumbnail" src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/Aatrox.png"></div>
 						<div class="col-sm-8 text-left"><h4>Champion Name</h4></div>
 					</div>
+					
 					<div class="row">
 						<div class="col-sm-3 col-sm-offset-1">
 							<img class="img-responsive img-thumbnail" src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/Veigar.png">
 						</div>
 						<div class="col-sm-8 text-left"><h4>Champion Name</h4></div>
 					</div>
+					
 					<div class="row">
 						<div class="col-sm-3 col-sm-offset-1">
 							<img class="img-responsive img-thumbnail" src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/Warwick.png">
 						</div>
 						<div class="col-sm-8 text-left"><h4>Champion Name</h4></div>
 					</div>	
+					<br>
+
 				</div>
 
         		<div class="col-sm-8">
@@ -38,7 +43,7 @@
 		                    <div class="panel panel-default">
 		                        <div class="panel-heading" role="tab" id="headingOne">
 		                            <h4 class="panel-title">
-		                				<a role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Featured Story
+		                				<a role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Recent Match Stats
 		                				</a>
 		            				</h4>
 		                        </div>
@@ -51,39 +56,81 @@
 		                    <div class="panel panel-default">
 		                        <div class="panel-heading" role="tab" id="headingTwo">
 		                            <h4 class="panel-title">
-		                				<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">About The Reins Act
+		                				<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Your Favorite Champs
 		                				</a>
 		            				</h4>
 		                        </div>
 		                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-		                            <div class="panel-body">
-		                                <h4>Slide Title</h4>
+		                            <div class="panel-body">		                            	
+		                            	<div class="row">
+												<div id="favorite-champ-carousel" class="carousel slide" data-ride="carousel">
+												  <!-- Indicators -->
+													<ol class="carousel-indicators">
+												    	<li data-target="#favorite-champ-carousel" data-slide-to="0" class="active"></li>
+												    	<li data-target="#favorite-champ-carousel" data-slide-to="1"></li>
+												    	<li data-target="#favorite-champ-carousel" data-slide-to="2"></li>
+												    </ol>
+
+												  <!-- Wrapper for slides -->
+												  	<div class="carousel-inner" role="listbox">
+												    
+												    	<div class="item active">
+												    		<img class="img img-responsive fav-champ-img" src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/Aatrox.png">
+													    	<img class="img-responsive fav-champ-img"src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/Veigar.png">
+
+													    	<div class="carousel-caption"></div>
+												    	</div>
+
+												    	<div class="item">
+													    	<img class="img-responsive fav-champ-img"src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/Veigar.png">
+													    	<div class="carousel-caption"></div>
+												    	</div>
+													</div>
+
+												  <!-- Controls -->
+												  <a class="left carousel-control" href="#favorite-champ-carousel" role="button" data-slide="prev">
+												    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+												    <span class="sr-only">Previous</span>
+												  </a>
+												  <a class="right carousel-control" href="#favorite-champ-carousel" role="button" data-slide="next">
+												    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+												    <span class="sr-only">Next</span>
+												  </a>
+											</div>
+		                            	</div>
+
+
+		                            	<div class="row">
+											<div class="container-fluid">
+												<div class="col-sm-12 text-right">
+													<a href="../champions"><button class="btn btn-default btn-xs">Add Champions</button></a>
+												</div>
+											</div>
+										</div>
 		                            </div>
-		                        </div>
+		                        </div> <!--a carousel to display the favorites list possibly  -->
 		                    </div>
 		                    <div class="panel panel-default">
 		                        <div class="panel-heading" role="tab" id="headingThree">
 		                            <h4 class="panel-title">
-		                				<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Video
+		                				<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Your Favorite Champs
 		                				</a>
 		            				</h4>
 		                        </div>
 		                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
 		                            <div class="panel-body">
-		                                <h4>Slide Title</h4>
-		                            </div>
-		                        </div>
-		                    </div>
-		                    <div class="panel panel-default">
-		                        <div class="panel-heading" role="tab" id="headingFour">
-		                            <h4 class="panel-title">
-		                				<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree" aria-expanded="false" aria-controls="collapseFour">Photos
-		                				</a>
-		            				</h4>
-		                        </div>
-		                        <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
-		                            <div class="panel-body">
-		                                <h4>Slide Title</h4>
+		                                <div class="row">
+		                                <ul id="favorite-champ-list">
+		                                	<!--ADD CHAMPIONS TO LIST HERE -->
+		                                </ul>
+		                                </div>
+		                                <div class="row">
+											<div class="container-fluid">
+												<div class="col-sm-12 text-right">
+													<a href="../champions"><button class="btn btn-default btn-xs">Add Champions</button></a>
+												</div>
+											</div>
+										</div>
 		                            </div>
 		                        </div>
 		                    </div>
@@ -91,16 +138,11 @@
 		            </div>
 		        </div>
 			</div>
-
 		</div>
 	</div>
 	<hr>
 
-	<div class="container-fluid">
-		<div class="col-sm-12 text-center">
-			<a href="../champions"><button class="col-sm-6 col-sm-offset-3">Search Champions</button></a>
-		</div>
-	</div>
+
 
     <% include ./partials/footer %>
 
