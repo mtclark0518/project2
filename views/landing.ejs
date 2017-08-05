@@ -1,69 +1,29 @@
 
-<% include ./partials/head %>
+<% include ./partials/head-without-nav.ejs %>
 
-<body>
 
   <div class="jumbotron">
     <div class="text-center container-fluid">
       <div class="row">
-        <h1 class="col-xs-6 col-xs-offset-3">Working Title</h1>
+        <h1 class="col-xs-10 col-xs-offset-1">Working Title</h1>
       </div>
-    </div>
-  </div>
-  <div class="container">
-    <div class="row text-center">
-      <div class="btn-group" data-toggle="buttons">
-        <label class="btn btn-default btn-lg" data-toggle="collapse" data-target="#sign-in-form" aria-expanded="false" aria-controls="sign-in-form">
-          <input type="radio" autocomplete="off">Sign-In
-        </label>
-        
-        
-        <a href="/signup">
-          <input id="register-btn" class="btn btn-default btn-lg" value="Sign Up">
+      <div class="container">
+        <div class="row text-center">
           
-        </a>
-      </div>  
-    </div>
-    <div class="row">
-        <div id="sign-in-form" class="container collapse">
-          <form class="form-horizontal">
-            <div class="form-group">
-              <div class="col-xs-10">
-                <h1>Sign-In</h1>
-              </div>
-            </div>
-            <div class="form-group has-error">
-              <label class="control-label col-xs-2">Email</label>
-              <div class="col-xs-9">
-                <input class="form-control" type="email" name="email" placeholder="Email">
-              </div>
-            </div>
-            <div class="form-group has-error">
-              <label class="control-label col-xs-2">Password</label>
-              <div class="col-xs-9">
-                <input class="form-control" type="password" name="password" placeholder="Password">
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="col-xs-2 col-xs-offset-2">
-                <input type="checkbox" name="remember-me">Remember Me
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="col-xs-2 col-xs-offset-2">
-                <button id="sign-in-btn" class="btn btn-default" type="submit" name="sign-in-btn">Sign In</button>
-              </div>
-            </div>
-          </form>
+
+
+          <div class="btn-group">
+            
+              <button id="landing_login_btn" type="button" class="btn btn-lg btn-default" name="login">login</button>          
+            
+              
+              <button id="landing_signup_btn" type="button" class="btn btn-lg btn-default" name="signup">signup</button>       
+              
+          </div>  
         </div>
-      </div>
       </div>
     </div>
   </div>
   
+  
   <% include ./partials/footer %> 
-  <% include ./partials/scripts %>
-
-
-</body>
-</html>

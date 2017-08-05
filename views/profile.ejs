@@ -1,8 +1,5 @@
 <% include ./partials/head %>
 
-<body>
-	<% include ./partials/navbar %>
-
 	<div class="container-fluid">
 	<% if(currentUser) { %>
 		<h1 class="text-center"><%= currentUser.summoner_name + "'s Homepage" %></h1>
@@ -47,7 +44,7 @@
 							    <ul class="list-group">
 							   
 							    <% if(currentUser) { %>
-							    	<li><%= $userData %></li>
+							    	<li><%= "Fuck You "+ currentUser.local.email %></li>
 								
 
 								<% } else { %>
@@ -98,8 +95,3 @@
 	</div>
 
     <% include ./partials/footer %>
-    <% include ./partials/scripts %>
-
-
-</body>
-</html>

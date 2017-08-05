@@ -36,7 +36,7 @@ function renderChampion(champion) {
     "<div class='col-xs-6 col-md-4'>"    + 
         "<div class='row'>"    + 
             "<div class='col-xs-12 col-md-6 thumbnail champion-sprite'>"    + 
-                "<img src='" +  "http://placehold.it/400x400"  + "'>"    + 
+                "<img class='img-responsive img-thumbnail' src= '" +  "http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/" + champion.name + ".png'>"    + 
             "</div>"    + 
             "<div class='col-xs-12 col-md-6'>"    + 
                " <ul class='list-group'>"    + 
