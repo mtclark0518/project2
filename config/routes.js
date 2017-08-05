@@ -16,18 +16,12 @@ var championController = require('../controllers/champion_controller.js');
 
 
 router.route("/")
-    .get(viewController.landing);
+    .get(viewController.launch);
 
 router.route("/signup")
 	.get(userController.getSignup)
 	.post(userController.postSignup);
 
-<<<<<<< HEAD
-=======
-router.route("/profile/:email")
-	.get(viewController.showUser);
-
->>>>>>> c3d735a511072bdda29dd3ac3252c5ecae9b5ef8
 router.route("/login")
 	.get(userController.getLogin)
 	.post(userController.postLogin);
@@ -35,18 +29,19 @@ router.route("/login")
 router.route("/logout")
 	.get(userController.getLogout);
 
-<<<<<<< HEAD
 router.route("/profile")
-	.get(viewController.profile);
+	.get(viewController.showUser);
 
-//JSON RESPONSE
-=======
-router.route("/api/champions")
-	.get(championController.getChamps);
+router.route("/profile/:email")
+	.get(viewController.showUser);
 
 router.route("/champions")
 	.get(championController.showChamps);
->>>>>>> c3d735a511072bdda29dd3ac3252c5ecae9b5ef8
+
+//JSON RESPONSE
+router.route("/api/champions")
+	.get(championController.getChamps);
+
 
 //----------------------------------------------------------------//
 

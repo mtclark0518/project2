@@ -1,17 +1,4 @@
-<<<<<<< HEAD
-function landing(req, res) {
-    res.render('landing');
-}
 
-function profile(req, res) {
-	res.render('profile');
-}
-
-module.exports = {
-    landing	: landing,
-    profile	: profile
-};
-=======
 // GET ----  Rendering Various View Routes 
 var db = require('../models');
 
@@ -56,4 +43,3 @@ module.exports = {
 // 	console.log(paramaters);
 // 	res.render('profile');
 // }
->>>>>>> c3d735a511072bdda29dd3ac3252c5ecae9b5ef8

@@ -1,6 +1,4 @@
 
-<<<<<<< HEAD
-=======
 var $login = $("#sign-in-btn");
 var $register = $("#register-btn");
 // var db = require('../models');
@@ -58,36 +56,12 @@ function renderChampion(champion) {
 }
 
 
->>>>>>> c3d735a511072bdda29dd3ac3252c5ecae9b5ef8
 
 $(document).ready(function () {
     console.log("hello world");
 
 
-<<<<<<< HEAD
-    // $register.click(function (event) {
-    //     console.log("click");
-    //     $.ajax({
-    //         method: "get",
-    //         url: "/signup",
-    //         success: function(){
-    //             console.log('success');
-    //         }
-    //     });
-    // });
 
-    // $login.click(function (event) {
-    //     event.preventDefault();
-    //     console.log("button clicked");
-    //     $.ajax({
-    //         method: "get",
-    //         url: '/profile',
-    //         success: function () {
-    //             console.log("success");
-    //         }
-    //     });
-    // });
-=======
 
 
 //AJAX
@@ -109,10 +83,6 @@ $(document).ready(function () {
 
 
 
-
-
-
->>>>>>> c3d735a511072bdda29dd3ac3252c5ecae9b5ef8
 
 
 

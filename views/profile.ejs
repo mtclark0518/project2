@@ -2,16 +2,10 @@
 
 	<div class="container-fluid">
 	<% if(currentUser) { %>
-<<<<<<< HEAD
-		<h1 class="text-center"><%= currentUser.local.email + "'s Homepage" %></h1>
-	<% } else { %>
-		<h1 class="text-center">Summoner Name</h1>
 
-=======
 		<h1 class="text-center"><%= currentUser.summoner_name + "'s Homepage" %></h1>
 	<% } else { %>
 		<h1 class="text-center">Summoner Name</h1>
->>>>>>> c3d735a511072bdda29dd3ac3252c5ecae9b5ef8
 	<% } %>
 	</div>	
 	<div class="container">

@@ -48,26 +48,6 @@ module.exports = function(passport) {
 		db.User.findOne({'local.email' : email }, function(err, user) {
 			if (err) return callback(err);
 
-<<<<<<< HEAD
-	passport.use('local-login', new LocalStrategy ({
-		usernameField: "email",
-		passwordField: "password",
-		passReqToCallback: true
-	}, function(req, email, password, callback) {
-		db.User.findOne({ 'local.email' : email}, function(err, user) {
-			if (err) return callback(err);
-			
-			//Username doesn't exist
-			if (!user) {
-				return callback(null, false, req.flash('loginMessage', "no account found for this email"));
-			} 
-			
-			//Password incorrect
-			if(!user.validate(password)) {
-				return callback(null, false, req.flash('loginMessage', "password incorrect"));
-			}
-			return callback(null, user);
-=======
 			if (!user) {
 				return callback(null, false, req.flash('loginMessage', "no account for this email"));
 			}
@@ -76,7 +56,6 @@ module.exports = function(passport) {
 			} else {
 				return callback(null, user);
 			}
->>>>>>> c3d735a511072bdda29dd3ac3252c5ecae9b5ef8
 		});
 	}));
 };

@@ -9,39 +9,15 @@ function getSignup(request, response, next){
 //POST
 function postSignup(request, response, next) {
 	var signupStrategy = passport.authenticate('local-signup', {
-<<<<<<< HEAD
-		successRedirect 	: '/profile',
-		failureRedirect 	: '/signup',
-		failureFlash 		: true
-=======
+
 		successRedirect : '/profile/' + request.body.email,
 		failureRedirect : '/signup',
 		failureFlash : true
->>>>>>> c3d735a511072bdda29dd3ac3252c5ecae9b5ef8
 	});
 	return signupStrategy(request, response, next);
 }
 
-<<<<<<< HEAD
-//GET 
-function getLogin (request, response, next){
-	response.render('login.ejs', {message: request.flash('loginMessage') });
-}
 
-//POST
-function postLogin (request, response, next) {
-	var loginStrategy = passport.authenticate('local-login', {
-		successRedirect 	: '/profile',
-		failureRedirect 	: '/login',
-		failureFlash 		: true
-	});
-	return loginStrategy(request, response, next);
-}
-//GET 
-function getLogout (request, response, next){
-	request.logout();
-	response.redirect('/');
-=======
 
 //GET 
 function getLogin (request, response, next){
@@ -61,19 +37,11 @@ function getLogin (request, response, next){
 function getLogout (request, response, next){
 	request.logout();
 	response.redirect('./');
->>>>>>> c3d735a511072bdda29dd3ac3252c5ecae9b5ef8
 }
 
 
 module.exports = {
-<<<<<<< HEAD
-	getLogin 	: getLogin,
-	postLogin	: postLogin,
-	getSignup	: getSignup,
-	postSignup	: postSignup,
-	getLogout 	: getLogout
-};
-=======
+
 	// postNewaccount: postNewaccount,
 	getLogout: getLogout,
 	getLogin: getLogin,
