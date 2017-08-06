@@ -102,10 +102,11 @@
 		                            	<div class="row">
 											<div class="container-fluid">
 												<div class="col-sm-12 text-right">
+												
 												<% if (currentUser) { %>
-												<form action="/profile/:email" method="post">
-												    <input class="col-xs-8 col-xs-offset-2 btn btn-default" type="submit">
-												</form>
+													<a href="/champions">
+												    <input class="col-xs-8 col-xs-offset-2 btn btn-default">
+												    </a>
 												<% } else { %>
 													<a href="./champions"><button class="btn btn-def">Champions</button>
 												<% } %>
@@ -135,7 +136,10 @@
 												<div class="col-sm-12 text-right">
 												
 												<% if(currentUser) {%>
-													<a href='../champions/<%= + currentUser.local.email %> + '><button class="btn btn-alert btn-xs">   Add Champions</button></a>
+													<a href= "../champions"> 
+													<button class= "btn btn-alert btn-xs">Logged in Add Champions
+													</button>
+													</a>
 												<% } else { %>
             										<a href="../champions"><button class="btn btn-default btn-xs">Add Champions</button></a>
 												<% } %>

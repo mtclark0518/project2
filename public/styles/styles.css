@@ -1,10 +1,35 @@
 * {
 }
-.fav-champ-img {
-	height: 450px;
-	display: none;
+
+
+div.landing {
+	position: absolute;
+	width: 50%;
+	height: 100%;
+
+}
+
+div.landing#landingOne {
+	left: 0%;
+	background: url('/images/woodDoorLeft.jpg');
+	background-size: cover;
+	background-repeat: no-repeat; 
+
+}
+div.landing#landingTwo {
+	right: 0%;
+	background: url('/images/woodDoorRight.jpg');
+	background-size: cover;
+	background-repeat: no-repeat; 
 }
 
 footer {
 	padding-top: 35px;
+}
+
+
+/* CHAMPION PAGE -- MODAL POP-UP -- PROFILE FORM */
+
+.champ_profile_img {
+	width: %50;
 }

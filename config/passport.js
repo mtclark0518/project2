@@ -34,12 +34,12 @@ module.exports = function(passport) {
 				newFavs.creator 			= newUser.local.email; 
 
 
+				newFavs.save(function(err) {
+					if (err) return console.log(err + "saving new list");
+					});
 				newUser.save(function(err) {
 					if (err) throw err;
-					newFavs.save(function(err) {
-						if (err) return console.log(err + "saving new list");
-						return callback(null, newUser);
-					});
+					return callback(null, newUser);
 				});
 			}
 		});

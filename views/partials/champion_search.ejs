@@ -1,3 +1,8 @@
+<% if (currentUser) { %>
+<% var curUser = currentUser.local.email %>
+<% } %>
+
+
 <div class="panel panel-default">
 	<div class="panel-body container">
 		<form method="get" action="/profile/summonner">		
@@ -29,10 +34,16 @@
 <section id="champion_container" class="container">
 		<div class="container-fluid">
 			<div class="row">
+
 				<div class=" col-xs-12 col-md-10 col-md-offset-1">
-					<h5>Champions</h5>	
+					<% if (currentUser) { %>
+						<h5 id="current_User"> <%= curUser %> </h5>
+					<% }else{ %>
+						<h5>Champions</h5>
+					<% } %>	
 				</div>
 			</div>
+
 			<!--Where Champs Go-->
 			<div id='champions'>
 			</div>
@@ -51,27 +62,66 @@
       </div>
 
       <div class="modal-body">
-	    <fieldset class='form-horizontal'>
-			
-			<div class="row">
-				<!-- CHAMPION PROFILE IMAGE-->
-				<div class="form-group">
-		        	<div class="col-xs-4">
-		        		<img class="img img-responsive" src=""> 
-		        	</div>
-		        </div>
-		        <!-- Text input-->
-		        <div class="form-group">
-			        <div class="col-xs-6">
-			        	<label class="col-md-4 control-label sr-only" for="name">Name</label>
-			        	<div class="col-md-4">
-			        		<input id="songName" name="songName" type="text" placeholder="" class="form-control input-md" required="">
-			        	</div>
-			        </div>  
-		        </div>
-			</div>
-			
-        </fieldset>
+
+			<form method="post" action="/login" class="form-horizontal">
+              <div class="container">  <!------------------------------FORM-CONTENT-CONTAINER-->
+                <div class="col-xs-10 col-xs-offset-1">
+                    <div class="row">
+                      <div class="col-xs-4 col-xs-offset-1 text-center">
+                        <h1>Login</h1>
+                      </div>
+                    </div>								<!-- END ROW1-->
+				    <div class="row">
+					
+					<!-- CHAMPION PROFILE IMAGE-->
+						<div class="form-group">
+				        	<div class="col-xs-2">
+				        		<div class="champ_profile_img">
+				        			<img class="img img-responsive" src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Aatrox_0.jpg">
+				        		</div> 
+				        	</div>
+                    <!-- CHAMPION INPUTS -->
+							<div class="col-xs-6">
+								<div class="input-group">
+
+      								<input type="text" class="form-control" value="Champion">
+      								<span class="input-group-btn">
+    									<button id="addChamp" class="btn btn-default" type="button">
+    										<span class="glyphicon glyphicon-plus-sign">
+    											<!-- glyphicon-minus-sign  (remove favorite) -->
+    										</span>
+    									</button></span>
+    							</div><!-- /input-group -->
+									
+
+
+
+
+
+
+
+									<!-- <label class="sr-only" for="champion_name" >Champion Name</label>
+										<span><label class="" for="champion_name" >Champion Name</label>
+
+											<input class="form-control" type="text" name="champion_name" id="champion_name" value="champion name">
+										</span>
+	                        		<label class="sr-only" for="currentUser">Current User</label>
+	                        		<input class="form-control" type="text" name="currentUser" id="currentUser">
+								</div> -->
+							</div>
+						</div>
+
+                    </div>								<!-- END ROW2-->
+
+				    <div class="row">
+	                    <div class="form-group">
+ 
+	                    </div>
+                    </div>								<!-- END ROW3-->
+                </div> 
+              </div> <!------------------------------       			FORM-CONTENT-CONTAINER -->
+			</form>
+
       </div>
 
       <div class="modal-footer">

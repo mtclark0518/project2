@@ -36,22 +36,20 @@ router.route("/profile")
 router.route("/profile/:user")
 	.get(viewController.showUser);
 
-router.route("/profile/:user/champions")
-	.get(championController.showChamps);
-
 router.route("/champions")
 	.get(championController.showChamps);
-
-
-
-
-router.route("/profile/:user/favorites")
-	.post(favoriteController.addAFavorite);
 
 
 //JSON RESPONSE
 router.route("/api/champions")
 	.get(championController.getChamps);
+
+router.route("/api/favorites")
+	.get(favoriteController.getAllUserLists);
+
+router.route("/api/favorites/:user")
+	.get(favoriteController.showOneUserList)
+	.put(favoriteController.addAFavorite);
 
 //----------------------------------------------------------------//
 

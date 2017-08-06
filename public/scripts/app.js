@@ -1,7 +1,3 @@
-
-var $login = $("#sign-in-btn");
-var $register = $("#register-btn");
-// var db = require('../models');
 var ddragonChampPNG = "http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/";
 var ddragonLoadSkinJPG = "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/";
 
@@ -60,33 +56,44 @@ function $renderChampion(champion) {
 
 
 
-
-
-
- function $addChampToFavorites(e) {
+function $addChampToFavorites(e) {
     e.preventDefault();
+    var $creator = $('#current_User')[0].innerHTML;
+    console.log($creator);
     var $champ = $('#champModal').data('champion-id');
-    var newFavorite = {'champion' : $champ};
+    var newFavorite = {
+        // 'creator' : $creator,
+        'champion' : $champ
+    };
+
     console.log(newFavorite);
 
-// AJAX POST REQUEST TO THE LIST
+    // AJAX PUT REQUEST TO THE LIST
     $.ajax({
-        method: 'post',
-        url: "/profile/" + req.body.email + "/favorites",
+        method: 'PUT',
+        url: "/api/favorites/"+$creator,
+        data: newFavorite,
+        failure: function(error) {console.log(error);},
+        success: function(json) {console.log("success");}
 
     });
 
     $("#champModal").modal('hide');
- }
+}
+
+
+
 
 $(document).ready(function () {
     console.log("hello world");
 
-//CHAMPION MODAL
-    
-
+    //ACTIVATE CHAMPION MODAL
     $('#champions').on('click', '.champ-img-small', function(e) {
         var id = $(this).parents('.champion').data('champion-id');
+        console.log(id);
+        // var $user = $('#current_User')[0].innerHTML;
+        // console.log($user);
+
         var $champ_modal = $('#champModal').data('champion-id', id);
         $champ_modal.modal();
         $champ_modal.on('click', '#addChamp', function(e) {
@@ -96,7 +103,7 @@ $(document).ready(function () {
 
 
 
-//AJAX
+    //AJAX GET CHAMPIONS
     var champions = $.get('/api/champions')
         .done(function (data) {
             var parsedChampion = JSON.parse(champions.responseText);
@@ -107,24 +114,9 @@ $(document).ready(function () {
 
         
 
+
+
+
 });
 
 
-
-
-
-
-
-
-
-
-// $register.click(function (event) {
-    //     console.log("click");
-    //     $.ajax({
-    //         method: "get",
-    //         url: "/signup",
-    //         success: function(){
-    //             console.log('success');
-    //         }
-    //     });
-    // });
