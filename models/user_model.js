@@ -7,7 +7,7 @@ var User = new mongoose.Schema({
     summoner_name: String,
     summonerLevel: Number,
     accountId: String,
-    favorites: [ { champion : String} ],
+    favorites: [ { champion : String } ],
     local: {
     	email 			: String,
     	password 		: String,

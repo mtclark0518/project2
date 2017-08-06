@@ -30,12 +30,18 @@ module.exports = function(passport) {
 				newUser.local.email 		= email;
 				newUser.local.password 		= newUser.hash(password);
 				newUser.summoner_name 		= req.body.summoner_name;
+				var newFavs 				= new db.Favorite();
+				newFavs.creator 			= newUser.local.email; 
+
+
 				newUser.save(function(err) {
 					if (err) throw err;
-					return callback(null, newUser);
+					newFavs.save(function(err) {
+						if (err) return console.log(err + "saving new list");
+						return callback(null, newUser);
+					});
 				});
 			}
-
 		});
 	}));
 

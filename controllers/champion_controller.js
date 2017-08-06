@@ -8,7 +8,8 @@ function getChamps(req, res){
 }
 
 function showChamps(req, res){
-	res.render('layout');
+	var user = db.User.findOne( { 'local.email' : req.body.email  } );
+	res.redirect("/profile/" + user.email + "/champions");
 }
 
 

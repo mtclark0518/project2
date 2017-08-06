@@ -1,0 +1,37 @@
+<% if (message.length > 0) { %>
+   <div class="alert"><%= message %> </div>
+ <% } %>
+<div class="container-fluid">
+<div class="container">  <!------------------------------ -->
+
+<form method="post" action="/login" class="form-horizontal">
+              
+              <div class="container">  <!------------------------------FORM-CONTENT-CONTAINER-->
+                <div class="col-xs-6 col-xs-offset-3">
+                    <div class="row">
+                      <div class="col-xs-12 text-center">
+                        <h1>Login</h1>
+                      </div>
+                    </div>
+                    <div class="row form-group">
+                      <div class="col-xs-8 col-xs-offset-2">
+                        <label class="sr-only" for="email">Email</label>
+                        <input class="form-control" type="text" name="email" id="email" placeholder="email">
+                      </div>    
+                    </div>
+                      
+                    <div class="row form-group">
+                      <div class="col-xs-8 col-xs-offset-2">
+                        <label class="sr-only" for="password">password</label>
+                        <input class="form-control" type="password" name="password" id="password" placeholder="password">
+                      </div>  
+                    </div>
+
+                    <div class="row">
+                      <input class="col-xs-8 col-xs-offset-2 btn btn-default" type="submit">
+                    </div>
+                </div> 
+              </div> <!------------------------------FORM-CONTENT-CONTAINER -->
+</form>
+</div>
+</div>

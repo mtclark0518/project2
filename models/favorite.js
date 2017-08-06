@@ -6,8 +6,8 @@ var mongoose = require('mongoose'),
 
 
 var Favorite = new mongoose.Schema({
-	champion : String
-	// champion: {type: Schema.Types.ObjectId, ref: 'Champion'}
+	creator : String,
+	champion : [ String ]
 });
 
 

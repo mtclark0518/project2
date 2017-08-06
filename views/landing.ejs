@@ -2,24 +2,57 @@
 <% include ./partials/head-without-nav.ejs %>
 
 
-  <div class="jumbotron">
-    <div class="text-center container-fluid">
+  <div class="container-fluid">
+    <div class="text-center container">
       <div class="row">
         <h1 class="col-xs-10 col-xs-offset-1">Working Title</h1>
       </div>
-      <div class="container">
-        <div class="row text-center">
-          
+
+      <div class="container-fluid">
+        <div class="accordion-wrapper">
+          <div class="panel-group" id="accordion2" role="tablist" aria-multiselectable="true">
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingTwo">
+                <h4 class="panel-title">
+                  <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Sign-Up</a>
+                </h4>
+              </div>
+              <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                <div class="panel-body">                                  
+                 
+                </div>
+              </div>
+
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="loginHeading">
+                
+                <h4 class="panel-title">
+                  <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion2" href="#loginPanel" aria-expanded="false" aria-controls="loginPanel">Login</a>
+                </h4>
+
+              </div>
+              <div id="loginPanel" class="panel-collapse collapse" role="tabpanel" aria-labelledby="loginHeading">
+                <div class="panel-body"> 
+                  
+
+                  <div class="container-fluid">
+                    <div class="col-sm-12 text-right">
+                        
+                      <% if(currentUser) {%>
+                        <a href='../champions/<%= + currentUser.local.email %> + '><button class="btn btn-alert btn-xs">   Add Champions</button></a>
+
+                      <% } else { %>
+                        <a href="../champions"><button class="btn btn-default btn-xs">Add Champions</button></a>
+                      <% } %>
+
+                    </div>
+                  </div>
 
 
-          <div class="btn-group">
-            
-              <button id="landing_login_btn" type="button" class="btn btn-lg btn-default" name="login">login</button>          
-            
-              
-              <button id="landing_signup_btn" type="button" class="btn btn-lg btn-default" name="signup">signup</button>       
-              
-          </div>  
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

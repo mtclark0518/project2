@@ -2,7 +2,8 @@
 var $login = $("#sign-in-btn");
 var $register = $("#register-btn");
 // var db = require('../models');
-
+var ddragonChampPNG = "http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/";
+var ddragonLoadSkinJPG = "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/";
 
 
 
@@ -36,7 +37,7 @@ function $renderChampion(champion) {
                     
                        
                         "<div class='col-xs-4 col-sm-5 champion-sprite'>" +
-                            "<img class='champ-img-small img-responsive img-thumbnail' src= '" +  "http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/" + champion.name + ".png'>"    + 
+                            "<img class='champ-img-small img-responsive img-thumbnail' src= '" + ddragonChampPNG + champion.key + ".png'>"    + 
                         "</div>" +
                         "<div class='col-xs-7 col-sm-6'> " +
                             "<ul>  " +
@@ -65,16 +66,17 @@ function $renderChampion(champion) {
  function $addChampToFavorites(e) {
     e.preventDefault();
     var $champ = $('#champModal').data('champion-id');
-    var favorites = $('#favorite-champ-list');
-    console.log(favorites);
+    var newFavorite = {'champion' : $champ};
+    console.log(newFavorite);
 
-//AJAX POST REQUEST TO THE LIST
-    // $.ajax({
-    //     method: 'post',
-    //     url: '/api/lists/:user/'
-    // });
+// AJAX POST REQUEST TO THE LIST
+    $.ajax({
+        method: 'post',
+        url: "/profile/" + req.body.email + "/favorites",
 
+    });
 
+    $("#champModal").modal('hide');
  }
 
 $(document).ready(function () {
