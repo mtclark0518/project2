@@ -12,14 +12,8 @@ function showChamps(req, res){
 }
 
 
- 
-function postChampToList(req, res){
-	console.log('i will eventually post a champ to favorites');
-}
-
 
 module.exports = {
 	getChamps : getChamps,
 	showChamps : showChamps,
-	postChampToList : postChampToList
 };

@@ -4,9 +4,7 @@ var $register = $("#register-btn");
 // var db = require('../models');
 
 
-function renderUser(user) {
-    var userHtml = "";
-}
+
 
 // var currentUser = db.User.find({}, function(err, user) {
 //     return user.summoner_name;
@@ -33,10 +31,10 @@ function renderUser(user) {
 function $renderChampion(champion) {
     var championHTML = 
 
-    "<div class='col-xs-12 col-sm-6 col-lg-4' data-champion-id=" + " ' " + champion._id + " ' " + ">" +
+    "<div class='col-xs-12 col-sm-6 col-lg-4 champion' data-champion-id='" + champion.key + "'>" +
             "<div class='container-fluid list-group-item'>" +
                     
-                       "<a>" +
+                       
                         "<div class='col-xs-4 col-sm-5 champion-sprite'>" +
                             "<img class='champ-img-small img-responsive img-thumbnail' src= '" +  "http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/" + champion.name + ".png'>"    + 
                         "</div>" +
@@ -50,7 +48,7 @@ function $renderChampion(champion) {
                                 "</li>" +
                             "</ul>" +
                         "</div>" +
-                        "</a>" +
+                        
                     
                 
             "</div> " +
@@ -64,16 +62,34 @@ function $renderChampion(champion) {
 
 
 
-// function 
+ function $addChampToFavorites(e) {
+    e.preventDefault();
+    var $champ = $('#champModal').data('champion-id');
+    var favorites = $('#favorite-champ-list');
+    console.log(favorites);
+
+//AJAX POST REQUEST TO THE LIST
+    // $.ajax({
+    //     method: 'post',
+    //     url: '/api/lists/:user/'
+    // });
+
+
+ }
 
 $(document).ready(function () {
     console.log("hello world");
 
 //CHAMPION MODAL
+    
+
     $('#champions').on('click', '.champ-img-small', function(e) {
-        var id = $(this).parents('.champion').data('champ-id');
-        var $champ_modal = $('#champModal').data('champ-id', id);
+        var id = $(this).parents('.champion').data('champion-id');
+        var $champ_modal = $('#champModal').data('champion-id', id);
         $champ_modal.modal();
+        $champ_modal.on('click', '#addChamp', function(e) {
+            $addChampToFavorites(e);
+        });
     });
 
 

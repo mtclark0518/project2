@@ -11,6 +11,7 @@ var passport = require('passport');
 var viewController = require('../controllers/viewController.js');
 var userController = require('../controllers/user_controller.js');
 var championController = require('../controllers/champion_controller.js');
+var favoriteController = require('../controllers/favorite_controller.js');
 
 //HTTP RESPONSE
 
@@ -32,7 +33,7 @@ router.route("/logout")
 router.route("/profile")
 	.get(viewController.showUser);
 
-router.route("/profile/:email")
+router.route("/profile/:user")
 	.get(viewController.showUser);
 
 router.route("/champions")
@@ -42,8 +43,6 @@ router.route("/champions")
 //JSON RESPONSE
 router.route("/api/champions")
 	.get(championController.getChamps);
-
-
 
 //----------------------------------------------------------------//
 

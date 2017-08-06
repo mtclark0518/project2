@@ -1,14 +1,13 @@
 var mongoose = require('mongoose');
-
 var bcrypt = require('bcrypt-nodejs');
-
+var Favorite = require('./favorite.js');
 
 
 var User = new mongoose.Schema({
     summoner_name: String,
     summonerLevel: Number,
     accountId: String,
-    hasList: Boolean,
+    favorites: [ { champion : String} ],
     local: {
     	email 			: String,
     	password 		: String,
