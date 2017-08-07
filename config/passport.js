@@ -41,7 +41,9 @@ module.exports = function(passport) {
 
 				newFavList.save(function(err) {
 					if (err) return console.log(err + "saving new list");
-					});
+					return callback(null, newUser);
+					
+				});
 			}
 		});
 	}));
