@@ -29,18 +29,19 @@ module.exports = function(passport) {
 				var newUser 				= new db.User();
 				newUser.local.email 		= email;
 				newUser.local.password 		= newUser.hash(password);
-				newUser.summoner_name 		= req.body.summoner_name;
-				var newFavs 				= new db.Favorite();
-				newFavs.creator 			= newUser.local.email; 
-
-
-				newFavs.save(function(err) {
-					if (err) return console.log(err + "saving new list");
-					});
+				newUser.summoner.name 		= req.body.summoner_name;
+				
 				newUser.save(function(err) {
 					if (err) throw err;
-					return callback(null, newUser);
 				});
+				
+				var newFavList = new db.FavoriteList({
+					_creator : newUser._id
+				});
+
+				newFavList.save(function(err) {
+					if (err) return console.log(err + "saving new list");
+					});
 			}
 		});
 	}));

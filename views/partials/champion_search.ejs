@@ -1,5 +1,5 @@
 <% if (currentUser) { %>
-<% var curUser = currentUser.local.email %>
+<% var curUser = currentUser._id %>
 <% } %>
 
 
@@ -63,7 +63,7 @@
 
       <div class="modal-body">
 
-			<form method="post" action="/login" class="form-horizontal">
+			<form id="addToFavs" method="post" action="/login" class="form-horizontal">
               <div class="container">  <!------------------------------FORM-CONTENT-CONTAINER-->
                 <div class="col-xs-10 col-xs-offset-1">
                     <div class="row">
@@ -123,11 +123,6 @@
 			</form>
 
       </div>
-
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" id="addChamp">Add to favorites</button>
-      </div>
-
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->

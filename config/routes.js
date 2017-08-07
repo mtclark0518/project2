@@ -14,8 +14,6 @@ var championController = require('../controllers/champion_controller.js');
 var favoriteController = require('../controllers/favorite_controller.js');
 
 //HTTP RESPONSE
-
-
 router.route("/")
     .get(viewController.launch);
 
@@ -30,14 +28,12 @@ router.route("/login")
 router.route("/logout")
 	.get(userController.getLogout);
 
-router.route("/profile")
-	.get(viewController.showUser);
-
 router.route("/profile/:user")
 	.get(viewController.showUser);
 
 router.route("/champions")
 	.get(championController.showChamps);
+
 
 
 //JSON RESPONSE
@@ -47,7 +43,7 @@ router.route("/api/champions")
 router.route("/api/favorites")
 	.get(favoriteController.getAllUserLists);
 
-router.route("/api/favorites/:user")
+router.route("/api/favorites/:_id")
 	.get(favoriteController.showOneUserList)
 	.put(favoriteController.addAFavorite);
 

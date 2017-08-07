@@ -28,7 +28,7 @@ var favoriteList = [];
 function $renderChampion(champion) {
     var championHTML = 
 
-    "<div class='col-xs-12 col-sm-6 col-lg-4 champion' data-champion-id='" + champion.key + "'>" +
+    "<div class='col-xs-12 col-sm-6 col-lg-4 champion' data-champion-id='" + champion._id + "'>" +
             "<div class='container-fluid list-group-item'>" +
                     
                        
@@ -38,16 +38,13 @@ function $renderChampion(champion) {
                         "<div class='col-xs-7 col-sm-6'> " +
                             "<ul>  " +
                                 "<li class='list-item'>" +
-                                    "<span class='champion-name'><b>" + champion.name + "</b></span>  " +
+                                    "<span class='champion-name'><b>" + champion.key + "</b></span>  " +
                                 "</li>" +
                                 "<li class='list-item'>  " +
                                     "<span class='champion-title'>" + champion.title + "</span> " +
                                 "</li>" +
                             "</ul>" +
                         "</div>" +
-                        
-                    
-                
             "</div> " +
     "</div>";   
 
@@ -57,19 +54,20 @@ function $renderChampion(champion) {
 function $appendChampToProfile(champion){
 
     console.log(champion);
-    favoriteList.push(champion);
-    console.log(favoriteList);
-    var $profileList = $('#favorite_list');
+    // favoriteList.push(champion);
+    // console.log(favoriteList);
+    // var $profileList = $('#favorite_list');
     
 }
 
 function $addChampToFavorites(e) {
     e.preventDefault();
+    // $.get('.//')
     var $creator = $('#current_User')[0].innerHTML;
     var $champ = $('#champModal').data('champion-id');
     var newFavorite = {
-        // 'creator' : $creator,
-        'champion' : $champ
+        '_creator' : $creator,
+        '_champion' : $champ
     };
 
     console.log(newFavorite);
@@ -83,7 +81,7 @@ function $addChampToFavorites(e) {
         success: function($champ){
             $("#champModal").modal('hide');
             console.log("modal hidden");
-            appendChampToProfile($champ);
+            $appendChampToProfile($champ);
         }
     });
 }
@@ -93,21 +91,21 @@ function $addChampToFavorites(e) {
 $(document).ready(function () {
     console.log("hello world");
 
+
+
     //ACTIVATE CHAMPION MODAL
     $('#champions').on('click', '.champ-img-small', function(e) {
-        var id = $(this).parents('.champion').data('champion-id');
-        console.log(id);
-        // var $user = $('#current_User')[0].innerHTML;
+        var $champion = $(this).parents('.champion').data('champion-id');
+        console.log($champion);
+        var $creator = $('#current_User')[0].innerHTML;
         // console.log($user);
 
-        var $champ_modal = $('#champModal').data('champion-id', id);
+        var $champ_modal = $('#champModal').data('champion-id', $champion);
         $champ_modal.modal();
         $champ_modal.on('click', '#addChamp', function(e) {
             $addChampToFavorites(e);
         });
     });
-
-
 
     //AJAX GET CHAMPIONS
     var champions = $.get('/api/champions')

@@ -14,6 +14,7 @@ function showUser(req, res) {
 	var thisOne = req.body.email;
 	db.User.findOne({ 'local.email': thisOne}, function(err, user) {
 		if (err) return console.log("error: " + err);
+		
 		res.render('profile');
 	});
 }
