@@ -1,14 +1,14 @@
 * {
 }
 
-
+body {
+	background: #162024;
+}
 div.landing {
 	position: absolute;
 	width: 50%;
 	height: 100%;
-
 }
-
 div.landing#landingOne {
 	left: 0%;
 	background: url('/images/woodDoorLeft.jpg');
@@ -23,13 +23,15 @@ div.landing#landingTwo {
 	background-repeat: no-repeat; 
 }
 
+
+#nav{
+	background: ;
+}
+
+
 footer {
+	background: #AE975A;
 	padding-top: 35px;
 }
 
 
-/* CHAMPION PAGE -- MODAL POP-UP -- PROFILE FORM */
-
-.champ_profile_img {
-	width: %50;
-}
