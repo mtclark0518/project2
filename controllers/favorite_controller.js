@@ -27,8 +27,8 @@ function showOneUserList(req, res) {
 function addAFavorite(req, res) {
 	var newChampion = req.body.champion;
 	console.log(newChampion);
-	console.log(req.params.user);
-	db.Favorite.findOne({creator: 'mtclark0518@gmail.com'}, function(error, favorite) {
+	// console.log(req.params.user);
+	db.User.findOne({email: 'mtclark0518@gmail.com'}, function(error, favorite) {
 		if (error) throw error;
 		favorite.champion.push(newChampion);
 		favorite.save(function(error) {

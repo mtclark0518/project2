@@ -1,6 +1,6 @@
 var ddragonChampPNG = "http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/";
 var ddragonLoadSkinJPG = "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/";
-
+var favoriteList = [];
 
 
 // var currentUser = db.User.find({}, function(err, user) {
@@ -54,12 +54,18 @@ function $renderChampion(champion) {
     $('#champions').append(championHTML);
 }
 
+function $appendChampToProfile(champion){
 
+    console.log(champion);
+    favoriteList.push(champion);
+    console.log(favoriteList);
+    var $profileList = $('#favorite_list');
+    
+}
 
 function $addChampToFavorites(e) {
     e.preventDefault();
     var $creator = $('#current_User')[0].innerHTML;
-    console.log($creator);
     var $champ = $('#champModal').data('champion-id');
     var newFavorite = {
         // 'creator' : $creator,
@@ -74,13 +80,13 @@ function $addChampToFavorites(e) {
         url: "/api/favorites/"+$creator,
         data: newFavorite,
         failure: function(error) {console.log(error);},
-        success: function(json) {console.log("success");}
-
+        success: function($champ){
+            $("#champModal").modal('hide');
+            console.log("modal hidden");
+            appendChampToProfile($champ);
+        }
     });
-
-    $("#champModal").modal('hide');
 }
-
 
 
 
