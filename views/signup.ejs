@@ -5,46 +5,60 @@
    <div class="alert"> <%= message %> </div>
  <% } %>
 
-<div class="container-fluid">
-  <div class="container">  <!------------------------------ -->
-    <form method="post" action="/signup" class="form-horizontal">
+
+<div class="page-wrapper container-fluid">
+
+<form method="post" action="/signup" class="form-horizontal">
               
-          <div class="container">  <!------------------------------FORM-CONTENT-CONTAINER-->
-            <div class="col-xs-6 col-xs-offset-3">
-                <div class="row">
-                  <div class="col-xs-12 text-center">
-                    <h1>Sign Up</h1>
-                  </div>
-                </div>
-                <div class="row form-group">
-                  <div class="col-xs-8 col-xs-offset-2">
-                    <label class="sr-only" for="email">Email</label>
-                    <input class="form-control" type="text" name="email" id="email" placeholder="email">
-                  </div>    
-                </div>
-                  
-                <div class="row form-group">
-                  <div class="col-xs-8 col-xs-offset-2">
-                    <label class="sr-only" for="password">password</label>
-                    <input class="form-control" type="password" name="password" id="password" placeholder="password">
-                  </div>  
-                </div>
 
-                <div class="row form-group">
-                  <div class="col-xs-8 col-xs-offset-2">
-                    <label class="sr-only" for="summoner_name">Summoner Name</label>
-                    <input class="form-control" type="text" name="summoner_name" id="summoner_name" placeholder="Summoner Name" required="true">
-                  </div>  
-                </div>
+               <!------------------------------FORM-CONTENT-CONTAINER-->
+              <div class="authentication-page container col-xs-8 col-xs-offset-2"> 
+                <div class="padding-layer col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
+                    <div class="row">
+                      <div class="col-xs-10 col-xs-offset-1 text-center">
+                        <h1 class='page-title'>Register</h1>
+                      </div>
+                    </div>
+                    <div class="row form-group">
+                      <div class="col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
+                        <label class="sr-only" for="email">Email</label>
+                        <input class="form-control" type="text" name="email" id="email" placeholder="email">
+                      </div>    
+                    </div>
+                      
+                    <div class="row form-group">
+                      <div class="col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
+                        <label class="sr-only" for="password">password</label>
+                        <input class="form-control" type="password" name="password" id="password" placeholder="password">
+                      </div>  
+                    </div>
+                    <div class="row form-group">
+                      <div class="col-xs-8 col-xs-offset-2">
+                        <label class="sr-only" for="summoner_name">Summoner Name</label>
+                        <input class="form-control" type="text" name="summoner_name" id="summoner_name" placeholder="Summoner Name" required="true">
+                      </div>  
+                    </div>
 
-                <div class="row">
-                  <input class="col-xs-8 col-xs-offset-2 btn btn-default" type="submit">
-                </div>
-            </div> 
-          </div> <!------------------------------FORM-CONTENT-CONTAINER -->
-
-    </form>
-  </div>
+                    <div class="row">
+                      <button class="authentication-submit-button col-sm-6 col-sm-offset-3 col-xs-8 col-xs-offset-2 btn btn-default" type="submit">Register</button>
+                    </div>
+                </div> 
+              </div> <!------------------------------FORM-CONTENT-CONTAINER -->
+</form>
 </div>
 
-<% include ./partials/footer.ejs %>
+  <script
+    src="http://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous">
+  </script>
+  <script 
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+  </script>
+  <script src="/scripts/app.js">  
+  </script>
+</body>
+</html>
+
+

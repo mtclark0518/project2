@@ -2,64 +2,27 @@
 <% include ./partials/head-without-nav.ejs %>
 
 
-<!--   <div class="container-fluid">
-    <div class="text-center container">
-      <div class="row">
-        <h1 class="col-xs-10 col-xs-offset-1">Working Title</h1>
-      </div>
 
-      <div class="container-fluid">
-        <div class="accordion-wrapper">
-          <div class="panel-group" id="accordion2" role="tablist" aria-multiselectable="true">
-            <div class="panel panel-default">
-              <div class="panel-heading" role="tab" id="headingTwo">
-                <h4 class="panel-title">
-                  <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Sign-Up</a>
-                </h4>
-              </div>
-              <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                <div class="panel-body">                                  
-                </div>
-              </div>
-
-            <div class="panel panel-default">
-              <div class="panel-heading" role="tab" id="loginHeading">
-                
-                <h4 class="panel-title">
-                  <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion2" href="#loginPanel" aria-expanded="false" aria-controls="loginPanel">Login</a>
-                </h4>
-
-              </div>
-              <div id="loginPanel" class="panel-collapse collapse" role="tabpanel" aria-labelledby="loginHeading">
-                <div class="panel-body"> 
-                  
-
-                  <div class="container-fluid">
-                    <div class="col-sm-12 text-right">
-                        
-                      <% if(currentUser) {%>
-                        <a href='../champions/<%= + currentUser.local.email %> + '><button class="btn btn-alert btn-xs">   Add Champions</button></a>
-
-                      <% } else { %>
-                        <a href="../champions"><button class="btn btn-default btn-xs">Add Champions</button></a>
-                      <% } %>
-
-                    </div>
-                  </div>
-
-
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+<div id="landingContainer" class="container-fluid">
+  <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+    <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 container">
+      <div id="landingContent" class="col-xs-12 col-md-8 col-md-offset-2 container">
+        <a href="/login"><button class="col-xs-12 col-md-5 col-md-offset-1 btn-md btn btn-default">Login</button></a>
+        <a href="/signup"><button class="col-xs-12 col-md-5  btn-md btn btn-default">Register</button></a>
+      </div> 
     </div>
-  </div>
-   -->
-
-
-   <div id="landingOne" class="landing container-fluid">1</div>
-   <div id="landingTwo" class="landing container-fluid">2</div>
-  
-  <% include ./partials/footer %> 
+  </div> 
+</div>
+  <script
+    src="http://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous">
+  </script>
+  <script 
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+  </script>
+  <script src="/scripts/app.js">  
+  </script>
+</body>
+</html>

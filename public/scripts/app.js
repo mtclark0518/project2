@@ -91,6 +91,7 @@ $(document).ready(function () {
         // var listDiv = document.getElementById('favorite_list');
         // console.log(listDiv);
         var updatedFavoriteList = data;
+        console.log(data);
         for(var i; i < updatedFavoriteList.length; i++){
             console.log(updatedFavoriteList[i]);
         // $('<li>').append(updatedFavoriteList[i]);

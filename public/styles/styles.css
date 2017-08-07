@@ -1,33 +1,117 @@
-* {
-}
 
 body {
-	background: #162024;
+	background: #09090C;	
 }
 div.landing {
 	position: absolute;
-	width: 50%;
+	z-index: -1;
+	width: 100%;
 	height: 100%;
 }
 div.landing#landingOne {
 	left: 0%;
-	/*background: url('/images/woodDoorLeft.jpg');*/
+	background: #162024;
 	background-size: cover;
 	background-repeat: no-repeat; 
 
 }
 div.landing#landingTwo {
 	right: 0%;
-	/*background: url('/images/woodDoorRight.jpg');*/
+	background: #162024;
 	background-size: cover;
 	background-repeat: no-repeat; 
 }
+#landingContainer{
+	position: relative;
+	padding: none;
+	margin: none;
+	background-image: url('../images/landingBackground.jpg');
+	background-repeat: no-repeat;
+	background-size: cover; 
+	min-height: 650px;
 
+}
+#landingContent{
+	position: relative;
+	border: 2px solid #B29B5C;;
+	background: rgba(0,0,0,0.7);
+	padding-top: 150px; 
+	padding-bottom: 150px;
+	top: 100px;
 
-#nav{
-	background: ;
+	}
+#landingContent button{
+	font-family: 'Asul',sans-serif ;
+	background: #151F24;
+	color: #FFF;
+	transition: all 1500ms;
+}
+#landingContent button:hover{
+	background: #0F1619;
+	color: #B29B5C;
+
+	transition: all 1500ms;
+}	
+#nav {
+	background: #162024;
+
+	color: #ECECFF;
+	font-family: 'Asul', sans-serif;
+	font-weight: 400;
+	border: none;
+}
+#nav li a{
+	text-decoration: none;
+	color: #B29B5C;
+	transition: all 1500ms; 
+
+}
+#nav li a:hover{
+	transition: all 1500ms;
+	color:#FFDD83;
+}
+/*PAGE STYLES*/
+.page-wrapper{
+	position: relative;
+	padding: none;
+	margin: none;
+	background-image: url('../images/landingBackground.jpg');
+	background-repeat: no-repeat;
+	background-size: cover; 
+	min-height: 650px;
+
+}
+.authentication-page{
+	position: relative;
+	border: 2px solid #B29B5C;;
+	background: rgba(0,0,0,0.7);
+	padding-top: 150px; 
+	padding-bottom: 150px;
+	top: 50px;
+
+}
+.authentication-submit-button{
+	font-family: 'Asul',sans-serif ;
+	background: #151F24;
+	color: #FFF;
+	transition: all 1500ms;
+}
+.authentication-submit-button:hover{
+	background: #0F1619;
+	color: #B29B5C;
+
+	transition: all 1500ms;
 }
 
+#add-champ-button{
+	display: inline-block;
+	float: right
+}
+.page-title {
+	font-family: 'Asul', sans-serif;
+	font-weight: 700;
+	color: #FFDD83;
+}
 
 footer {
 	background: #AE975A;

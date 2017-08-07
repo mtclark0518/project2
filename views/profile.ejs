@@ -1,78 +1,43 @@
 <% include ./partials/head %>
-
+	
 	<div class="container-fluid">
 	<% if(currentUser) { %>
 
-		<h1 class="text-center"><%= currentUser.summoner_name + "'s Homepage" %></h1>
+		<h1 class="page-title text-center"><%= currentUser.summoner.name + "'s Homepage" %></h1>
 	<% } else { %>
-		<h1 class="text-center">Summoner Name</h1>
+		<h1 class="page-title text-center">Summoner Name</h1>
 	<% } %>
-	</div>	
+	</div>
+
+
 	<div class="container list-group-item"><!------MAIN BODY LAYERING STARTS HERE---- -->
-		<div class="row">
-			
-			<div class="container"><!------MAIN BODY CONTENT STARTS HERE---- -->
-	    		<div class="col-sm-4 text-left">
-					<h3 class="panel-title">Your Trending Champs</h3>
-					<hr>
-					<div class="row">
-						<div class="col-sm-3 col-sm-offset-1"><img class="img-responsive img-thumbnail" src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/Aatrox.png"></div>
-						<div class="col-sm-8 text-left"><h4>Champion Name</h4></div>
-					</div>
-					
-					<div class="row">
-						<div class="col-sm-3 col-sm-offset-1">
-							<img class="img-responsive img-thumbnail" src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/Veigar.png">
-						</div>
-						<div class="col-sm-8 text-left"><h4>Champion Name</h4></div>
-					</div>
-					
-					<div class="row">
-						<div class="col-sm-3 col-sm-offset-1">
-							<img class="img-responsive img-thumbnail" src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/Warwick.png">
-						</div>
-						<div class="col-sm-8 text-left"><h4>Champion Name</h4></div>
-					</div>	
-					<br>
-
-				</div>
-
         		<div class="col-sm-8">
             		<div class="accordion-wrapper">
 		                <div class="panel-group" id="accordion2" role="tablist" aria-multiselectable="true">
-		                    <div class="panel panel-default">
-		                        <div class="panel-heading" role="tab" id="headingOne">
-		                            <h4 class="panel-title">
-		                				<a role="button" data-toggle="collapse in" data-parent="#accordion2" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Recent Match Stats
-		                				</a>
-		            				</h4>
-		                        </div>
-		                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-		                            <div class="panel-body">
-		                                <h4>Slide Title</h4>
-		                            </div>
-		                        </div>
-		                    </div>
-		                    <div class="panel panel-default">
+
+
+
+				<!--CODE FOR AN IMAGE CAROUSEL -->
+		                   <!--  <div class="panel panel-default">
 		                        <div class="panel-heading" role="tab" id="headingTwo">
-		                            <h4 class="panel-title">
-		                				<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Your Favorite Champs
-		                				</a>
-		            				</h4>
+		                			<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+		                				<h4 class="panel-title">Your Favorite Champs</h4>
+		                			</a>
 		                        </div>
 		                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
 		                            <div class="panel-body">		                            	
-		                            	<div class="row">
-												<div id="favorite-champ-carousel" class="carousel slide" data-ride="carousel">
+		     
+		          	<div class="row">
+												<div id="favorite-champ-carousel" class="carousel slide" data-ride="carousel"> -->
 												  <!-- Indicators -->
-													<ol class="carousel-indicators">
+													<!-- <ol class="carousel-indicators">
 												    	<li data-target="#favorite-champ-carousel" data-slide-to="0" class="active"></li>
 												    	<li data-target="#favorite-champ-carousel" data-slide-to="1"></li>
 												    	<li data-target="#favorite-champ-carousel" data-slide-to="2"></li>
-												    </ol>
+												    </ol> -->
 
 												  <!-- Wrapper for slides -->
-												  	<div class="carousel-inner" role="listbox">
+							<!-- 					  	<div class="carousel-inner" role="listbox">
 												    
 												    	<div class="item active">
 															<img class="img img-responsive fav-champ-img" src="http://ddragon.leagueoflegends.com/cdn/img/champion/loading/Aatrox_0.jpg">
@@ -85,9 +50,9 @@
 													    	<div class="carousel-caption"></div>
 												    	</div>
 													</div>
-
+ -->
 												<!-- Controls -->
-												<a class="left carousel-control" href="#favorite-champ-carousel" role="button" data-slide="prev">
+									<!-- 			<a class="left carousel-control" href="#favorite-champ-carousel" role="button" data-slide="prev">
 												  <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
 												  <span class="sr-only">Previous</span>
 												</a>
@@ -114,48 +79,61 @@
 											</div>
 										</div>
 		                            </div>
-		                        </div> <!--a carousel to display the favorites list possibly  -->
-		                    </div>
+		                        </div> --> <!--a carousel to display the favorites list possibly  -->
+		                  <!--   </div> -->
 
 		                    <div class="panel panel-default">
 		                        <div class="panel-heading" role="tab" id="headingThree">
+                				<div class="row">
 		                            <h4 class="panel-title">
 		                				<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Your Favorite Champs
 		                				</a>
+										<div id='add-champ-button' class="text-right navbar-btn">
+												
+											<% if(currentUser) {%>
+												<a href= "../champions"> 
+													<button class= "btn btn-alert btn-xs">Logged in Add Champions
+													</button>
+												</a>
+
+											<% } else { %>
+        										<a href="../champions">
+        											<button class="btn btn-default btn-xs">Add Champions
+        											</button>
+        										</a>
+											<% } %>
+
+										</div>
 		            				</h4>
+		                        </div>
 		                        </div>
 		                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
 		                            <div class="panel-body">
 		                                <div class="row">
-		                                <ul id="favorite_list">
+		                                	<ul id="favorite_list">
+		                                	<% if (currentUser) { %>
+											<% var myFavs = currentUser.favorites %>
+		                                	<% for(var i = 0; i < myFavs.length; i++){ %>
+		                                		<li><%= myFavs[i] %></li>
+		                                	<% } %>
 		                                	<!--ADD CHAMPIONS TO LIST HERE -->
-		                                </ul>
+		                                	<% } %>
+		                                	</ul>
 		                                </div>
-		                                <div class="row">
-											<div class="container-fluid">
-												<div class="col-sm-12 text-right">
-												
-												<% if(currentUser) {%>
-													<a href= "../champions"> 
-													<button class= "btn btn-alert btn-xs">Logged in Add Champions
-													</button>
-													</a>
-												<% } else { %>
-            										<a href="../champions"><button class="btn btn-default btn-xs">Add Champions</button></a>
-												<% } %>
 
-												</div>
-											</div>
-										</div>
 		                            </div>
 		                        </div>
 		                    </div>
 		                </div>
 		            </div>
 		        </div>
+		
+			<div class="container col-sm-4">
+				<div class="wrapper">
+					<img class='img img-responsive' src="#">
+				</div>
 			</div>
 		</div>
-	</div>
 	<hr>
 
 
@@ -163,4 +141,45 @@
     <% include ./partials/footer %>
 
 
+
+
+
+
+                    <!-- <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h4 class="panel-title">
+                				<a role="button" data-toggle="collapse in" data-parent="#accordion2" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Recent Match Stats
+                				</a>
+            				</h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                            <div class="panel-body">
+                                <h4>Slide Title</h4>
+                            </div>
+                        </div>
+                    </div> -->
+<!-- 	    		<div class="col-sm-4 text-left">
+					<h3 class="panel-title">Your Trending Champs</h3>
+					<hr>
+					<div class="row">
+						<div class="col-sm-3 col-sm-offset-1"><img class="img-responsive img-thumbnail" src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/Aatrox.png"></div>
+						<div class="col-sm-8 text-left"><h4>Champion Name</h4></div>
+					</div>
+					
+					<div class="row">
+						<div class="col-sm-3 col-sm-offset-1">
+							<img class="img-responsive img-thumbnail" src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/Veigar.png">
+						</div>
+						<div class="col-sm-8 text-left"><h4>Champion Name</h4></div>
+					</div>
+					
+					<div class="row">
+						<div class="col-sm-3 col-sm-offset-1">
+							<img class="img-responsive img-thumbnail" src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/Warwick.png">
+						</div>
+						<div class="col-sm-8 text-left"><h4>Champion Name</h4></div>
+					</div>	
+					<br>
+
+				</div> -->
 
