@@ -11,24 +11,86 @@ function getAllUserLists(req, res) {
 
 //GET A SIGNLE USERS LIST
 function showOneUserList(req, res) {
-	db.FavoriteList.findOne({ _creator : req.params._id }, function(error, favoritelist) {
-		if (error) throw error;
-		res.json(favoritelist);
+	var userId = req.user._id;
+	db.FavoriteList.findOne({ _creator : userId }, function(err, favoritelist) {
+		if (err) return console.log("error: " + err);
+		res.json(favoritelist.champion);		
+		console.log(favoritelist);
+
 	});
-	
 }
+
 
 //ADD A NEW FAVORITE TO LIST
 function addAFavorite(req, res) {
-	db.FavoriteList.findOne({ _creator : req.body._creator}, function(err, favoritelist) {
+	// var newChamp;
+	// db.Champion.findById({_id: req.body._champion}, function(err, champion) {
+	// 	if (err) return console.log("error: " + err);
+	// 	newChamp = champion.name;
+	// });
+
+	db.FavoriteList.findOne({ _creator : req.user._id}, function(err, favoritelist) {
 		if (err) return console.log("error: " + err);
-		console.log(favoritelist);
-		res.send("favoritelist._creator = " + favoritelist._creator);
-	});
-	console.log(req.body._creator);
-	console.log(req.body._champion);
-	res.send(req.body._champion + " is the request body...or champ_id and " + req.body._creator + " is the request _id or user_id");
+		favoritelist._champion.push(req.body._champion);
+		favoritelist.save(function(err) {
+			if (err) throw err;
+			// favoritelist.populate("_champion")
+			// .exec(function(err, favoritelist) {
+			// 	if(err) return console.log('error: ' + err);
+			// 	console.log(favoritelist);
+			
+		
+			db.User.findOne({_id : favoritelist._creator}, function(err, user) {
+				if(err) return console.log("error: " + err);
+				var userFavorites = favoritelist._champion;
+				user.favorites = userFavorites;
+				console.log(userFavorites);
+				user.save(function(err) {
+					if(err) return console.log('error: ' + err);
+				});
+				// 	if(err) return console.log("error: " + err);
+				// 	for(var i = 0; i < userFavorites.length; i++){
+				// 		// console.log(userFavorites[i]);
+				// 	}
+
+				// console.log(user);
+				});
+			res.send(favoritelist);
+			});
+		});
+	
+	
 }	
+
+
+		// favoritelist.populate("_champion")
+		// 	.exec(function(err, favoritelist){
+		// 		if (err) return console.log("error: " + err);
+		// 		console.log(favoritelist);
+		// 	});
+		
+
+
+//EDIT NOTES ABOUT A FAVORITE
+function editAFavorite(req, res) {
+
+}
+
+//DELETE A FAVORITE FROM THE LIST
+function deleteAFavorite(req, res) {
+
+}
+
+
+module.exports = {
+	getAllUserLists : getAllUserLists,
+	showOneUserList : showOneUserList,
+	addAFavorite : addAFavorite,
+	editAFavorite : editAFavorite,
+	deleteAFavorite : deleteAFavorite
+};
+
+
 
 	// var newChampion = req.body.champion;
 	// console.log(newChampion);
@@ -74,22 +136,3 @@ function addAFavorite(req, res) {
 		//set contents equal to user favorites	
 
 // }
-
-//EDIT NOTES ABOUT A FAVORITE
-function editAFavorite(req, res) {
-
-}
-
-//DELETE A FAVORITE FROM THE LIST
-function deleteAFavorite(req, res) {
-
-}
-
-
-module.exports = {
-	getAllUserLists : getAllUserLists,
-	showOneUserList : showOneUserList,
-	addAFavorite : addAFavorite,
-	editAFavorite : editAFavorite,
-	deleteAFavorite : deleteAFavorite
-};

@@ -11,14 +11,14 @@ div.landing {
 }
 div.landing#landingOne {
 	left: 0%;
-	background: url('/images/woodDoorLeft.jpg');
+	/*background: url('/images/woodDoorLeft.jpg');*/
 	background-size: cover;
 	background-repeat: no-repeat; 
 
 }
 div.landing#landingTwo {
 	right: 0%;
-	background: url('/images/woodDoorRight.jpg');
+	/*background: url('/images/woodDoorRight.jpg');*/
 	background-size: cover;
 	background-repeat: no-repeat; 
 }

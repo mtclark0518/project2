@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var findOrCreate = require('mongoose-findorcreate');
 var bcrypt = require('bcrypt-nodejs');
 var FavoriteList = require('./favoriteList.js');
+var Champion = require('./champion.js');
 var Schema = mongoose.Schema;
 
 var User = new Schema({
@@ -10,7 +11,7 @@ var User = new Schema({
         password    : String,
     },
 
-    favorites: [ {type: Schema.Types.String, ref: 'FavoriteList'} ],
+    favorites: [ {type: Schema.Types.ObjectId, ref: 'Champion'} ],
 
     summoner: {
         name        : String,

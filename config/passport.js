@@ -36,7 +36,7 @@ module.exports = function(passport) {
 				});
 				
 				var newFavList = new db.FavoriteList({
-					_creator : newUser._id
+					_creator : newUser._id,
 				});
 
 				newFavList.save(function(err) {

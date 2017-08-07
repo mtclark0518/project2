@@ -50,41 +50,11 @@ function $renderChampion(champion) {
 
     $('#champions').append(championHTML);
 }
+//UPDATE THE USERS FAVORITE LIST ON THEIR PROFILE
 
-function $appendChampToProfile(champion){
 
-    console.log(champion);
-    // favoriteList.push(champion);
-    // console.log(favoriteList);
-    // var $profileList = $('#favorite_list');
-    
-}
 
-function $addChampToFavorites(e) {
-    e.preventDefault();
-    // $.get('.//')
-    var $creator = $('#current_User')[0].innerHTML;
-    var $champ = $('#champModal').data('champion-id');
-    var newFavorite = {
-        '_creator' : $creator,
-        '_champion' : $champ
-    };
 
-    console.log(newFavorite);
-
-    // AJAX PUT REQUEST TO THE LIST
-    $.ajax({
-        method: 'PUT',
-        url: "/api/favorites/"+$creator,
-        data: newFavorite,
-        failure: function(error) {console.log(error);},
-        success: function($champ){
-            $("#champModal").modal('hide');
-            console.log("modal hidden");
-            $appendChampToProfile($champ);
-        }
-    });
-}
 
 
 
@@ -98,10 +68,10 @@ $(document).ready(function () {
         var $champion = $(this).parents('.champion').data('champion-id');
         console.log($champion);
         var $creator = $('#current_User')[0].innerHTML;
-        // console.log($user);
-
         var $champ_modal = $('#champModal').data('champion-id', $champion);
         $champ_modal.modal();
+
+        //CLICK EVENT TO ADD CHAMPION TO FAVORITE LIST
         $champ_modal.on('click', '#addChamp', function(e) {
             $addChampToFavorites(e);
         });
@@ -117,8 +87,54 @@ $(document).ready(function () {
         });
 
         
+    function $appendChampToProfile(data){
+        // var listDiv = document.getElementById('favorite_list');
+        // console.log(listDiv);
+        var updatedFavoriteList = data;
+        for(var i; i < updatedFavoriteList.length; i++){
+            console.log(updatedFavoriteList[i]);
+        // $('<li>').append(updatedFavoriteList[i]);
+    }
+    // $()
+    // $.ajax({
+    //     method: 'get',
+    //     url: '/api/favorites/' + _id,
+    //     failure: function(error){console.log("error: " + error);},
+    //     done: function(data){
+    //         console.log(data + "is the data from the request");
+    //     }
 
+    // });
+    // favoriteList.push(champion);
+    // console.log(favoriteList);
+    // var $profileList = $('#favorite_list');
+    
+    }
 
+    //ADD CHAMPIONS TO CURRENT USER'S FAVORITE LIST
+    function $addChampToFavorites(e) {
+        e.preventDefault();
+        var $creatorId = $('#current_User')[0].innerHTML;
+        var $champ = $('#champModal').data('champion-id');
+        var newFavorite = {
+            '_creator' : $creatorId,
+            '_champion' : $champ
+        };
+        console.log(newFavorite);
+
+        // AJAX PUT REQUEST TO THE LIST
+        $.ajax({
+            method: 'PUT',
+            url: "/api/favorites/"+$creatorId,
+            data: newFavorite,
+            failure: function(error) {console.log(error);},
+            success: function(data){
+                $("#champModal").modal('hide');
+                console.log("modal hidden");
+                $appendChampToProfile(data);
+            }
+        });
+    }
 
 
 });
