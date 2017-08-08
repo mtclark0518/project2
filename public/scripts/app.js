@@ -36,7 +36,7 @@ function $renderChampion(champion) {
                             "<img class='champ-img-small img-responsive img-thumbnail' src= '" + ddragonChampPNG + champion.key + ".png'>"    + 
                         "</div>" +
                         "<div class='col-xs-7 col-sm-6'> " +
-                            "<ul>  " +
+                            "<ul class='champ-cards text-center'>  " +
                                 "<li class='list-item'>" +
                                     "<span class='champion-name'><b>" + champion.key + "</b></span>  " +
                                 "</li>" +
@@ -64,6 +64,8 @@ $(document).ready(function () {
 
 
     //ACTIVATE CHAMPION MODAL
+    
+
     $('#champions').on('click', '.champ-img-small', function(e) {
         var $champion = $(this).parents('.champion').data('champion-id');
         console.log($champion);

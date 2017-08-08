@@ -112,10 +112,26 @@ div.landing#landingTwo {
 	font-weight: 700;
 	color: #FFDD83;
 }
+.champion-name {
+	font-family: 'Asul', sans-serif;
+	font-weight: 700;
+	color: #151F24;
+	font-size: 2em;
+}
+.champion-title {
+	font-family: 'Lato', sans-serif;
+ 	color: #151F24;
 
-footer {
+}
+
+#champion_backframe{
+	background: #D7D8DA;
+}
+#footer {	
+	font-family: 'Lato', sans-serif;
 	background: #AE975A;
 	padding-top: 35px;
 }
+
 
 
