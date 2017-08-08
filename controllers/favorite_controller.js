@@ -60,9 +60,15 @@ function editAFavorite(req, res) {
 
 //DELETE A FAVORITE FROM THE LIST
 function deleteAFavorite(req, res) {
-	db.FavoriteList.findOne({_id : favoritelist._creator}, function(err, favoritelist) {
+	console.log(req.body);
+	console.log(req.user);
+	db.FavoriteList.findOneAndUpdate(
+		{_id : req.user._id},
+		{$pull:{champion : req.body.champion}},
+		{upsert: true}, function(err, favorite) {
 		if(err) return console.log("error: " + err);
-
+		res.send(favorite);
+		res.redirect('/profile/'+req.user.local.email);
 	});
 }
 

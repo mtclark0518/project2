@@ -86,8 +86,8 @@ div.landing#landingTwo {
 	font-weight: 700;
 	color: #FFDD83;
 }
-#current_user{
-	display: none;
+#current_User{
+	color: transparent;
 }
 .authentication-page{
 	position: relative;
@@ -123,13 +123,14 @@ div.landing#landingTwo {
 }
 /*FAVORITE-LIST*/
 
-.favorite-list-item{
-	display: inline-block;
-}
+
+
+
+
 
 .img-frame{
-	max-width: 45px;
-	max-height: 45px;
+	width: 75px;
+	height: 75px;
 }
 
 
@@ -150,8 +151,11 @@ div.landing#landingTwo {
 }
 
 #footer {	
-	font-family: 'Lato', sans-serif;
-	background: #AE975A;
+	background: rgba(22, 32, 36, 0.6);
+	color: rgba(178, 155, 92, 1.0);
+	font-family: 'Asul', sans-serif;
+	font-weight: 400;
+	border: none;
 	padding-top: 35px;
 }
 

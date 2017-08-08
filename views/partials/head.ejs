@@ -32,8 +32,8 @@
 			    <li role="separator" class="divider"></li>
 			    <li class="li-head list-group-item">API Routes</li>
 	    		<li class=""><a href="#">GET: /api/champions/:_id</a></li>
-	   			<li class=""><a href="#">GET: /api/favorites/:_creator else here</a></li>
-	   			<li class=""><a href="#">PUT: /api/favorites/:_creator else here</a></li>
+	   			<li class=""><a href="#">GET: /api/favorites/:_creator</a></li>
+	   			<li class=""><a href="#">PUT: /api/favorites/:_creator</a></li>
 	    		
 	    		<li role="separator" class="divider"></li>
 	    		<li class="li-head list-group-item"><a href="#">Additional Routes</a></li>
@@ -43,35 +43,17 @@
 	
 		
 		<% if(currentUser) {%>
-			<li><a href="/logout">Logout:  <%= "    " + currentUser.summoner.name %> </a></li>
+			<li><a href="/logout">Logout:  <%= "    " + currentUser.summoner.name; %> </a></li>
 		<% } else { %>
 			<li><a href="/login">Login</a></li>
             <li><a href="/signup">Signup</a></li>
 			<% } %>
 		
-		<li role= "presentation" class="dropdown">
-			<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" ><span class="caret"></span>Champions</a>
-		    <ul class="dropdown-menu">
-			    <li class=""><a href="#">GET</a></li>
-			    <li class=""><a href="#">/api</a></li>
-			    
-			    <li role="separator" class="divider"></li>
-	    		<li class=""><a href="#">Another action</a></li>
-	   			<li class=""><a href="#">Something else here</a></li>
-	    		
-	    		<li role="separator" class="divider"></li>
-	    		<li class=""><a href="#">Separated link</a></li>
-		    </ul>
-		</li>		
+		<li><a href="/champions" >Champions</a></li>		
 		<% if(currentUser) {%>
 			<li><a href="/profile/<%= currentUser.local.email %>">Profile</a></li>
-		<% } else { %>
-			<li><a href="/login">Login</a></li>
-            <li><a href="/signup">Signup</a></li>
 			<% } %>
-		<li role="presentation">
-			<a href="/profile/<">Profile</a>
-		</li>
+
 	</ul>
 	</div>
 </nav>	

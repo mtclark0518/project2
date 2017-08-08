@@ -15,7 +15,7 @@
 
 
 	<div class="container list-group-item"><!------MAIN BODY LAYERING STARTS HERE---- -->
-        <div class="col-xs-8 col-xs-1 col-md-6 col-md-offset-2">
+        <div class="col-xs-10 col-xs-offset-1 col-md-10 col-md-offset-1">
             <div class="accordion-wrapper">
 		        <div class="panel-group" id="accordion2" role="tablist" aria-multiselectable="true">
 
@@ -46,7 +46,7 @@
 		            				</h4>
 		                        </div>
 		                        </div>
-		                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+		                        <div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">
 		                            <div class="panel-body">
 		                                	<ul id="favorite_list" class='list-group'>
 		                                	<% if(currentUser) { %>
@@ -55,22 +55,22 @@
 											<% for(var i = 0; i < myFavs.length; i++) { %>
 											
 												<li class="favorite-list-item list-group-item">
-													<div class='row container'>
-														<div class="col-xs-3 col-xs-offset-1">
+													<div class='row container-fluid'>
+														<div class="col-xs-3 text-left">
 															<div class="container img-frame">
 																<img class="img img-thumbnail img-responsive" 
 																src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/<%= myFavs[i].key %>.png" >
 															</div>
 														</div>
-															<div class="col-xs-3 text-center">
+														<div class="col-xs-3 text-center">
 																<%= myFavs[i].title %>
-															</div>
-															<div class="col-xs-3 text-center">
+														</div>
+														<div class="col-xs-3 text-center">
 																<%= myFavs[i].key %>
-															</div>
-															<div class="col-xs-1">
+														</div>
+														<div class="col-xs-1">
 																<button class="remove-favorite btn btn-defaul btn-xs"><span class="glyphicon glyphicon-trash"></span></button>
-															</div>
+														</div>
 													</div>
 												</li>
 												

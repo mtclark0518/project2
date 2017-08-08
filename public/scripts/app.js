@@ -111,7 +111,7 @@ $(document).ready(function () {
             });
     });
     
-    $('#favorite_list').on('click', '.favorite-list-item', function(e) {
+    $('#favorite_list').on('click', '.remove-list-item', function(e) {
         var $creator = $('#current_User')[0].innerHTML;
             $.ajax({
                 method: 'delete',
@@ -174,7 +174,7 @@ $(document).ready(function () {
         });
     }
     function $removeChampFromFavorites(e) {
-        e.preventDefault();
+        console.log('done');
     }
 
 
