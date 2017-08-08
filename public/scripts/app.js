@@ -1,6 +1,7 @@
 var ddragonChampPNG = "http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/";
 var ddragonLoadSkinJPG = "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/";
 var $champ_modal;
+var $modal_content;
 
 
 
@@ -35,8 +36,8 @@ function $renderChampion(champion) {
 
 
 
-function $renderModal(champion, creator){
-
+function $renderModal(champion){
+    $('.modal_content_wrapper').remove();
     var modalHTML = 
 
         "<div class='modal-body container col-xs-10 col-xs-offset-1'>" +
@@ -70,7 +71,8 @@ function $renderModal(champion, creator){
             "</div>" +
         "</div>";
 
-    $('#champion_modal').append(modalHTML);
+    $modal_content = $('<div>').addClass('modal_content_wrapper').append(modalHTML);
+    $('#champion_modal').append($modal_content);
 }
 
 
@@ -93,7 +95,7 @@ $(document).ready(function () {
         failure : function(err){return console.log("error: " + err);},
         success: function(champion){
             console.log(champion);
-            $renderModal(champion, $creator);
+            $renderModal(champion);
             $champ_modal.modal();
         //CLICK EVENT TO ADD CHAMPION TO FAVORITE LIST
             $champ_modal.on('click', '#addToFavs', function(e) {
