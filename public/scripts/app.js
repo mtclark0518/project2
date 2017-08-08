@@ -78,7 +78,7 @@ function handleError(err) {
     return console.log("error: " + err);
 }
 function foundChamp(champion){
-    console.log(champion);
+    console.log(champion.name);
 }
 
 
@@ -127,9 +127,7 @@ $(document).ready(function () {
 
     function $appendChampToProfile(data){
         var updatedFavoriteList = data;
-        console.log(data);
         for(var i; i < updatedFavoriteList.length; i++){
-            console.log(updatedFavoriteList[i]);
             $.ajax({
                 method : 'get',
                 url : '/api/champions/' + updatedFavoriteList[i],
@@ -147,7 +145,6 @@ $(document).ready(function () {
             '_creator' : $creatorId,
             '_champion' : champion
         };
-        console.log(newFavorite);
 
         // AJAX PUT REQUEST TO THE LIST
         $.ajax({

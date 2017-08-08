@@ -27,13 +27,13 @@ function addAFavorite(req, res) {
 
 	db.FavoriteList.findOne({ _creator : req.user._id}, function(err, favoritelist) {
 		if (err) return console.log("error: " + err);
-		favoritelist._champion.push(req.body._champion);
+		favoritelist.champion.push(req.body._champion);
 		favoritelist.save(function(err) {
 			if (err) throw err;
 
 			db.User.findOne({_id : favoritelist._creator}, function(err, user) {
 				if(err) return console.log("error: " + err);
-				var userFavorites = favoritelist._champion;
+				var userFavorites = favoritelist.champion;
 				user.favorites = userFavorites;
 				console.log(userFavorites);
 				user.save(function(err) {
@@ -45,10 +45,10 @@ function addAFavorite(req, res) {
 				// 	}
 
 				// console.log(user);
-				});
-			res.send(favoritelist);
 			});
+			res.send(favoritelist);
 		});
+	});
 	
 	
 }	
