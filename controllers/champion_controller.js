@@ -20,6 +20,7 @@ function showOneChamp(req, res){
 
 
 module.exports = {
-	getChamps : getChamps,
-	showChamps : showChamps,
+	getChamps 		: getChamps,
+	showChamps 		: showChamps,
+	showOneChamp 	: showOneChamp
 };

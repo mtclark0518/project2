@@ -1,5 +1,6 @@
 var ddragonChampPNG = "http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/";
 var ddragonLoadSkinJPG = "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/";
+var $champ_modal;
 
 
 
@@ -34,58 +35,40 @@ function $renderChampion(champion) {
 
 
 
-function $renderModal(champion){
+function $renderModal(champion, creator){
+
     var modalHTML = 
 
-"<div class='modal-header'>" +
-    "<button type='button' class='btn btn-xs close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button>" +
-    "<h4 class='modal-title'>Champion Name</h4>" +
-"</div>" +
+        "<div class='modal-body container col-xs-10 col-xs-offset-1'>" +
+            "<div class='col-xs-4'>" +
+                
+                "<div class='row'>" +
+                    "<div class='champ_profile_img col-xs-12'>" +
+                        "<img class='img img-responsive' src='http://ddragon.leagueoflegends.com/cdn/img/champion/loading/"+ champion.key + "_0.jpg'>" +
+                    "</div> " +
+                "</div>" +
 
-"<form id='addToFavs' method='post' action='/login' class='form-horizontal'>" +
-"<div class='container'>" +
-"<div class='col-xs-10 col-xs-offset-1'>" +
-"<div class='row'>" +
-"<div class='col-xs-4 col-xs-offset-1 text-center'>" +
-"<h1 class='page-name'>Champion</h1>" +
-"</div>" +
-"</div>" +
+                "<div class='row'>" +
 
+                    "<form method='put'>" +
+                        "<div class='input-group'>" +
+                            "<button id='addToFavs' name='submit' class='btn btn-default'>" +
+                            "<span class='glyphicon glyphicon-heart'></span>" +
+                            "</button>" +
+                        "</div>" +
+                    "</form>" +
 
-"<div class='row'>" +
-"</div>" +
-"</div>" +
+                "</div>" +
+            "</div>" +
 
-"</div>" +
-"</form>" +
+            "<div class='col-xs-8'>" +
+                "<div class='row'>" +
+                    "<h4 class='modal-title page-title'>" + champion.name + "</h4>" +
 
-
-
-
-"<!-- CHAMPION PROFILE IMAGE-->" +
-"<div class='form-group col-xs-2'>" +
-    "<div class='champ_profile_img col-xs-12'>" +
-"<img class='img img-responsive' src='http://ddragon.leagueoflegends.com/cdn/img/champion/loading/"+ champion.key + "_0.jpg'>" +
-"</div> " +
-"</div>" +
-
-
-<!-- CHAMPION INPUTS -->
-<div class="col-xs-6">
-<div class="input-group">
-<input type="text" class="sr-only form-control" value="Champion">
-<span class="input-group-btn">
-<button id="addChamp" class="btn btn-default" type="button">
-<span class="glyphicon glyphicon-plus-sign">
-<!-- glyphicon-minus-sign  (remove favorite) -->
-</span>
-</button>
-</span>
-</div><!-- /input-group -->                                 
-</div>
-
-
-
+                "</div>" +
+ 
+            "</div>" +
+        "</div>";
 
     $('#champion_modal').append(modalHTML);
 }
@@ -101,23 +84,26 @@ $(document).ready(function () {
 
     //LAUNCH CHAMPION MODAL 
     $('#champions').on('click', '.champ-img-small', function(e) {
-        
+        $champ_modal = $('#champModal').data('champion-id', $champion);
         var $champion = $(this).parents('.champion').data('champion-id');
         var $creator = $('#current_User')[0].innerHTML;
-        // $renderModal(e, $champion);
-        var $champ_modal = $('#champModal').data('champion-id', $champion);
-
-
-
-        console.log($champion);
-
-        $champ_modal.modal();
-        $renderModal();
+            $.ajax({
+        method : 'get',
+        url : '/api/champions/' + $champion,
+        failure : function(err){return console.log("error: " + err);},
+        success: function(champion){
+            console.log(champion);
+            $renderModal(champion, $creator);
+            $champ_modal.modal();
         //CLICK EVENT TO ADD CHAMPION TO FAVORITE LIST
-        $champ_modal.on('click', '#addChamp', function(e) {
-            $addChampToFavorites(e);
+            $champ_modal.on('click', '#addToFavs', function(e) {
+                $addChampToFavorites(e);
+                }); 
+            }
         });
     });
+
+
 
     //AJAX GET CHAMPIONS
     var champions = $.get('/api/champions')
@@ -128,14 +114,15 @@ $(document).ready(function () {
             }
         });
 
-        
+      
+
+
     function $appendChampToProfile(data){
         var updatedFavoriteList = data;
         console.log(data);
         for(var i; i < updatedFavoriteList.length; i++){
             console.log(updatedFavoriteList[i]);
-    }
-
+        }
     }
 
     //ADD CHAMPIONS TO CURRENT USER'S FAVORITE LIST

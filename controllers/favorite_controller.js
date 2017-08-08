@@ -23,23 +23,14 @@ function showOneUserList(req, res) {
 
 //ADD A NEW FAVORITE TO LIST
 function addAFavorite(req, res) {
-	// var newChamp;
-	// db.Champion.findById({_id: req.body._champion}, function(err, champion) {
-	// 	if (err) return console.log("error: " + err);
-	// 	newChamp = champion.name;
-	// });
+
 
 	db.FavoriteList.findOne({ _creator : req.user._id}, function(err, favoritelist) {
 		if (err) return console.log("error: " + err);
 		favoritelist._champion.push(req.body._champion);
 		favoritelist.save(function(err) {
 			if (err) throw err;
-			// favoritelist.populate("_champion")
-			// .exec(function(err, favoritelist) {
-			// 	if(err) return console.log('error: ' + err);
-			// 	console.log(favoritelist);
-			
-		
+
 			db.User.findOne({_id : favoritelist._creator}, function(err, user) {
 				if(err) return console.log("error: " + err);
 				var userFavorites = favoritelist._champion;
@@ -61,15 +52,6 @@ function addAFavorite(req, res) {
 	
 	
 }	
-
-
-		// favoritelist.populate("_champion")
-		// 	.exec(function(err, favoritelist){
-		// 		if (err) return console.log("error: " + err);
-		// 		console.log(favoritelist);
-		// 	});
-		
-
 
 //EDIT NOTES ABOUT A FAVORITE
 function editAFavorite(req, res) {

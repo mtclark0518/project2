@@ -50,22 +50,6 @@ router.route("/api/favorites/:_id")
 	.get(favoriteController.showOneUserList)
 	.put(favoriteController.addAFavorite);
 
-//----------------------------------------------------------------//
-
-// router.route("/champions")
-// //GET----------
-//     .get(controller.champion_search);
-
-//----------------------------------------------------------------//
-// router.route("/newaccount")
-// 	.get(viewController.registerSuccess);
-
-// router.route("/profile/")
-//     .get(controller.login);
-
-// router.route("/register")
-//     .get(controller.register);
-//JSON RESPONSE
 
 module.exports = router;
 
