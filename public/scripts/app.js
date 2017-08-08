@@ -25,14 +25,12 @@ function $renderChampion(champion) {
                                     "<span class='champion-title'>" + champion.title + "</span> " +
                                 "</li>" +
                             "</ul>" +
-                        "</div>" +
+                    "</div>" +
             "</div> " +
     "</div>";   
 
     $('#champions').append(championHTML);
 }
-
-
 
 
 
@@ -74,6 +72,10 @@ function $renderModal(champion){
     $modal_content = $('<div>').addClass('modal_content_wrapper').append(modalHTML);
     $('#champion_modal').append($modal_content);
 }
+
+
+
+
 
 
 

@@ -105,7 +105,11 @@ div.landing#landingTwo {
 
 #add-champ-button{
 	display: inline-block;
-	float: right
+	float: right;
+	font-family: 'Asul',sans-serif ;
+	background: #151F24;
+	color: #FFF;
+	transition: all 1500ms;
 }
 .page-title {
 	font-family: 'Asul', sans-serif;

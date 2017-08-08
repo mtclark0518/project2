@@ -3,7 +3,7 @@
 	<div class="container-fluid">
 	<% if(currentUser) { %>
 
-		<h1 class="page-title text-center"><%= currentUser.summoner.name + "'s Homepage" %></h1>
+		<h1 class="page-title text-center"><%= currentUser.summoner.name  %></h1>
 	<% } else { %>
 		<h1 class="page-title text-center">Summoner Name</h1>
 	<% } %>
@@ -88,11 +88,11 @@
 		                            <h4 class="panel-title">
 		                				<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Your Favorite Champs
 		                				</a>
-										<div id='add-champ-button' class="text-right navbar-btn">
+										<div  class="text-right">
 												
 											<% if(currentUser) {%>
 												<a href= "../champions"> 
-													<button class= "btn btn-alert btn-xs">Logged in Add Champions
+													<button id='add-champ-button' class= "btn btn-alert btn-xs">Logged in Add Champions
 													</button>
 												</a>
 
@@ -114,6 +114,8 @@
 		                                	<% if (currentUser) { %>
 											<% var myFavs = currentUser.favorites %>
 		                                	<% for(var i = 0; i < myFavs.length; i++){ %>
+		                                		
+
 		                                		<li><%= myFavs[i] %></li>
 		                                	<% } %>
 		                                	<!--ADD CHAMPIONS TO LIST HERE -->
