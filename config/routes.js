@@ -46,7 +46,7 @@ router.route("/api/champions/:_id")
 router.route("/api/favorites")
 	.get(favoriteController.getAllUserLists);
 
-router.route("/api/favorites/:_id")
+router.route("/api/favorites/:_creator")
 	.get(favoriteController.showOneUserList)
 	.put(favoriteController.addAFavorite);
 

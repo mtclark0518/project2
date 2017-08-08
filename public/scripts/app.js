@@ -34,7 +34,7 @@ function $renderChampion(champion) {
 
 
 
-function $renderModal(champion){
+function $renderModal(champion, creator){
     $('.modal_content_wrapper').remove();
     var modalHTML = 
 
@@ -49,13 +49,12 @@ function $renderModal(champion){
 
                 "<div class='row'>" +
 
-                    "<form method='put'>" +
                         "<div class='input-group'>" +
-                            "<button id='addToFavs' name='submit' class='btn btn-default'>" +
+                            "<input id='new_fav_champ' type='hidden' value='"+champion+"'>" +
+                            "<button id='addToFavs' type='submit' class='btn btn-default'>" +
                             "<span class='glyphicon glyphicon-heart'></span>" +
                             "</button>" +
                         "</div>" +
-                    "</form>" +
 
                 "</div>" +
             "</div>" +
@@ -71,11 +70,16 @@ function $renderModal(champion){
 
     $modal_content = $('<div>').addClass('modal_content_wrapper').append(modalHTML);
     $('#champion_modal').append($modal_content);
+    console.log($modal_content);
 }
 
 
-
-
+function handleError(err) {
+    return console.log("error: " + err);
+}
+function foundChamp(champion){
+    console.log(champion);
+}
 
 
 
@@ -92,20 +96,20 @@ $(document).ready(function () {
         var $champion = $(this).parents('.champion').data('champion-id');
         var $creator = $('#current_User')[0].innerHTML;
             $.ajax({
-        method : 'get',
-        url : '/api/champions/' + $champion,
-        failure : function(err){return console.log("error: " + err);},
-        success: function(champion){
-            console.log(champion);
-            $renderModal(champion);
-            $champ_modal.modal();
+                method : 'get',
+                url : '/api/champions/' + $champion,
+                failure : function(err){return console.log("error: " + err);},
+                success: function(champion){
+                    console.log(champion);
+                    $renderModal(champion, $creator);
+                    $champ_modal.modal();
         //CLICK EVENT TO ADD CHAMPION TO FAVORITE LIST
-            $champ_modal.on('click', '#addToFavs', function(e) {
-                $addChampToFavorites(e);
-                }); 
-            }
-        });
-    });
+                    $champ_modal.on('click', '#addToFavs', function(e) {
+                        $addChampToFavorites(e, champion);
+                        }); 
+                    }
+                });
+            });
 
 
 
@@ -126,17 +130,22 @@ $(document).ready(function () {
         console.log(data);
         for(var i; i < updatedFavoriteList.length; i++){
             console.log(updatedFavoriteList[i]);
-        }
+            $.ajax({
+                method : 'get',
+                url : '/api/champions/' + updatedFavoriteList[i],
+                failure : handleError(),
+                success: foundChamp(champion)
+        });
     }
+}
 
     //ADD CHAMPIONS TO CURRENT USER'S FAVORITE LIST
-    function $addChampToFavorites(e) {
+    function $addChampToFavorites(e, champion) {
         e.preventDefault();
         var $creatorId = $('#current_User')[0].innerHTML;
-        var $champ = $('#champModal').data('champion-id');
         var newFavorite = {
             '_creator' : $creatorId,
-            '_champion' : $champ
+            '_champion' : champion
         };
         console.log(newFavorite);
 
@@ -155,7 +164,6 @@ $(document).ready(function () {
     }
 
 
-});
 // var currentUser = db.User.find({}, function(err, user) {
 //     return user.summoner_name;
 // });
@@ -199,3 +207,4 @@ $(document).ready(function () {
         // $('<li>').append(updatedFavoriteList[i]);
 
     
+});
