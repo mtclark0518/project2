@@ -3,7 +3,7 @@ var db = require('../models');
 
 
 
-var champions = [ 
+var champion_list = [ 
            {"tags": [
                 "Fighter",
                 "Tank"
@@ -1079,6 +1079,7 @@ var champions = [
 
 db.Champion.remove({}, function(err, champions) {
     db.Champion.create(champion_list, function(err, champions) {
+        if(err) throw err;
         console.log(champions);
     });
 });
