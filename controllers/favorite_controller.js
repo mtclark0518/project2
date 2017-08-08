@@ -60,7 +60,10 @@ function editAFavorite(req, res) {
 
 //DELETE A FAVORITE FROM THE LIST
 function deleteAFavorite(req, res) {
+	db.FavoriteList.findOne({_id : favoritelist._creator}, function(err, favoritelist) {
+		if(err) return console.log("error: " + err);
 
+	});
 }
 
 

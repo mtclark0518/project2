@@ -14,28 +14,36 @@
 </head>
 <body>
 <nav id='nav' class="navbar navbar-default container-fluid">
+	<div class="container">
+
 	<ul class="nav nav-tabs">
+		<li href="#">
+    		<img src="../../public/images/lol.png" width="30" height="30" alt="">
+  		</li>
 		<li role="presentation" class="dropdown">
 			<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
 		      Endpoints <span class="caret"></span>
 		    </a>
 		    <ul class="dropdown-menu">
-			    <li class=""><a href="#">GET</a></li>
-			    <li class=""><a href="#">/api</a></li>
+			    <li class="li-head list-group-item">Active API Links</li>
+			    <li class=""><a href="/api/champions">GET: /api/champions</a></li>
+			    <li class=""><a href="/api/favorites">GET: /api/favorites</a></li>
 			    
 			    <li role="separator" class="divider"></li>
-	    		<li class=""><a href="#">Another action</a></li>
-	   			<li class=""><a href="#">Something else here</a></li>
+			    <li class="li-head list-group-item">API Routes</li>
+	    		<li class=""><a href="#">GET: /api/champions/:_id</a></li>
+	   			<li class=""><a href="#">GET: /api/favorites/:_creator else here</a></li>
+	   			<li class=""><a href="#">PUT: /api/favorites/:_creator else here</a></li>
 	    		
 	    		<li role="separator" class="divider"></li>
-	    		<li class=""><a href="#">Separated link</a></li>
+	    		<li class="li-head list-group-item"><a href="#">Additional Routes</a></li>
 			</ul>
 		</li>
 		
 	
 		
 		<% if(currentUser) {%>
-			<li><a href="/logout">Logout:  <%= "  " + currentUser.summoner.name %> </a></li>
+			<li><a href="/logout">Logout:  <%= "    " + currentUser.summoner.name %> </a></li>
 		<% } else { %>
 			<li><a href="/login">Login</a></li>
             <li><a href="/signup">Signup</a></li>
@@ -54,9 +62,16 @@
 	    		<li role="separator" class="divider"></li>
 	    		<li class=""><a href="#">Separated link</a></li>
 		    </ul>
-		</li>
+		</li>		
+		<% if(currentUser) {%>
+			<li><a href="/profile/<%= currentUser.local.email %>">Profile</a></li>
+		<% } else { %>
+			<li><a href="/login">Login</a></li>
+            <li><a href="/signup">Signup</a></li>
+			<% } %>
 		<li role="presentation">
-			<a href="#">Profile</a>
+			<a href="/profile/<">Profile</a>
 		</li>
 	</ul>
+	</div>
 </nav>	

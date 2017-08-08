@@ -107,9 +107,23 @@ $(document).ready(function () {
                     $champ_modal.on('click', '#addToFavs', function(e) {
                         $addChampToFavorites(e, champion);
                         }); 
-                    }
-                });
+                }
             });
+    });
+    
+    $('#favorite_list').on('click', '.favorite-list-item', function(e) {
+        var $creator = $('#current_User')[0].innerHTML;
+            $.ajax({
+                method: 'delete',
+                url: '/api/favorites/'+ $creator + '/' + favToRemove,
+                failure: function(err){return console.log("error: " + err);},
+                success: function(e){
+                    $removeChampFromFavorites(e);
+                }
+
+            });
+
+    });
 
 
 
@@ -158,6 +172,9 @@ $(document).ready(function () {
                 $appendChampToProfile(data);
             }
         });
+    }
+    function $removeChampFromFavorites(e) {
+        e.preventDefault();
     }
 
 

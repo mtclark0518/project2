@@ -81,6 +81,14 @@ div.landing#landingTwo {
 	min-height: 650px;
 
 }
+.page-title {
+	font-family: 'Asul', sans-serif;
+	font-weight: 700;
+	color: #FFDD83;
+}
+#current_user{
+	display: none;
+}
 .authentication-page{
 	position: relative;
 	border: 2px solid #B29B5C;;
@@ -103,6 +111,8 @@ div.landing#landingTwo {
 	transition: all 1500ms;
 }
 
+
+/*PROFILE*/
 #add-champ-button{
 	display: inline-block;
 	float: right;
@@ -111,11 +121,18 @@ div.landing#landingTwo {
 	color: #FFF;
 	transition: all 1500ms;
 }
-.page-title {
-	font-family: 'Asul', sans-serif;
-	font-weight: 700;
-	color: #FFDD83;
+/*FAVORITE-LIST*/
+
+.favorite-list-item{
+	display: inline-block;
 }
+
+.img-frame{
+	max-width: 45px;
+	max-height: 45px;
+}
+
+
 .champion-name {
 	font-family: 'Asul', sans-serif;
 	font-weight: 700;
@@ -131,6 +148,7 @@ div.landing#landingTwo {
 #champion_backframe{
 	background: #D7D8DA;
 }
+
 #footer {	
 	font-family: 'Lato', sans-serif;
 	background: #AE975A;
