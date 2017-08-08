@@ -8,19 +8,7 @@ div.landing {
 	width: 100%;
 	height: 100%;
 }
-div.landing#landingOne {
-	left: 0%;
-	background: #162024;
-	background-size: cover;
-	background-repeat: no-repeat; 
 
-}
-div.landing#landingTwo {
-	right: 0%;
-	background: #162024;
-	background-size: cover;
-	background-repeat: no-repeat; 
-}
 #landingContainer{
 	position: relative;
 	padding: none;
@@ -30,6 +18,12 @@ div.landing#landingTwo {
 	background-size: cover; 
 	min-height: 650px;
 
+}
+#landingLayer{
+	/*position: relative;*/
+	background-image: url('../images/league_logo.png');
+	/*background-size: contain;*/
+	background-repeat: no-repeat; 
 }
 #landingContent{
 	position: relative;
@@ -84,7 +78,7 @@ div.landing#landingTwo {
 .page-title {
 	font-family: 'Asul', sans-serif;
 	font-weight: 700;
-	color: #FFDD83;
+	color: rgba(227, 179, 102, 1.0);
 }
 #current_User{
 	color: transparent;
@@ -125,7 +119,9 @@ div.landing#landingTwo {
 
 
 
-
+div#logo{
+	poition: relative;
+}
 
 
 .img-frame{
@@ -145,9 +141,24 @@ div.landing#landingTwo {
  	color: #151F24;
 
 }
+.modal-champion-title {
+	font-family: 'Lato', sans-serif;
+ 	color: rgba(215, 216, 218, 1.0);
+
+}
 
 #champion_backframe{
 	background: #D7D8DA;
+}
+.modal-content{
+	background: transparent;
+}
+.modal-body{
+	background: rgba(21, 31, 36, 0.9);
+}
+
+.logo-container{
+
 }
 
 #footer {	
@@ -161,3 +172,6 @@ div.landing#landingTwo {
 
 
 
+.title-words{
+
+}

@@ -51,6 +51,11 @@ router.route("/api/favorites/:_creator")
 	.put(favoriteController.addAFavorite);
 
 router.route("/api/favorites/:_creator/:favorite")
+	.get(favoriteController.getOneFavorite)
 	.delete(favoriteController.deleteAFavorite);
+
+
+
+
 module.exports = router;
 

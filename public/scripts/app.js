@@ -1,5 +1,10 @@
+
+
+//STATIC DATABASE INFORMATION CALLS(PICS)
 var ddragonChampPNG = "http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/";
 var ddragonLoadSkinJPG = "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/";
+
+
 var $champ_modal;
 var $modal_content;
 
@@ -9,14 +14,12 @@ var $modal_content;
 function $renderChampion(champion) {
     var championHTML = 
 
-    "<div class='col-xs-12 col-sm-6 col-lg-4 champion' data-champion-id='" + champion._id + "'>" +
+    "<div class='col-xs-12 col-sm-6 col-lg-4 champion'>" +
             "<div class='container-fluid list-group-item'>" +
-                    
-                       
-                        "<div class='col-xs-4 col-sm-5 champion-sprite'>" +
-                            "<img class='champ-img-small img-responsive img-thumbnail' src= '" + ddragonChampPNG + champion.key + ".png'>"    + 
+                        "<div class='col-xs-6 col-sm-6 champion-sprite'>" +
+                            "<img class='champ-img img img-responsive img-thumbnail' src= '" + ddragonChampPNG + champion.key + ".png'>"    + 
                         "</div>" +
-                        "<div class='col-xs-7 col-sm-6'> " +
+                        "<div class='col-xs-6 col-sm-6'> " +
                             "<ul class='champ-cards text-center'>  " +
                                 "<li class='list-item'>" +
                                     "<span class='champion-name'><b>" + champion.key + "</b></span>  " +
@@ -39,29 +42,26 @@ function $renderModal(champion, creator){
     var modalHTML = 
 
         "<div class='modal-body container col-xs-10 col-xs-offset-1'>" +
-            "<div class='col-xs-4'>" +
-                
-                "<div class='row'>" +
+            "<div class='col-xs-6'>" + 
                     "<div class='champ_profile_img col-xs-12'>" +
                         "<img class='img img-responsive' src='http://ddragon.leagueoflegends.com/cdn/img/champion/loading/"+ champion.key + "_0.jpg'>" +
                     "</div> " +
-                "</div>" +
-
-                "<div class='row'>" +
-
-                        "<div class='input-group'>" +
-                            "<input id='new_fav_champ' type='hidden' value='"+champion+"'>" +
-                            "<button id='addToFavs' type='submit' class='btn btn-default'>" +
-                            "<span class='glyphicon glyphicon-heart'></span>" +
-                            "</button>" +
-                        "</div>" +
-
-                "</div>" +
+            "</div>" +
+            "<div class='input-group col-xs-1'>" +
+                "<input id='new_fav_champ' for='addToFavs' type='hidden' value='" + champion + "'>" +
+                "<button id='addToFavs' type='submit' class='btn btn-default'>" +
+                "<span class='glyphicon glyphicon-heart'></span>" +
+                "</button>" +
             "</div>" +
 
-            "<div class='col-xs-8'>" +
+
+            "<div class='col-xs-6'>" +
                 "<div class='row'>" +
                     "<h4 class='modal-title page-title'>" + champion.name + "</h4>" +
+
+                "</div>" +
+                "<div class='row'>" +
+                    "<h5 class='modal-title modal-champion-title'>" + champion.title + "</h5>" +
 
                 "</div>" +
  
@@ -111,19 +111,23 @@ $(document).ready(function () {
             });
     });
     
-    $('#favorite_list').on('click', '.remove-list-item', function(e) {
-        var $creator = $('#current_User')[0].innerHTML;
-            $.ajax({
-                method: 'delete',
-                url: '/api/favorites/'+ $creator + '/' + favToRemove,
+    $('#favorite_list').on('click', '.remove-favorite', function(e) {
+        // var $creator = $('#current_User');
+        var favToRemove = $(this);
+        console.log(favToRemove);
+        $removeChampFromFavorites(e, favToRemove);    
+    });
+
+    function $removeChampFromFavorites(e, favorite) {
+        $.ajax({
+            method: 'get',
+            url: '/api/favorites/'+ req.user._id + '/' + favorite,
                 failure: function(err){return console.log("error: " + err);},
                 success: function(e){
-                    $removeChampFromFavorites(e);
                 }
 
-            });
-
-    });
+            });console.log('done');
+    }
 
 
 
@@ -135,8 +139,7 @@ $(document).ready(function () {
                 $renderChampion(parsedChampion[i]);
             }
         });
-
-      
+   
 
 
     function $appendChampToProfile(data){
@@ -173,9 +176,7 @@ $(document).ready(function () {
             }
         });
     }
-    function $removeChampFromFavorites(e) {
-        console.log('done');
-    }
+
 
 
 // var currentUser = db.User.find({}, function(err, user) {
@@ -208,17 +209,4 @@ $(document).ready(function () {
     //         console.log(data + "is the data from the request");
     //     }
 
-    // });
-    // favoriteList.push(champion);
-    // console.log(favoriteList);
-    // var $profileList = $('#favorite_list');
-
-
-            // var listDiv = document.getElementById('favorite_list');
-
-        // console.log(listDiv);
-
-        // $('<li>').append(updatedFavoriteList[i]);
-
-    
 });

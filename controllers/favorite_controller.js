@@ -20,11 +20,21 @@ function showOneUserList(req, res) {
 	});
 }
 
+function getOneFavorite(req, res) {
+	db.FavoriteList.findOne({_creator : req.user._id}, function(err, favoritelist) {
+		if (err) return console.log('error: ' + err);
+
+		db.Champion.findOne({_id : req.params.favorite}, function(err, champion) {
+			if (err) return console.log('error: ' + err);
+			res.json(champion);
+		});
+
+	});
+}
+
 
 //ADD A NEW FAVORITE TO LIST
 function addAFavorite(req, res) {
-
-
 	db.FavoriteList.findOne({ _creator : req.user._id}, function(err, favoritelist) {
 		if (err) return console.log("error: " + err);
 		favoritelist.champion.push(req.body._champion);
@@ -39,12 +49,6 @@ function addAFavorite(req, res) {
 				user.save(function(err) {
 					if(err) return console.log('error: ' + err);
 				});
-				// 	if(err) return console.log("error: " + err);
-				// 	for(var i = 0; i < userFavorites.length; i++){
-				// 		// console.log(userFavorites[i]);
-				// 	}
-
-				// console.log(user);
 			});
 			res.send(favoritelist);
 		});
@@ -67,8 +71,7 @@ function deleteAFavorite(req, res) {
 		{$pull:{champion : req.body.champion}},
 		{upsert: true}, function(err, favorite) {
 		if(err) return console.log("error: " + err);
-		res.send(favorite);
-		res.redirect('/profile/'+req.user.local.email);
+		return res.redirect('/profile/'+req.user.local.email);
 	});
 }
 
@@ -76,6 +79,7 @@ function deleteAFavorite(req, res) {
 module.exports = {
 	getAllUserLists : getAllUserLists,
 	showOneUserList : showOneUserList,
+	getOneFavorite : getOneFavorite,
 	addAFavorite : addAFavorite,
 	editAFavorite : editAFavorite,
 	deleteAFavorite : deleteAFavorite
