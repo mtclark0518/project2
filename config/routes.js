@@ -40,6 +40,9 @@ router.route("/champions")
 router.route("/api/champions")
 	.get(championController.getChamps);
 
+router.route("/api/champions/:_id")
+	.get(championController.showOneChamp);
+
 router.route("/api/favorites")
 	.get(favoriteController.getAllUserLists);
 

@@ -23,6 +23,7 @@
     "mongoose": "^4.11.4",
     "mongoose-findorcreate": "^2.0.0",
     "morgan": "^1.8.2",
+    "mpromise": "^0.5.5",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "request": "^2.81.0"

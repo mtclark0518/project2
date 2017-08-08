@@ -1,28 +1,7 @@
 var ddragonChampPNG = "http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/";
 var ddragonLoadSkinJPG = "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/";
-var favoriteList = [];
 
 
-// var currentUser = db.User.find({}, function(err, user) {
-//     return user.summoner_name;
-// });
-// var $userData = $.ajax({
-//         method: "GET",
-//         url: "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/"+ currentUser,
-//         headers: {
-//             "Origin": "https://developer.riotgames.com",
-//             "Accept-Charset": "application/x-www-form-urlencoded; charset=UTF-8",
-//             "X-Riot-Token": "RGAPI-260b64e5-95d3-4545-a18d-3f4ada31dc8e",
-//             "Accept-Language": "en-US,en;q=0.8",
-//             "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
-//         },
-//         failure: function(err) {
-//             return console.log("error: "+ err);
-//         },
-//         success: function(data){
-//             res.send(json);
-//             console.log(json);
-//         }
 
 
 function $renderChampion(champion) {
@@ -50,9 +29,66 @@ function $renderChampion(champion) {
 
     $('#champions').append(championHTML);
 }
-//UPDATE THE USERS FAVORITE LIST ON THEIR PROFILE
 
 
+
+
+
+function $renderModal(champion){
+    var modalHTML = 
+
+"<div class='modal-header'>" +
+    "<button type='button' class='btn btn-xs close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button>" +
+    "<h4 class='modal-title'>Champion Name</h4>" +
+"</div>" +
+
+"<form id='addToFavs' method='post' action='/login' class='form-horizontal'>" +
+"<div class='container'>" +
+"<div class='col-xs-10 col-xs-offset-1'>" +
+"<div class='row'>" +
+"<div class='col-xs-4 col-xs-offset-1 text-center'>" +
+"<h1 class='page-name'>Champion</h1>" +
+"</div>" +
+"</div>" +
+
+
+"<div class='row'>" +
+"</div>" +
+"</div>" +
+
+"</div>" +
+"</form>" +
+
+
+
+
+"<!-- CHAMPION PROFILE IMAGE-->" +
+"<div class='form-group col-xs-2'>" +
+    "<div class='champ_profile_img col-xs-12'>" +
+"<img class='img img-responsive' src='http://ddragon.leagueoflegends.com/cdn/img/champion/loading/"+ champion.key + "_0.jpg'>" +
+"</div> " +
+"</div>" +
+
+
+<!-- CHAMPION INPUTS -->
+<div class="col-xs-6">
+<div class="input-group">
+<input type="text" class="sr-only form-control" value="Champion">
+<span class="input-group-btn">
+<button id="addChamp" class="btn btn-default" type="button">
+<span class="glyphicon glyphicon-plus-sign">
+<!-- glyphicon-minus-sign  (remove favorite) -->
+</span>
+</button>
+</span>
+</div><!-- /input-group -->                                 
+</div>
+
+
+
+
+    $('#champion_modal').append(modalHTML);
+}
 
 
 
@@ -63,16 +99,20 @@ $(document).ready(function () {
 
 
 
-    //ACTIVATE CHAMPION MODAL
-    
-
+    //LAUNCH CHAMPION MODAL 
     $('#champions').on('click', '.champ-img-small', function(e) {
+        
         var $champion = $(this).parents('.champion').data('champion-id');
-        console.log($champion);
         var $creator = $('#current_User')[0].innerHTML;
+        // $renderModal(e, $champion);
         var $champ_modal = $('#champModal').data('champion-id', $champion);
-        $champ_modal.modal();
 
+
+
+        console.log($champion);
+
+        $champ_modal.modal();
+        $renderModal();
         //CLICK EVENT TO ADD CHAMPION TO FAVORITE LIST
         $champ_modal.on('click', '#addChamp', function(e) {
             $addChampToFavorites(e);
@@ -90,28 +130,12 @@ $(document).ready(function () {
 
         
     function $appendChampToProfile(data){
-        // var listDiv = document.getElementById('favorite_list');
-        // console.log(listDiv);
         var updatedFavoriteList = data;
         console.log(data);
         for(var i; i < updatedFavoriteList.length; i++){
             console.log(updatedFavoriteList[i]);
-        // $('<li>').append(updatedFavoriteList[i]);
     }
-    // $()
-    // $.ajax({
-    //     method: 'get',
-    //     url: '/api/favorites/' + _id,
-    //     failure: function(error){console.log("error: " + error);},
-    //     done: function(data){
-    //         console.log(data + "is the data from the request");
-    //     }
 
-    // });
-    // favoriteList.push(champion);
-    // console.log(favoriteList);
-    // var $profileList = $('#favorite_list');
-    
     }
 
     //ADD CHAMPIONS TO CURRENT USER'S FAVORITE LIST
@@ -141,5 +165,46 @@ $(document).ready(function () {
 
 
 });
+// var currentUser = db.User.find({}, function(err, user) {
+//     return user.summoner_name;
+// });
+// var $userData = $.ajax({
+//         method: "GET",
+//         url: "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/"+ currentUser,
+//         headers: {
+//             "Origin": "https://developer.riotgames.com",
+//             "Accept-Charset": "application/x-www-form-urlencoded; charset=UTF-8",
+//             "X-Riot-Token": "RGAPI-260b64e5-95d3-4545-a18d-3f4ada31dc8e",
+//             "Accept-Language": "en-US,en;q=0.8",
+//             "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
+//         },
+//         failure: function(err) {
+//             return console.log("error: "+ err);
+//         },
+//         success: function(data){
+//             res.send(json);
+//             console.log(json);
+//         }
+
+    // $()
+    // $.ajax({
+    //     method: 'get',
+    //     url: '/api/favorites/' + _id,
+    //     failure: function(error){console.log("error: " + error);},
+    //     done: function(data){
+    //         console.log(data + "is the data from the request");
+    //     }
+
+    // });
+    // favoriteList.push(champion);
+    // console.log(favoriteList);
+    // var $profileList = $('#favorite_list');
 
 
+            // var listDiv = document.getElementById('favorite_list');
+
+        // console.log(listDiv);
+
+        // $('<li>').append(updatedFavoriteList[i]);
+
+    
