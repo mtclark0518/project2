@@ -160,6 +160,7 @@ $(document).ready(function() {
     //DELETE A FAVORITE FROM THE USERS FAVORITE LIST
     $('#favorite_list').on('click', '.remove-list-item', function(e) {
         var $creator = $('#current_User')[0].innerHTML;
+        console.log($creator);
         $.ajax({
             method: 'delete',
             url: '/api/favorites/' + $creator + '/' + favToRemove,

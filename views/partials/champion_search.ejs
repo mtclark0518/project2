@@ -16,7 +16,6 @@
 				</div>
 		    </div>
 				
-
 			<div class="form-group col-sm-6">
 				<div class="input-group">
 				<span class="label label-default">label</span> 
@@ -28,28 +27,28 @@
 	</div>
 </div>
 
-	<section id="champion_container" class="container">
-		<div class="container-fluid">
-			<div class="row">
-				<div class=" col-xs-12 col-md-10 col-md-offset-1">
-					<% if (currentUser) { %>
-						<h5 id="current_User"> <%= thisUser %> </h5>
-					<% }else{ %>
-						<h5>Champions</h5>
-					<% } %>	
-				</div>
-			</div>
-			
-			<div id=champion_backframe container-fluid>
-				<div class="row">
-				<!--Where Champs Go-->
-					<div id='champions'>
-					</div>
-				<!--Where Champs Stop -->
-				</div>
+<section id="champion_container" class="container">
+	<div class="container-fluid">
+		<div class="row">
+			<div class=" col-xs-12 col-md-10 col-md-offset-1">
+				<% if (currentUser) { %>
+					<h5 id="current_User"> <%= thisUser %> </h5>
+				<% }else{ %>
+					<h5>Champions</h5>
+				<% } %>	
 			</div>
 		</div>
-	</section>
+		
+		<div id=champion_backframe container-fluid>
+			<div class="row">
+			<!--Where Champs Go-->
+				<div id='champions'>
+				</div>
+			<!--Where Champs Stop -->
+			</div>
+		</div>
+	</div>
+</section>
 
 <!-- begin champModal: this is not visible until you call .modal() on it -->
 <div class="modal fade" tabindex="-1" role="dialog" id="champModal">
