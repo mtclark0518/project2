@@ -1,21 +1,23 @@
-var ddragonChampPNG = "https://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/";
-var ddragonLoadSkinJPG = "https://ddragon.leagueoflegends.com/cdn/img/champion/loading/";
+const ddragonChampPNG = "https://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/";
+const ddragonLoadSkinJPG = "https://ddragon.leagueoflegends.com/cdn/img/champion/loading/";
 var $champ_modal;
 var $modal_content;
 
 
+// HTML STRING BUILDS
+/////////////////////
 
-
+//ADDS CHAMPION IMAGES TO CHAMPION PAGE
 function $renderChampion(champion) {
     var championHTML =
 
         "<div class='col-xs-12 col-sm-6 col-lg-4 champion' data-champion-id='" + champion._id + "'>" +
         "<div class='container-fluid list-group-item'>" +
 
-
-        "<div class='col-xs-4 col-sm-5 champion-sprite'>" +
+        "<div class='col-xs-4 col-sm-5 champion-thumb'>" +
         "<img class='champ-img-small img-responsive img-thumbnail' src= '" + ddragonChampPNG + champion.key + ".png'>" +
         "</div>" +
+
         "<div class='col-xs-7 col-sm-6'> " +
         "<ul class='champ-cards text-center'>  " +
         "<li class='list-item'>" +
@@ -26,6 +28,7 @@ function $renderChampion(champion) {
         "</li>" +
         "</ul>" +
         "</div>" +
+
         "</div> " +
         "</div>";
 
@@ -33,7 +36,7 @@ function $renderChampion(champion) {
 }
 
 
-
+//CREATES CHAMPION MODAL WHEN USER CLICKS ON A CHAMPION
 function $renderModal(champion, creator) {
     $('.modal_content_wrapper').remove();
     var modalHTML =
@@ -47,7 +50,6 @@ function $renderModal(champion, creator) {
         "</div> " +
         "</div>" +
         "</div>" +
-
 
         "<div class='col-xs-1'>" +
         "<div class='row'>" +
@@ -77,22 +79,10 @@ function $renderModal(champion, creator) {
 }
 
 
-function handleError(err) {
-    return console.log("error: " + err);
-}
-
-function foundChamp(champion) {
-    console.log(champion.name);
-}
-
-
-
-
-
+//DOCUMENT READY STATEMENT
+////////////////////////////////
 $(document).ready(function() {
     console.log("hello world");
-
-
 
     //LAUNCH CHAMPION MODAL 
     $('#champions').on('click', '.champ-img-small', function(e) {
@@ -115,23 +105,7 @@ $(document).ready(function() {
         });
     });
 
-    $('#favorite_list').on('click', '.remove-list-item', function(e) {
-        var $creator = $('#current_User')[0].innerHTML;
-        $.ajax({
-            method: 'delete',
-            url: '/api/favorites/' + $creator + '/' + favToRemove,
-            failure: function(err) { return console.log("error: " + err); },
-            success: function(e) {
-                $removeChampFromFavorites(e);
-            }
-
-        });
-
-    });
-
-
-
-    //AJAX GET CHAMPIONS
+    //AJAX GET CHAMPIONS AND SEND TO BE RENDERED ON THE PAGE
     var champions = $.get('/api/champions')
         .done(function(data) {
             var parsedChampion = JSON.parse(champions.responseText);
@@ -139,21 +113,6 @@ $(document).ready(function() {
                 $renderChampion(parsedChampion[i]);
             }
         });
-
-
-
-
-    function $appendChampToProfile(data) {
-        var updatedFavoriteList = data;
-        for (var i; i < updatedFavoriteList.length; i++) {
-            $.ajax({
-                method: 'get',
-                url: '/api/champions/' + updatedFavoriteList[i],
-                failure: handleError(),
-                success: foundChamp(champion)
-            });
-        }
-    }
 
     //ADD CHAMPIONS TO CURRENT USER'S FAVORITE LIST
     function $addChampToFavorites(e, champion) {
@@ -163,8 +122,7 @@ $(document).ready(function() {
             '_creator': $creatorId,
             '_champion': champion
         };
-
-        // AJAX PUT REQUEST TO THE LIST
+        // AJAX REQUEST TO UPDATE USER FAVORITE LIST
         $.ajax({
             method: 'PUT',
             data: newFavorite,
@@ -178,30 +136,64 @@ $(document).ready(function() {
         });
     }
 
+    //AJAX REQUEST TO COMPILE USERS FAV CHAMPS AND SEND TO THE BROWSER       
+    function $appendChampToProfile(data) {
+        var updatedFavoriteList = data;
+        for (var i; i < updatedFavoriteList.length; i++) {
+            $.ajax({
+                method: 'get',
+                url: '/api/champions/' + updatedFavoriteList[i],
+                failure: handleError(),
+                success: foundChamp(champion)
+            });
+        }
+    }
+    //BASIC ERROR HANDLER FOR USER AJAX CALLS
+    function handleError(err) {
+        return console.log("error: " + err);
+    }
+    //USED TO FIND USERS FAVORITE CHAMPS
+    function foundChamp(champion) {
+        console.log(champion.name);
+    }
+
+    //DELETE A FAVORITE FROM THE USERS FAVORITE LIST
+    $('#favorite_list').on('click', '.remove-list-item', function(e) {
+        var $creator = $('#current_User')[0].innerHTML;
+        $.ajax({
+            method: 'delete',
+            url: '/api/favorites/' + $creator + '/' + favToRemove,
+            failure: function(err) { return console.log("error: " + err); },
+            success: function(e) {
+                $removeChampFromFavorites(e);
+            }
+        });
+    });
+
     function $removeChampFromFavorites(e) {
         console.log('done');
     }
 
 
-    // var currentUser = db.User.find({}, function(err, user) {
-    //     return user.summoner_name;
-    // });
-    // var $userData = $.ajax({
-    //         method: "GET",
-    //         url: "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/"+ currentUser,
-    //         headers: {
-    //             "Origin": "https://developer.riotgames.com",
-    //             "Accept-Charset": "application/x-www-form-urlencoded; charset=UTF-8",
-    //             "X-Riot-Token": "RGAPI-260b64e5-95d3-4545-a18d-3f4ada31dc8e",
-    //             "Accept-Language": "en-US,en;q=0.8",
-    //             "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
-    //         },
-    //         failure: function(err) {
-    //             return console.log("error: "+ err);
-    //         },
-    //         success: function(data){
-    //             res.send(json);
-    //             console.log(json);
-    //         }
+}); //<--CLOSES DOCUMENT.READY
 
-});
+// var currentUser = db.User.find({}, function(err, user) {
+//     return user.summoner_name;
+// });
+// var $userData = $.ajax({
+//         method: "GET",
+//         url: "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/"+ currentUser,
+//         headers: {
+//             "Origin": "https://developer.riotgames.com",
+//             "Accept-Charset": "application/x-www-form-urlencoded; charset=UTF-8",
+//             "X-Riot-Token": "RGAPI-260b64e5-95d3-4545-a18d-3f4ada31dc8e",
+//             "Accept-Language": "en-US,en;q=0.8",
+//             "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
+//         },
+//         failure: function(err) {
+//             return console.log("error: "+ err);
+//         },
+//         success: function(data){
+//             res.send(json);
+//             console.log(json);
+//         }
