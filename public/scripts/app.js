@@ -117,7 +117,7 @@ $(document).ready(function() {
     //ADD CHAMPIONS TO CURRENT USER'S FAVORITE LIST
     function $addChampToFavorites(e, champion) {
         e.preventDefault();
-        var $creatorId = $('#current_User')[0].innerHTML;
+        var $creatorId = $('.current_User')[0].innerHTML;
         var newFavorite = {
             '_creator': $creatorId,
             '_champion': champion
@@ -159,7 +159,7 @@ $(document).ready(function() {
 
     //DELETE A FAVORITE FROM THE USERS FAVORITE LIST
     $('#favorite_list').on('click', '.remove-list-item', function(e) {
-        var $creator = $('#current_User')[0].innerHTML;
+        var $creator = $('.current_User')[0].innerHTML;
         console.log($creator);
         $.ajax({
             method: 'delete',
