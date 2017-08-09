@@ -10,7 +10,8 @@
 
 <div class="container list-group-item"><!------MAIN BODY LAYERING STARTS HERE---- -->
 
-<% if(currentUser) { /%>
+<% if(currentUser) { %>
+	<% var thisUser = currentUser._id %>
 	<h5 class="current_User"> <%= thisUser %> </h5>
 <% } %>
 
@@ -65,7 +66,7 @@
 													<%= myFavs[i].key %>
 											</div>
 											<div class="col-xs-1">
-													<button class="remove-favorite btn btn-defaul btn-xs"><span class="glyphicon glyphicon-trash"></span></button>
+												<button class="remove-favorite btn btn-defaul btn-xs"><span class="glyphicon glyphicon-trash"></span></button>
 											</div>
 										</div>
 									</li>

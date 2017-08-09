@@ -120,7 +120,7 @@ $(document).ready(function() {
         var $creatorId = $('.current_User')[0].innerHTML;
         var newFavorite = {
             '_creator': $creatorId,
-            '_champion': champion
+            'champion': champion
         };
         // AJAX REQUEST TO UPDATE USER FAVORITE LIST
         $.ajax({
@@ -158,12 +158,14 @@ $(document).ready(function() {
     }
 
     //DELETE A FAVORITE FROM THE USERS FAVORITE LIST
-    $('#favorite_list').on('click', '.remove-list-item', function(e) {
-        var $creator = $('.current_User')[0].innerHTML;
-        console.log($creator);
+    $('#favorite_list').on('click', '.remove-favorite', function(e) {
+        var $user = $('.current_User')[0].innerHTML;
+        var favToRemove = $(this).parents('.favorite-list-item');
+        console.log($user);
+        console.log(favToRemove);
         $.ajax({
             method: 'delete',
-            url: '/api/favorites/' + $creator + '/' + favToRemove,
+            url: '/api/favorites/' + $user + '/' + favToRemove,
             failure: function(err) { return console.log("error: " + err); },
             success: function(e) {
                 $removeChampFromFavorites(e);
