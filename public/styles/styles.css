@@ -1,169 +1,186 @@
-
 body {
-	background: #09090C;	
+    background: #09090C;
 }
+
 div.landing {
-	position: absolute;
-	z-index: -1;
-	width: 100%;
-	height: 100%;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
 }
+
 div.landing#landingOne {
-	left: 0%;
-	background: #162024;
-	background-size: cover;
-	background-repeat: no-repeat; 
-
+    left: 0%;
+    background: #162024;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
+
 div.landing#landingTwo {
-	right: 0%;
-	background: #162024;
-	background-size: cover;
-	background-repeat: no-repeat; 
+    right: 0%;
+    background: #162024;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
-#landingContainer{
-	position: relative;
-	padding: none;
-	margin: none;
-	background-image: url('../images/landingBackground.jpg');
-	background-repeat: no-repeat;
-	background-size: cover; 
-	min-height: 650px;
 
+#landingContainer {
+    position: relative;
+    padding: none;
+    margin: none;
+    background-image: url('../images/landingBackground.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 650px;
 }
-#landingContent{
-	position: relative;
-	border: 2px solid #B29B5C;;
-	background: rgba(0,0,0,0.7);
-	padding-top: 150px; 
-	padding-bottom: 150px;
-	top: 50px;
 
-	}
-#landingContent button{
-	font-family: 'Asul',sans-serif ;
-	background: #151F24;
-	color: #FFF;
-	transition: all 1500ms;
+#landingContent {
+    position: relative;
+    border: 2px solid #B29B5C;
+    ;
+    background: rgba(0, 0, 0, 0.7);
+    padding-top: 150px;
+    padding-bottom: 150px;
+    top: 50px;
 }
-#landingContent button:hover{
-	background: #0F1619;
-	color: #B29B5C;
 
-	transition: all 1500ms;
-}	
+#landingContent button {
+    font-family: 'Asul', sans-serif;
+    background: #151F24;
+    color: #FFF;
+    transition: all 1500ms;
+}
+
+#landingContent button:hover {
+    background: #0F1619;
+    color: #B29B5C;
+    transition: all 1500ms;
+}
+
 #nav {
-	background: #162024;
+    background: #162024;
+    color: #FFDD83;
+    font-family: 'Asul', sans-serif;
+    font-weight: 400;
+    border: none;
+}
 
-	color: #ECECFF;
-	font-family: 'Asul', sans-serif;
-	font-weight: 400;
-	border: none;
+#nav li a {
+    text-decoration: none;
+    color: #B29B5C;
+    transition: all 1500ms;
 }
-#nav li a{
-	text-decoration: none;
-	color: #B29B5C;
-	transition: all 1500ms; 
 
+#nav li a:hover {
+    transition: all 1500ms;
+    color: #FFDD83;
 }
-#nav li a:hover{
-	transition: all 1500ms;
-	color:#FFDD83;
-}
+
+
 /*PAGE STYLES*/
-.page-wrapper{
-	position: relative;
-	padding: none;
-	margin: none;
-	background-image: url('../images/landingBackground.jpg');
-	background-repeat: no-repeat;
-	background-size: cover; 
-	min-height: 650px;
 
+.page-wrapper {
+    position: relative;
+    padding: none;
+    margin: none;
+    background-image: url('../images/landingBackground.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 650px;
 }
+
 .page-title {
-	font-family: 'Asul', sans-serif;
-	font-weight: 700;
-	color: #FFDD83;
+    font-family: 'Asul', sans-serif;
+    font-weight: 700;
+    color: #B29B5C;
 }
-#current_User{
-	color: transparent;
-}
-.authentication-page{
-	position: relative;
-	border: 2px solid #B29B5C;;
-	background: rgba(0,0,0,0.7);
-	padding-top: 150px; 
-	padding-bottom: 150px;
-	top: 50px;
 
+#current_User {
+    color: transparent;
 }
-.authentication-submit-button{
-	font-family: 'Asul',sans-serif ;
-	background: #151F24;
-	color: #FFF;
-	transition: all 1500ms;
-}
-.authentication-submit-button:hover{
-	background: #0F1619;
-	color: #B29B5C;
 
-	transition: all 1500ms;
+.authentication-page {
+    position: relative;
+    border: 2px solid #B29B5C;
+    ;
+    background: rgba(0, 0, 0, 0.7);
+    padding-top: 150px;
+    padding-bottom: 150px;
+    top: 50px;
+}
+
+.authentication-submit-button {
+    font-family: 'Asul', sans-serif;
+    background: #151F24;
+    color: #FFF;
+    transition: all 1500ms;
+}
+
+.authentication-submit-button:hover {
+    background: #0F1619;
+    color: #B29B5C;
+    transition: all 1500ms;
 }
 
 
 /*PROFILE*/
-#add-champ-button{
-	display: inline-block;
-	float: right;
-	font-family: 'Asul',sans-serif ;
-	background: #151F24;
-	color: #FFF;
-	transition: all 1500ms;
+
+#add-champ-button {
+    display: inline-block;
+    font-family: 'Asul', sans-serif;
+    background: #151F24;
+    color: rgba(255, 201, 114, 1.0);
+    transition: all 1500ms;
 }
+
+
 /*FAVORITE-LIST*/
 
-
-.img-frame{
-	width: 75px;
-	height: 75px;
+.img-frame {
+    width: 75px;
+    height: 75px;
 }
-
 
 .champion-name {
-	font-family: 'Asul', sans-serif;
-	font-weight: 700;
-	color: #151F24;
-	font-size: 2em;
+    font-family: 'Asul', sans-serif;
+    font-weight: 700;
+    color: #151F24;
+    font-size: 2em;
 }
+
 .champion-title {
-	font-family: 'Lato', sans-serif;
- 	color: #151F24;
+    font-family: 'Lato', sans-serif;
+    color: #151F24;
 }
 
-#champion_backframe{
-	background: rgba(22, 32, 36, 0.6);
+#champion_backframe {
+    background: rgba(22, 32, 36, 0.6);
 }
 
-.summnr-container{
-	position: relative;
-	z-index: 100;
-	height: 40px;
-margin-bottom: 100px; 
-	background-image: url('/images/summnr_ui.png');
-	background-repeat: no-repeat;
-	background-size: contain;
+.modal-body {
+    background: rgba(21, 31, 36, .8);
 }
 
-#footer {	
-	background: rgba(22, 32, 36, 0.6);
-	color: rgba(178, 155, 92, 1.0);
-	font-family: 'Asul', sans-serif;
-	font-weight: 400;
-	border: none;
-	margin-top: 25px;
-	height: 25px;
+.modal-body-content {
+    font-family: 'Lato', sans-serif;
+    color: rgba(255, 201, 114, 1.0);
 }
 
+.summnr-container {
+    position: relative;
+    z-index: 100;
+    height: 40px;
+    margin-bottom: 100px;
+    background-image: url('/images/summnr_ui.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
 
-
+#footer {
+    background: rgba(22, 32, 36, 0.6);
+    color: rgba(178, 155, 92, 1.0);
+    font-family: 'Asul', sans-serif;
+    font-weight: 400;
+    border: none;
+    margin-top: 25px;
+    height: 25px;
+}

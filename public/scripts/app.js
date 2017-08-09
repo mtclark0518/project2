@@ -39,32 +39,36 @@ function $renderModal(champion, creator) {
     var modalHTML =
 
         "<div class='modal-body container col-xs-10 col-xs-offset-1'>" +
+
         "<div class='col-xs-4'>" +
         "<div class='row'>" +
         "<div class='champ_profile_img col-xs-12'>" +
         "<img class='img img-responsive' src='https://ddragon.leagueoflegends.com/cdn/img/champion/loading/" + champion.key + "_0.jpg'>" +
         "</div> " +
         "</div>" +
+        "</div>" +
 
+
+        "<div class='col-xs-1'>" +
         "<div class='row'>" +
-
         "<div class='input-group'>" +
         "<input id='new_fav_champ' type='hidden' value='" + champion + "'>" +
         "<button id='addToFavs' type='submit' class='btn btn-default'>" +
         "<span class='glyphicon glyphicon-heart'></span>" +
         "</button>" +
         "</div>" +
-
         "</div>" +
         "</div>" +
 
-        "<div class='col-xs-8'>" +
+        "<div class='col-xs-7'>" +
         "<div class='row'>" +
         "<h4 class='modal-title page-title'>" + champion.name + "</h4>" +
-
+        "</div>" +
+        "<div class='row'>" +
+        "<h4 class='modal-body-content'>" + champion.title + "</h4>" +
+        "</div>" +
         "</div>" +
 
-        "</div>" +
         "</div>";
 
     $modal_content = $('<div>').addClass('modal_content_wrapper').append(modalHTML);
