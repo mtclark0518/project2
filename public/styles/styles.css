@@ -37,7 +37,7 @@ div.landing#landingTwo {
 	background: rgba(0,0,0,0.7);
 	padding-top: 150px; 
 	padding-bottom: 150px;
-	top: 100px;
+	top: 50px;
 
 	}
 #landingContent button{
@@ -124,10 +124,6 @@ div.landing#landingTwo {
 /*FAVORITE-LIST*/
 
 
-
-
-
-
 .img-frame{
 	width: 75px;
 	height: 75px;
@@ -143,11 +139,20 @@ div.landing#landingTwo {
 .champion-title {
 	font-family: 'Lato', sans-serif;
  	color: #151F24;
-
 }
 
 #champion_backframe{
-	background: #D7D8DA;
+	background: rgba(22, 32, 36, 0.6);
+}
+
+.summnr-container{
+	position: relative;
+	z-index: 100;
+	height: 40px;
+margin-bottom: 100px; 
+	background-image: url('/images/summnr_ui.png');
+	background-repeat: no-repeat;
+	background-size: contain;
 }
 
 #footer {	
@@ -156,7 +161,8 @@ div.landing#landingTwo {
 	font-family: 'Asul', sans-serif;
 	font-weight: 400;
 	border: none;
-	padding-top: 35px;
+	margin-top: 25px;
+	height: 25px;
 }
 
 
