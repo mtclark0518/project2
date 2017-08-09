@@ -43,7 +43,7 @@ function $renderModal(champion, creator){
                 
                 "<div class='row'>" +
                     "<div class='champ_profile_img col-xs-12'>" +
-                        "<img class='img img-responsive' src='http://ddragon.leagueoflegends.com/cdn/img/champion/loading/"+ champion.key + "_0.jpg'>" +
+                        "<img class='img img-responsive' src='https://ddragon.leagueoflegends.com/cdn/img/champion/loading/"+ champion.key + "_0.jpg'>" +
                     "</div> " +
                 "</div>" +
 
