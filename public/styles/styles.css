@@ -1,5 +1,5 @@
 body {
-    background: #09090C;
+    background: #151F24;
 }
 
 div.landing {
@@ -11,14 +11,14 @@ div.landing {
 
 div.landing#landingOne {
     left: 0%;
-    background: #162024;
+    background: #151F24;
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 div.landing#landingTwo {
     right: 0%;
-    background: #162024;
+    background: #151F24;
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -51,14 +51,14 @@ div.landing#landingTwo {
 }
 
 #landingContent button:hover {
-    background: #0F1619;
+    background: #151F24;
     color: #B29B5C;
     transition: all 1500ms;
 }
 
 #nav {
-    background: #162024;
-    color: #FFDD83;
+    background: #151F24;
+    color: rgba(255, 201, 114, 1.0)3;
     font-family: 'Asul', sans-serif;
     font-weight: 400;
     border: none;
@@ -72,7 +72,7 @@ div.landing#landingTwo {
 
 #nav li a:hover {
     transition: all 1500ms;
-    color: #FFDD83;
+    color: rgba(255, 201, 114, 1.0);
 }
 
 
@@ -116,7 +116,7 @@ div.landing#landingTwo {
 }
 
 .authentication-submit-button:hover {
-    background: #0F1619;
+    background: #151F24;
     color: #B29B5C;
     transition: all 1500ms;
 }
@@ -177,7 +177,7 @@ div.landing#landingTwo {
 
 #footer {
     background: rgba(22, 32, 36, 0.6);
-    color: rgba(178, 155, 92, 1.0);
+    color: rgba(255, 201, 114, 1.0);
     font-family: 'Asul', sans-serif;
     font-weight: 400;
     border: none;
