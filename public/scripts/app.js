@@ -1,5 +1,5 @@
-var ddragonChampPNG = "http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/";
-var ddragonLoadSkinJPG = "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/";
+var ddragonChampPNG = "https://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/";
+var ddragonLoadSkinJPG = "https://ddragon.leagueoflegends.com/cdn/img/champion/loading/";
 var $champ_modal;
 var $modal_content;
 
