@@ -24,22 +24,25 @@ div.landing {
     border: 2px solid #B29B5C;
     ;
     background: rgba(0, 0, 0, 0.7);
-    padding-top: 150px;
-    padding-bottom: 150px;
+    padding: 50px 0;
     top: 50px;
 }
 
 #landingContent button {
     font-family: 'Asul', sans-serif;
     background: #151F24;
-    color: rgba(255, 201, 114, 1.0)FFF;
-    transition: all 1500ms;
+    color: #FFF;
+    transition: all 700ms;
 }
 
 #landingContent button:hover {
     background: #151F24;
-    color: #B29B5C;
+    color: rgba(255, 201, 114, 1.0);
     transition: all 1500ms;
+}
+
+.summnr-container {
+    margin-bottom: 40px;
 }
 
 #nav {
@@ -52,13 +55,13 @@ div.landing {
 
 #nav li a {
     text-decoration: none;
-    color: #B29B5C;
+    color: #FFF;
     transition: all 1500ms;
 }
 
 #nav li a:hover {
     transition: all 1500ms;
-    color: rgba(255, 201, 114, 1.0);
+    color: #B29B5C;
 }
 
 
@@ -114,7 +117,7 @@ div.landing {
     display: inline-block;
     font-family: 'Asul', sans-serif;
     background: #151F24;
-    color: rgba(255, 201, 114, 1.0);
+    color: #FFF;
     transition: all 1500ms;
 }
 
@@ -125,9 +128,19 @@ div.landing {
 
 /*FAVORITE-LIST*/
 
-.img-frame {
-    width: 75px;
-    height: 75px;
+.remove-favorite {
+    position: absolute;
+    top: 0px;
+    left: 13px;
+    background: transparent;
+    color: transparent;
+    transition: all ease-in 500ms;
+}
+
+.favorite-image-wrapper:hover .remove-favorite {
+    background: rgba(0, 0, 0, 0.2);
+    color: rgba(255, 201, 114, 1.0);
+    transition: all ease-out 500ms;
 }
 
 .champion-name {
@@ -152,22 +165,7 @@ div.landing {
 
 .modal-body-content {
     font-family: 'Lato', sans-serif;
-    color: rgba(255, 201, 114, 1.0);
-}
-
-.summnr-container,
-.league-container {
-    position: relative;
-    z-index: 100;
-    height: 40px;
-    margin-bottom: 100px;
-    background-image: url('/images/summnr_ui.png');
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-
-.league-container {
-    background-image: url('/images/league_brand.png');
+    color: #FFF;
 }
 
 #footer {

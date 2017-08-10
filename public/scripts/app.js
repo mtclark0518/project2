@@ -86,9 +86,9 @@ $(document).ready(function() {
 
     //LAUNCH CHAMPION MODAL 
     $('#champions').on('click', '.champ-img-small', function(e) {
-        $champ_modal = $('#champModal').data('champion-id', $champion);
         var $champion = $(this).parents('.champion').data('champion-id');
-        var $creator = $('#current_User')[0].innerHTML;
+        $champ_modal = $('#champModal').data('champion-id', $champion);
+        var $creator = $('.current_User')[0].innerHTML;
         $.ajax({
             method: 'get',
             url: '/api/champions/' + $champion,
@@ -161,6 +161,7 @@ $(document).ready(function() {
     $('#favorite_list').on('click', '.remove-favorite', function(e) {
         var $user = $('.current_User')[0].innerHTML;
         var favToRemove = $(this).parents('.favorite-list-item');
+        favToRemove
         console.log($user);
         console.log(favToRemove);
         $.ajax({
