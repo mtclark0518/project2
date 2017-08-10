@@ -45,24 +45,25 @@ Have at least 2 software unit tests using Mocha and Chai
 
 ** express.js - Middleware functionality to create RESTful routes
 
-JSON interaction - a dropdown menu is available in the top navigation with available url api endpoints where JSON is accessed
+## JSON interaction
+** a dropdown menu is available in the top navigation with available url api endpoints where JSON is accessed
 
 
-Front-End
-Uses jquery for DOM manipulation and bootstrap* for styling 
+## Front-End
+** Uses jquery for DOM manipulation and 
+** bootstrap for styling 
 
 
----FUTURE FEATURE IMPLENTATION : Users should be able to simulate league of legends item build paths on specific champions.
+## FUTURE FEATURE IMPLENTATION : 
 
+** Users should be able to simulate league of legends item build paths on specific champions.
 
-*future versions will implement angular in favor of jquery/ejs and *** for styling
+** future versions will implement angular in favor of jquery/ejs and *** for styling
 
-	Users should be able to save build paths.
+** Users should be able to save build paths.
 
-Users should be able to see the impact each item has on champion statistics at any given level
+** Users should be able to see the impact each item has on champion statistics at any given level
 
-Users should be able to log in using their summoner name.
+** Users should be able to log in using their summoner name.
 
-Users profile landing page should display basic summoner information(most frequently used champions - frequently used build pathes - most purchased items)
-
-Users can view the impacts of various 
+** Users profile landing page should display basic summoner information(most frequently used champions - frequently used build pathes - most purchased items)
