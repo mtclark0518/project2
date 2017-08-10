@@ -3,21 +3,21 @@ var db = require('../models');
 
 //GET ALL USERS LISTS
 function getAllUserLists(req, res) {
-	db.FavoriteList.find({}, function(err, favoritelists) {
-		if (err) return console.log("error: " + err);
-			res.json(favoritelists);
-	});
+    db.FavoriteList.find({}, function(err, favoritelists) {
+        if (err) return console.log("error: " + err);
+        res.json(favoritelists);
+    });
 }
 
 //GET A SIGNLE USERS LIST
 function showOneUserList(req, res) {
-	var userId = req.user._id;
-	db.FavoriteList.findOne({ _creator : userId }, function(err, favoritelist) {
-		if (err) return console.log("error: " + err);
-		res.json(favoritelist.champion);		
-		console.log(favoritelist);
+    var userId = req.user._id;
+    db.FavoriteList.findOne({ _creator: userId }, function(err, favoritelist) {
+        if (err) return console.log("error: " + err);
+        res.json(favoritelist.champion);
+        console.log(favoritelist);
 
-	});
+    });
 }
 
 
@@ -25,33 +25,33 @@ function showOneUserList(req, res) {
 function addAFavorite(req, res) {
 
 
-	db.FavoriteList.findOne({ _creator : req.user._id}, function(err, favoritelist) {
-		if (err) return console.log("error: " + err);
-		favoritelist.champion.push(req.body._champion);
-		favoritelist.save(function(err) {
-			if (err) throw err;
+    db.FavoriteList.findOne({ _creator: req.user._id }, function(err, favoritelist) {
+        if (err) return console.log("error: " + err);
+        favoritelist.champion.push(req.body._champion);
+        favoritelist.save(function(err) {
+            if (err) throw err;
 
-			db.User.findOne({_id : favoritelist._creator}, function(err, user) {
-				if(err) return console.log("error: " + err);
-				var userFavorites = favoritelist.champion;
-				user.favorites = userFavorites;
-				console.log(userFavorites);
-				user.save(function(err) {
-					if(err) return console.log('error: ' + err);
-				});
-				// 	if(err) return console.log("error: " + err);
-				// 	for(var i = 0; i < userFavorites.length; i++){
-				// 		// console.log(userFavorites[i]);
-				// 	}
+            db.User.findOne({ _id: favoritelist._creator }, function(err, user) {
+                if (err) return console.log("error: " + err);
+                var userFavorites = favoritelist.champion;
+                user.favorites = userFavorites;
+                console.log(userFavorites);
+                user.save(function(err) {
+                    if (err) return console.log('error: ' + err);
+                });
+                // 	if(err) return console.log("error: " + err);
+                // 	for(var i = 0; i < userFavorites.length; i++){
+                // 		// console.log(userFavorites[i]);
+                // 	}
 
-				// console.log(user);
-			});
-			res.send(favoritelist);
-		});
-	});
-	
-	
-}	
+                // console.log(user);
+            });
+            res.send(favoritelist);
+        });
+    });
+
+
+}
 
 //EDIT NOTES ABOUT A FAVORITE
 function editAFavorite(req, res) {
@@ -60,70 +60,67 @@ function editAFavorite(req, res) {
 
 //DELETE A FAVORITE FROM THE LIST
 function deleteAFavorite(req, res) {
-	console.log(req.body);
-	console.log(req.user);
-	db.FavoriteList.findOneAndUpdate(
-		{_id : req.user._id},
-		{$pull:{champion : req.body.champion}},
-		{upsert: true}, function(err, favorite) {
-		if(err) return console.log("error: " + err);
-		res.send(favorite);
-		res.redirect('/profile/'+req.user.local.email);
-	});
+    console.log(req.body);
+    console.log(req.user);
+    db.FavoriteList.findOneAndUpdate({ _id: req.user._id }, { $pull: { champion: req.body.champion } }, { upsert: true }, function(err, favorite) {
+        if (err) return console.log("error: " + err);
+        res.send(favorite);
+        res.redirect('/profile/' + req.user.local.email);
+    });
 }
 
 
 module.exports = {
-	getAllUserLists : getAllUserLists,
-	showOneUserList : showOneUserList,
-	addAFavorite : addAFavorite,
-	editAFavorite : editAFavorite,
-	deleteAFavorite : deleteAFavorite
+    getAllUserLists: getAllUserLists,
+    showOneUserList: showOneUserList,
+    addAFavorite: addAFavorite,
+    editAFavorite: editAFavorite,
+    deleteAFavorite: deleteAFavorite
 };
 
 
 
-	// var newChampion = req.body.champion;
-	// console.log(newChampion);
-	// // console.log(req.params.user);
-	// db.User.findOne({email: 'mtclark0518@gmail.com'}, function(error, favorite) {
-	// 	if (error) throw error;
-	// 	favorite.champion.push(newChampion);
-	// 	favorite.save(function(error) {
-	// 		if (error) return console.log("error: " + error);
-	// 		console.log('saved');
-	// 		res.json(favorite);
-		// });
+// var newChampion = req.body.champion;
+// console.log(newChampion);
+// // console.log(req.params.user);
+// db.User.findOne({email: 'mtclark0518@gmail.com'}, function(error, favorite) {
+// 	if (error) throw error;
+// 	favorite.champion.push(newChampion);
+// 	favorite.save(function(error) {
+// 		if (error) return console.log("error: " + error);
+// 		console.log('saved');
+// 		res.json(favorite);
+// });
 
-		// db.User.findOne({ 'local.email' : "mtclark0518@gmail.com" }, function(error, user) {
-		// 	if (error) throw error;
-		// 	user.favorites.remove({}, function(error, favorites) {
-		// 		if (error) throw error;
-		// 		user.favorites = favorite.champion;
-		// 		user.save(function(error) {
-		// 			if (error) throw error;
-		// 			console.log(user.email + " added to their favorites. there new list includes ");
-		// 		});
-		// 	});
-		// });
-	// });
-	
-	//find the user making the request
-	//find that users favorite list and save to a variable 
-	//on click send new champion to that favorite list
-	//check for a champion with name requested
-		//if it exists throw an err
+// db.User.findOne({ 'local.email' : "mtclark0518@gmail.com" }, function(error, user) {
+// 	if (error) throw error;
+// 	user.favorites.remove({}, function(error, favorites) {
+// 		if (error) throw error;
+// 		user.favorites = favorite.champion;
+// 		user.save(function(error) {
+// 			if (error) throw error;
+// 			console.log(user.email + " added to their favorites. there new list includes ");
+// 		});
+// 	});
+// });
+// });
 
-		//create a new champion from request data
-		//save it to the db
+//find the user making the request
+//find that users favorite list and save to a variable 
+//on click send new champion to that favorite list
+//check for a champion with name requested
+//if it exists throw an err
 
-		//access User documents favorite property
-		//remove the contents
-			//set contents equal favorite list champions
-			//save updated favorites list
+//create a new champion from request data
+//save it to the db
 
-		//access champion list in profile.ejs
-			//clear contents
-		//set contents equal to user favorites	
+//access User documents favorite property
+//remove the contents
+//set contents equal favorite list champions
+//save updated favorites list
+
+//access champion list in profile.ejs
+//clear contents
+//set contents equal to user favorites	
 
 // }

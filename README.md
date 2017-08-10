@@ -1,25 +1,58 @@
-User stories:
-
+League of Legends
+summnr.ui: a pokedex for LOL
 v0.0
-Requirements
 
-Your app must:
+project outline and user stories hosted at 'https://trello.com/b/JATVvofe/project-2'
 
-Have at least 2 models (more if they make sense) – one representing someone using your 
-application, and one that represents the main functional idea for your app
+project hosted @ 'https://mighty-woodland-27297.herokuapp.com/'
+
+
+
+Overview
+
+summnr.ui is a full-stack application created for users of Riot Game's League of Legends(LOL).
+The target market being specifically new, inexperienced players looking to shorten their learning curve.
+
+The application follows an MVC pattern of architechture and utilizes a variety of node.js modules to facilitate middleware and backend functionality.
+
+Models:
+
+User: stores a variety of information on site users, primarily login information, but also LOL summoner details and a favorite champion list. Summoner name information is collected via registration and used to conduct api calls to the riot games developer api to store recent data associated with a summoner account.
+
+Champions: the characters available for LOL players to control. Champion information is hardcoded currently to limit api calls.
+
+FavoriteList: All lists are stored seperately and referenced by the user
+
+
+Views: 
+ejs is used as the view engine responsible for rendering backend data
+The user navigates through 3 main views
+	Authentication/Registration
+	UserProfile
+	ChampionProfile
+
+
+Controllers:
+mongoose.js - Utilized to communicate CRUDibly with MogoDb - where application collections are stored
 
 Have at least 2 software unit tests using Mocha and Chai
 
-Interface with a 3rd Party Web API of your choosing
+3rd Party API
+Data is collected from two sources. Riot games provides a temporary developer key that can be regenerated for use on a daily basis. Permanent keys can be applied for as a project reaches production status.
 
-Include sign up/log in functionality, with encrypted passwords & an authorization flow
+Funtionality -v.0.01
+Passport.js - Login & Registration information is collected, passwords are hashed and authenticated. 
 
-Have complete RESTful routes for at least one of your resources with GET, POST, PUT, and DELETE
 
-Utilize Mongo to create a database structure and interact with your JSON-like data
+express.js - Middleware functionality to create RESTful routes
 
-Have semantically clean HTML and CSS
+JSON interaction - a dropdown menu is available in the top navigation with available url api endpoints where JSON is accessed
 
+
+Front-End
+Uses jquery for DOM manipulation and bootstrap* for styling 
+
+*future versions will implement angular in favor of jquery/ejs and *** for styling
 
 
 Necessary Deliverables
@@ -33,15 +66,10 @@ A readme.md file with explanations of:
 	unsolved problems, 
 	etc.
 
-Wireframes of your app, hosted somewhere & linked in your readme
-<a href:"/wireframes">Wireframes</a>
+Wireframes - stored in wireframe directory as HTML
 
-A link in your readme.md to the publicly-accessible user stories you created
-<a href:"https://trello.com/b/JATVvofe/project-2">User Story Board</a>
 
-v1.0
-
----STRETCH: Users should be able to simulate league of legends item build paths on specific champions.
+---FUTURE FEATURE IMPLENTATION : Users should be able to simulate league of legends item build paths on specific champions.
 
 	Users should be able to save build paths.
 
