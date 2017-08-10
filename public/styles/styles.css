@@ -166,6 +166,10 @@ div.landing {
     background-size: contain;
 }
 
+.league-container {
+    background-image: url('/images/league_brand.png');
+}
+
 #footer {
     background: rgba(22, 32, 36, 0.6);
     color: rgba(255, 201, 114, 1.0);
