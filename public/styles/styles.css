@@ -9,20 +9,6 @@ div.landing {
     height: 100%;
 }
 
-div.landing#landingOne {
-    left: 0%;
-    background: #151F24;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-div.landing#landingTwo {
-    right: 0%;
-    background: #151F24;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
 #landingContainer {
     position: relative;
     padding: none;
@@ -46,7 +32,7 @@ div.landing#landingTwo {
 #landingContent button {
     font-family: 'Asul', sans-serif;
     background: #151F24;
-    color: #FFF;
+    color: rgba(255, 201, 114, 1.0)FFF;
     transition: all 1500ms;
 }
 
@@ -58,7 +44,7 @@ div.landing#landingTwo {
 
 #nav {
     background: #151F24;
-    color: rgba(255, 201, 114, 1.0)3;
+    color: rgba(255, 201, 114, 1.0);
     font-family: 'Asul', sans-serif;
     font-weight: 400;
     border: none;
@@ -94,7 +80,7 @@ div.landing#landingTwo {
     color: #B29B5C;
 }
 
-#current_User {
+.current_User {
     color: transparent;
 }
 
@@ -130,6 +116,10 @@ div.landing#landingTwo {
     background: #151F24;
     color: rgba(255, 201, 114, 1.0);
     transition: all 1500ms;
+}
+
+#add-champ-button:hover {
+    color: #B29B5C;
 }
 
 
