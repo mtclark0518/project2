@@ -10,19 +10,14 @@ describe("Champion", function() {
     describe('new', function() {
         it('creates a new champion instance', function() {
             expect(typeof(testChamp)).to.equal('object');
+            done();
         });
     });
 
     describe('key', function() {
         it('should allow reading and writing of key property', function() {
             expect(typeof(testChamp.key)).to.equal(string);
+            done();
         });
     });
-    // it("should return an object function(done) {
-    //     request(testURL + apiKey, function(err, res, body) {
-    //         body = JSON.parse(body);
-    //         console.log(body);
-    //         expect(res.statusCode).to.equal(200);
-    //         done();
-    //     
 });
