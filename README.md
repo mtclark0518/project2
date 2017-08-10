@@ -52,24 +52,11 @@ JSON interaction - a dropdown menu is available in the top navigation with avail
 Front-End
 Uses jquery for DOM manipulation and bootstrap* for styling 
 
-*future versions will implement angular in favor of jquery/ejs and *** for styling
-
-
-Necessary Deliverables
-
-A link to your hosted working app in the URL section of your GitHub repo
-
-A readme.md file with explanations of: 
-	the technologies used, 
-	the approach taken, 
-	installation instructions, 
-	unsolved problems, 
-	etc.
-
-Wireframes - stored in wireframe directory as HTML
-
 
 ---FUTURE FEATURE IMPLENTATION : Users should be able to simulate league of legends item build paths on specific champions.
+
+
+*future versions will implement angular in favor of jquery/ejs and *** for styling
 
 	Users should be able to save build paths.
 
