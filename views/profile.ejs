@@ -51,7 +51,7 @@
 								<% var myFavs = currentUser.favorites %>
 								<% for(var i = 0; i < myFavs.length; i++) { %>
 								
-									<li class="<%= myFavs[i].key%> champion favorite-list-item list-group-item">
+									<li class= ' <%= myFavs[i].key %> champion favorite-list-item list-group-item'>
 										<div class='row'>	
 											<div class="col-xs-3 text-left">
 												<div class="container col-xs-8">
@@ -82,6 +82,9 @@
 			</div>
 		</div>
 	</div>
+
+
+
 
     <% include ./partials/footer %>
 

@@ -158,21 +158,20 @@ $(document).ready(function() {
     $('#favorite_list').on('click', '.remove-favorite', function(e) {
         var $user = $('.current_User')[0].innerHTML;
         var favToRemove = $(this).parents('.favorite-list-item');
-        favToRemove
         console.log($user);
         console.log(favToRemove);
         $.ajax({
             method: 'delete',
-            url: '/api/favorites/' + $user + '/' + favToRemove,
+            url: '/api/favorites/' + $user + '/' + favToRemove.id,
             failure: function(err) { return console.log("error: " + err); },
-            success: function(e) {
-                $removeChampFromFavorites(e);
+            success: function(data) {
+                $removeChampFromFavorites(data);
             }
         });
     });
 
-    function $removeChampFromFavorites(e) {
-        console.log('done');
+    function $removeChampFromFavorites(data) {
+        console.log(data);
     }
 
 
