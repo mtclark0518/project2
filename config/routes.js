@@ -18,39 +18,38 @@ router.route("/")
     .get(viewController.launch);
 
 router.route("/signup")
-	.get(userController.getSignup)
-	.post(userController.postSignup);
+    .get(userController.getSignup)
+    .post(userController.postSignup);
 
 router.route("/login")
-	.get(userController.getLogin)
-	.post(userController.postLogin);
+    .get(userController.getLogin)
+    .post(userController.postLogin);
 
 router.route("/logout")
-	.get(userController.getLogout);
+    .get(userController.getLogout);
 
 router.route("/profile/:user")
-	.get(viewController.showUser);
+    .get(viewController.showUser);
 
 router.route("/champions")
-	.get(championController.showChamps);
+    .get(championController.showChamps);
 
 
 
 //JSON RESPONSE
 router.route("/api/champions")
-	.get(championController.getChamps);
+    .get(championController.getChamps);
 
 router.route("/api/champions/:_id")
-	.get(championController.showOneChamp);
+    .get(championController.showOneChamp);
 
 router.route("/api/favorites")
-	.get(favoriteController.getAllUserLists);
+    .get(favoriteController.getAllUserLists);
 
 router.route("/api/favorites/:_creator")
-	.get(favoriteController.showOneUserList)
-	.put(favoriteController.addAFavorite);
+    .get(favoriteController.showOneUserList)
+    .put(favoriteController.addAFavorite);
 
-router.route("/api/favorites/:_creator/:favorite")
-	.delete(favoriteController.deleteAFavorite);
+router.route("/api/favorites/:_creator/:favorite.key")
+    .delete(favoriteController.deleteAFavorite);
 module.exports = router;
-

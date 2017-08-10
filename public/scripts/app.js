@@ -43,24 +43,21 @@ function $renderModal(champion, creator) {
 
         "<div class='modal-body container col-xs-10 col-xs-offset-1'>" +
 
-        "<div class='col-xs-4'>" +
-        "<div class='row'>" +
+        "<div class='col-xs-5 text-left'>" +
         "<div class='champ_profile_img col-xs-12'>" +
-        "<img class='img img-responsive' src='https://ddragon.leagueoflegends.com/cdn/img/champion/loading/" + champion.key + "_0.jpg'>" +
-        "</div> " +
-        "</div>" +
-        "</div>" +
 
-        "<div class='col-xs-1'>" +
-        "<div class='row'>" +
-        "<div class='input-group'>" +
-        "<input id='new_fav_champ' type='hidden' value='" + champion + "'>" +
-        "<button id='addToFavs' type='submit' class='btn btn-default'>" +
+        "<div class='input-group fav-input-group text-right'>" +
+        "<button id='addToFavs' type='submit' class='btn btn-default btn-sm'>" +
         "<span class='glyphicon glyphicon-heart'></span>" +
         "</button>" +
         "</div>" +
+
+        "<img class='img img-responsive' src='https://ddragon.leagueoflegends.com/cdn/img/champion/loading/" + champion.key + "_0.jpg'>" +
+        "</div> " +
         "</div>" +
-        "</div>" +
+
+
+
 
         "<div class='col-xs-7'>" +
         "<div class='row'>" +
