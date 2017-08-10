@@ -12,6 +12,12 @@ describe("Champion", function() {
             expect(typeof(testChamp)).to.equal('object');
         });
     });
+
+    describe('key', function() {
+        it('should allow reading and writing of key property', function() {
+            expect(typeof(testChamp.key)).to.equal(string);
+        });
+    });
     // it("should return an object function(done) {
     //     request(testURL + apiKey, function(err, res, body) {
     //         body = JSON.parse(body);
