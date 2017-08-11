@@ -37,7 +37,7 @@ function $renderChampion(champion) {
 
 
 //CREATES CHAMPION MODAL WHEN USER CLICKS ON A CHAMPION
-function $renderModal(champion, creator) {
+function $renderModal(champion) {
     $('.modal_content_wrapper').remove();
     var modalHTML =
 
@@ -156,22 +156,24 @@ $(document).ready(function() {
 
     //DELETE A FAVORITE FROM THE USERS FAVORITE LIST
     $('#favorite_list').on('click', '.remove-favorite', function(e) {
+        e.preventDefault();
         var $user = $('.current_User')[0].innerHTML;
         var favToRemove = $(this).parents('.favorite-list-item');
         console.log($user);
         console.log(favToRemove);
-        $.ajax({
-            method: 'delete',
-            url: '/api/favorites/' + $user + '/' + favToRemove.id,
-            failure: function(err) { return console.log("error: " + err); },
-            success: function(data) {
-                $removeChampFromFavorites(data);
-            }
-        });
+        $removeChampFromFavorites($user, favToRemove)
+
     });
 
-    function $removeChampFromFavorites(data) {
-        console.log(data);
+    function $removeChampFromFavorites(user, favorite) {
+        $.ajax({
+            method: 'delete',
+            url: '/api/favorites/' + user + '/' + favorite,
+            failure: function(err) { return console.log("error: " + err); },
+            success: function(data) {
+                console.log(data);
+            }
+        });
     }
 
 
