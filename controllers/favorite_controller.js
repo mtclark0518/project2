@@ -62,11 +62,12 @@ function editAFavorite(req, res) {
 function deleteAFavorite(req, res) {
     console.log(req.body);
     console.log(req.user);
-    db.FavoriteList.findOneAndUpdate({ _id: req.user._id }, { $pull: { champion: req.body.champion } }, { upsert: true }, function(err, favorite) {
-        if (err) return console.log("error: " + err);
-        res.send(favorite);
-        res.redirect('/profile/' + req.user.local.email);
-    });
+    db.FavoriteList.findOneAndUpdate({ _id: req.user._id }, { $pull: { champion: req.body.champion } }, { upsert: true },
+        function(err, favorite) {
+            if (err) return console.log("error: " + err);
+            res.send(favorite);
+            res.redirect('/profile/' + req.user.local.email);
+        });
 }
 
 

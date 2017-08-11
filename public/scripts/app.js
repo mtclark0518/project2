@@ -161,7 +161,7 @@ $(document).ready(function() {
         var favToRemove = $(this).parents('.favorite-list-item');
         console.log($user);
         console.log(favToRemove);
-        $removeChampFromFavorites($user, favToRemove)
+        $removeChampFromFavorites($user, favToRemove);
 
     });
 
@@ -182,6 +182,26 @@ $(document).ready(function() {
 
 
 }); //<--CLOSES DOCUMENT.READY
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // var currentUser = db.User.find({}, function(err, user) {
 //     return user.summoner_name;
