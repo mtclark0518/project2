@@ -22,4 +22,10 @@ describe("Champion", function() {
             expect(typeof(testChamp.name)).to.equal('string');
         });
     });
+
+    describe('key', function() {
+        it('should equal the same thing as the name', function() {
+            expect(testChamp.key).to.equal(testChamp.name);
+        })
+    });
 });
