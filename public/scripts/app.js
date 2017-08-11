@@ -166,9 +166,13 @@ $(document).ready(function() {
     });
 
     function $removeChampFromFavorites(user, favorite) {
+        console.log(user);
+        console.log(favorite);
+        var deleteData = { findUser: user, findFavorite: favorite };
         $.ajax({
             method: 'delete',
             url: '/api/favorites/' + user + '/' + favorite,
+            data: deleteData,
             failure: function(err) { return console.log("error: " + err); },
             success: function(data) {
                 console.log(data);
