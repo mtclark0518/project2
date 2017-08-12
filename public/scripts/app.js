@@ -1,5 +1,5 @@
-const ddragonChampPNG = "https://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/";
-const ddragonLoadSkinJPG = "https://ddragon.leagueoflegends.com/cdn/img/champion/loading/";
+var ddragonChampPNG = "https://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/";
+var ddragonLoadSkinJPG = "https://ddragon.leagueoflegends.com/cdn/img/champion/loading/";
 var $champ_modal;
 var $modal_content;
 
@@ -75,6 +75,14 @@ function $renderModal(champion) {
     console.log($modal_content);
 }
 
+//BASIC ERROR HANDLER FOR USER AJAX CALLS
+function handleError(err) {
+    return console.log("error: " + err);
+}
+//USED TO FIND USERS FAVORITE CHAMPS
+function foundChamp(champion) {
+    console.log(champion.name);
+}
 
 //DOCUMENT READY STATEMENT
 ////////////////////////////////
@@ -136,7 +144,7 @@ $(document).ready(function() {
     //AJAX REQUEST TO COMPILE USERS FAV CHAMPS AND SEND TO THE BROWSER       
     function $appendChampToProfile(data) {
         var updatedFavoriteList = data;
-        for (var i; i < updatedFavoriteList.length; i++) {
+        for (var i = 0; i < updatedFavoriteList.length; i++) {
             $.ajax({
                 method: 'get',
                 url: '/api/champions/' + updatedFavoriteList[i],
@@ -144,14 +152,6 @@ $(document).ready(function() {
                 success: foundChamp(champion)
             });
         }
-    }
-    //BASIC ERROR HANDLER FOR USER AJAX CALLS
-    function handleError(err) {
-        return console.log("error: " + err);
-    }
-    //USED TO FIND USERS FAVORITE CHAMPS
-    function foundChamp(champion) {
-        console.log(champion.name);
     }
 
     //DELETE A FAVORITE FROM THE USERS FAVORITE LIST
