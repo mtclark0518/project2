@@ -1,5 +1,4 @@
 var mongoose = require('mongoose');
-var findOrCreate = require('mongoose-findorcreate');
 var bcrypt = require('bcrypt-nodejs');
 var FavoriteList = require('./favoriteList.js');
 var Champion = require('./champion.js');
@@ -27,7 +26,5 @@ User.methods.hash = function(password) {
 User.methods.validPassword = function(password) {
     return bcrypt.compareSync(password, this.local.password);
 };
-
-User.plugin(findOrCreate);
 
 module.exports = mongoose.model('User', User);

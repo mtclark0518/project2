@@ -3,16 +3,10 @@
 <div class="container-fluid">
 <% if(currentUser) { %>
 	<h1 class="page-title text-center"><%= currentUser.summoner.name  %></h1>
-<% } else { %>
-	<h1 class="page-title text-center">Summoner Name</h1>
 <% } %>
 
 
 // <div class="container list-group-item"><!------MAIN BODY LAYERING STARTS HERE---- -->
-
-<% if(currentUser) { %>
-	<h5 class="current_User"> <%= currentUser._id %> </h5>
-<% } %>
 
 
 
@@ -44,13 +38,15 @@
 										<div class='row'>
 								
 											<% if(currentUser) { %>
+											<% var favoriteArray = [] %>
 												<% var userFavs = currentUser.favorites %>
-												<% userFavs.forEach(function(favorite) {%>
-													<li> <%= userFavs._id %> </li>
-												<% }) %>
-												
+													<% for(var i = 0; i < userFavs.length; i++) { %> 														
+														<li class="favorite-list-item"> <%= userFavs[i] %> </li>
+														<%= console.log(userFavs[i]) %>
+													<% } %>
+												<%	} %>
+																								
 
-											<% } %>
 
 											<div class="col-xs-3 text-left">
 												<div class="container col-xs-8">
@@ -81,4 +77,9 @@
 			</div>
 		</div>
 	</div>
+<% if(currentUser) { %>
+	<h5 id="current_User"> <%= currentUser._id %> </h5>
+<% } %>
+
+
     <% include ./partials/footer %>
