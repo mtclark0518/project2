@@ -201,6 +201,7 @@ $(document).ready(function() {
             url: "/api/favorites/" + $creatorId,
             failure: function(error) { console.log(error); },
             success: function(data) {
+                console.log(data);
                 $("#champModal").modal('hide');
                 console.log("modal hidden");
                 // $appendChamp(data);

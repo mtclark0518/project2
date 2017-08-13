@@ -23,9 +23,10 @@ function showOneUserList(req, res) {
 
 //ADD A NEW FAVORITE TO LIST
 function addAFavorite(req, res) {
+    console.log(req.body);
     db.FavoriteList.findOne({ _creator: req.user._id }, function(err, favoritelist) {
         if (err) return console.log("error: " + err);
-        favoritelist.champion.push(req.body._champion);
+        favoritelist.champion.push(req.body.champion);
         favoritelist.save(function(err) {
             if (err) return console.log(err);
 
