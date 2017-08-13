@@ -218,7 +218,6 @@ $(document).ready(function() {
         var $creatorId = $('#current_User')[0].innerHTML;
         var $favToRemove = $(this).parents('.champion')[0].dataset.favoriteId;
         console.log($favToRemove);
-
         $removeChampFromFavorites($creatorId, $favToRemove);
     });
 
@@ -230,7 +229,13 @@ $(document).ready(function() {
             url: '/api/favorites/' + user + '/' + favorite,
             failure: function(err) { return console.log(err); },
             success: function(data) {
-                console.log(data);
+                var champ = data.champion;
+                champ.forEach(function(champ) {
+                    if (champ !== null) {
+                        console.log(champ);
+                        $renderFavorite(champ);
+                    }
+                });
             }
 
         });

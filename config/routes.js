@@ -52,4 +52,6 @@ router.route("/api/favorites/:_creator")
 
 router.route("/api/favorites/:_creator/:_champ")
     .delete(favoriteController.deleteAFavorite);
+
+
 module.exports = router;
