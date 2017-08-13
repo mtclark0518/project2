@@ -10,7 +10,7 @@ var User = new Schema({
         password: String,
     },
 
-    _favorites: [{ type: Schema.Types.ObjectId, ref: 'FavoriteList' }],
+    favorites: [{ type: Schema.Types.Mixed, ref: 'Champion' }],
 
     summoner: {
         name: String,
