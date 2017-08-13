@@ -36,9 +36,43 @@ function $renderChampion(champion) {
 }
 
 
+
+function $showFavorite(champion) {
+    // $('.favoite_wrapper_content').remove();
+
+    var favoriteHTML =
+        "<div class='favorite-body container col-xs-10 col-xs-offset-1'>" +
+
+        "<div class='col-xs-5 text-left'>" +
+        "<div class='col-xs-12'>" +
+
+        // "<div class='input-group fav-input-group text-right'>" +
+        // "<button id='addToFavs' type='submit' class='btn btn-default btn-sm'>" +
+        // "<span class='glyphicon glyphicon-heart'></span>" +
+        // "</button>" +
+        // "</div>" +
+
+        "<img class='img img-responsive' src='" + ddragonChampPNG + champion.key + ".png'>" +
+
+        "</div> " +
+        "</div>" +
+
+        "<div class='col-xs-7'>" +
+        "<h4 class='favorite-name'>" + champion.name + "</h4>" +
+        "<h4 class='favoite-title'>" + champion.title + "</h4>" +
+        "</div>" +
+
+        "</div>";
+    $('#favorite_list').append(favoriteHTML);
+}
+
+
+
+
 //CREATES CHAMPION MODAL WHEN USER CLICKS ON A CHAMPION
 function $renderModal(champion) {
     $('.modal_content_wrapper').remove();
+
     var modalHTML =
 
         "<div class='modal-body container col-xs-10 col-xs-offset-1'>" +
@@ -84,6 +118,8 @@ function foundChamp(champion) {
     console.log(champion.name);
 }
 
+
+//////////////////////////////////
 //DOCUMENT READY STATEMENT
 ////////////////////////////////
 $(document).ready(function() {
@@ -126,24 +162,14 @@ $(document).ready(function() {
     var favs = $.get('/api/favorites/' + $user)
         .done(function(data) {
             var champ = data.champion;
-
             champ.forEach(function(champ) {
                 if (champ !== null) {
-                    var favLi = $('<li>');
-                    favLi.addClass('favorite-list-item');
-                    favLi.append(champ.key);
-                    console.log(favLi);
-                    $('#favorite_list').append(favLi);
+                    console.log(champ);
+                    $showFavorite(champ);
 
                 }
             });
-            // var $favLi = $('.favorite-list-item');
-            // for (var i = 0; i < data.length; i++) {
-            //     console.log($favLi[i]);
-
-            // }
         });
-    // }
 
 
     function $addChampToFavorites(e, champion) {
