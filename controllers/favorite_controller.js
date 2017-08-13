@@ -14,7 +14,7 @@ function showOneUserList(req, res) {
     var userId = req.user._id;
     db.FavoriteList.findOne({ _creator: userId }, function(err, favoritelist) {
         if (err) return console.log("error: " + err);
-        res.json(favoritelist.champion);
+        res.json(favoritelist);
         console.log(favoritelist);
 
     });
