@@ -125,7 +125,18 @@ $(document).ready(function() {
     console.log($user);
     var favs = $.get('/api/favorites/' + $user)
         .done(function(data) {
-            console.log(data.champion[4].title);
+            var champ = data.champion;
+
+            champ.forEach(function(champ) {
+                if (champ !== null) {
+                    var favLi = $('<li>');
+                    favLi.addClass('favorite-list-item');
+                    favLi.append(champ.key);
+                    console.log(favLi);
+                    $('#favorite_list').append(favLi);
+
+                }
+            });
             // var $favLi = $('.favorite-list-item');
             // for (var i = 0; i < data.length; i++) {
             //     console.log($favLi[i]);

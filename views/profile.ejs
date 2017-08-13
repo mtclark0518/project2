@@ -32,42 +32,12 @@
 					</div>
 					<div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">
 						<div class="panel-body">
-								<ul id="favorite_list" class='list-group'>
+							<ul id="favorite_list" class='list-group'>
 
-									<li class='champion favorite-list-item list-group-item'>
-										<div class='row'>
-								
-											<% if(currentUser) { %>
-											<% var favoriteArray = [] %>
-												<% var userFavs = currentUser.favorites %>
-													<% for(var i = 0; i < userFavs.length; i++) { %> 														
-														<li class="favorite-list-item"> <%= userFavs[i] %> </li>
-														<%= console.log(userFavs[i]) %>
-													<% } %>
-												<%	} %>
-																								
-
-
-											<div class="col-xs-3 text-left">
-												<div class="container col-xs-8">
-													<div class='favorite-image-wrapper'>
-														<button class="remove-favorite btn btn-defaul btn-sm"><span alt='Remove Favorite' class="glyphicon glyphicon-trash"></span></button>
-													</div>
-												</div>
-											</div>
-											<div class= "col-xs-2 col-xs-offset-1  text-center">
-												
-
-											</div>
-											<div class="col-xs-2 text-center">
-
-											</div>
-										</div>
-									</li>
 									
 							
 
-								<!--ADD CHAMPIONS TO LIST HERE -->
+								
 								
 								</ul>
 							</div>
