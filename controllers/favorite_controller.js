@@ -60,14 +60,30 @@ function editAFavorite(req, res) {
 
 //DELETE A FAVORITE FROM THE LIST
 function deleteAFavorite(req, res) {
-    console.log(req.body);
-    console.log(req.user);
-    db.FavoriteList.findOneAndUpdate({ _id: req.user._id }, { $pull: { champion: req.body.champion } }, { upsert: true },
-        function(err, favorite) {
-            if (err) return console.log("error: " + err);
-            res.send(favorite);
-            res.redirect('/profile/' + req.user.local.email);
+    console.log(req.params);
+    db.FavoriteList.findOne({ _creator: req.user._id }, function(err, favoritelist) {
+        if (err) return console.log(err);
+        var theseChamps = favoritelist.champion;
+        theseChamps.forEach(function(champ, index) {
+            if (champ !== null) {
+                if (champ._id === req.params._champ) {
+                    theseChamps.splice(index, 1);
+                    console.log(champ.name + " has been deleted");
+                    favoritelist.save(function(err) {
+                        if (err) return console.log(err);
+                        console.log("favorite list has been saved")
+                    });
+                }
+            }
         });
+
+    });
+    // console.log(req.user);
+    // db.FavoriteList.find({ _creator: req.params._creator }, function(err, favoritelist) {
+    //     if (err) return console.log(err + " = error");
+    //     console.log(favoritelist);
+    // });
+
 }
 
 

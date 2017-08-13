@@ -6,11 +6,8 @@
 <% } %>
 
 
-// <div class="container list-group-item"><!------MAIN BODY LAYERING STARTS HERE---- -->
-
-
-
-	<div class="col-xs-10 col-xs-offset-1 col-md-10 col-md-offset-1">
+<div class="container list-group-item"><!------MAIN BODY LAYERING STARTS HERE---- -->
+	<div class="col-xs-12">
 		<div class="accordion-wrapper">
 			<div class="panel-group" id="accordion2" role="tablist" aria-multiselectable="true">
 				<div class="panel panel-default">
@@ -19,7 +16,6 @@
 						<h4 class="panel-title">
 							<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Your Favorite Champs</a>
 							<div  class="text-right">
-
 								<% if(currentUser) { %>
 									<a href= "../champions"> 
 										<button id='add-champ-button' class= "btn btn-alert btn-xs">Logged in Add Champions</button>
@@ -34,19 +30,14 @@
 						<div class="panel-body">
 							<ul id="favorite_list" class='list-group'>
 
-									
-							
-
-								
-								
-								</ul>
-							</div>
+							</ul>
 						</div>
 					</div>
-				</div>			
-			</div>
+				</div>
+			</div>			
 		</div>
 	</div>
+</div>
 <% if(currentUser) { %>
 	<h5 id="current_User"> <%= currentUser._id %> </h5>
 <% } %>

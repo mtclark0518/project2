@@ -37,32 +37,48 @@ function $renderChampion(champion) {
 
 
 
-function $showFavorite(champion) {
-    // $('.favoite_wrapper_content').remove();
-
+function $renderFavorite(champion) {
+    // $('.favoite_content').remove();
     var favoriteHTML =
-        "<div class='favorite-body container col-xs-10 col-xs-offset-1'>" +
+        "<li class='favoite-list-item champion' data-favorite-id='" + champion._id + "'>" +
+        "<div class='favorite-body container col-xs-12'>" +
 
-        "<div class='col-xs-5 text-left'>" +
+        "<div class='col-xs-1 text-left'>" +
+        "<div class='input-group del-fav-input-group text-right'>" +
+        "<button id='removeFav' type='submit' class='remove-favorite btn btn-default btn-sm'>" +
+        "<span class='glyphicon glyphicon-trash'></span>" +
+        "</button>" +
+        "</div>" +
+        "</div>" +
+
+        "<div class='col-xs-4 text-left'>" +
         "<div class='col-xs-12'>" +
-
-        // "<div class='input-group fav-input-group text-right'>" +
-        // "<button id='addToFavs' type='submit' class='btn btn-default btn-sm'>" +
-        // "<span class='glyphicon glyphicon-heart'></span>" +
-        // "</button>" +
-        // "</div>" +
-
-        "<img class='img img-responsive' src='" + ddragonChampPNG + champion.key + ".png'>" +
-
+        "<img class='img img-thumb img-responsive' src='" + ddragonChampPNG + champion.key + ".png'>" +
         "</div> " +
         "</div>" +
 
         "<div class='col-xs-7'>" +
+
+        "<div class='col-xs-3'>" +
         "<h4 class='favorite-name'>" + champion.name + "</h4>" +
-        "<h4 class='favoite-title'>" + champion.title + "</h4>" +
         "</div>" +
 
-        "</div>";
+        "<div class='col-xs-3'>" +
+        "<h4 class='favoite-title'>" + champion.title + "</h4>" +
+        "</div>" +
+        "<div class='col-xs-3'>" +
+        "<h4 class='user-rating'> user.rating </h4>" +
+        "</div>" +
+
+        "<div class='col-xs-3'>" +
+        "<h4 class= ></h4>" +
+        "</div>" +
+
+
+        "</div>" +
+
+        "</div>" +
+        "</li>";
     $('#favorite_list').append(favoriteHTML);
 }
 
@@ -136,7 +152,7 @@ $(document).ready(function() {
             failure: function(err) { return console.log("error: " + err); },
             success: function(champion) {
                 console.log(champion);
-                $renderModal(champion, $creator);
+                $renderModal(champion);
                 $champ_modal.modal();
                 //CLICK EVENT TO ADD CHAMPION TO FAVORITE LIST
                 $champ_modal.on('click', '#addToFavs', function(e) {
@@ -158,14 +174,13 @@ $(document).ready(function() {
     //ADD CHAMPIONS TO CURRENT USER'S FAVORITE LIST
     // function $appendChampToProfile() {
     var $user = $('#current_User')[0].innerHTML;
-    console.log($user);
     var favs = $.get('/api/favorites/' + $user)
         .done(function(data) {
             var champ = data.champion;
             champ.forEach(function(champ) {
                 if (champ !== null) {
                     console.log(champ);
-                    $showFavorite(champ);
+                    $renderFavorite(champ);
 
                 }
             });
@@ -185,10 +200,10 @@ $(document).ready(function() {
             data: newFavorite,
             url: "/api/favorites/" + $creatorId,
             failure: function(error) { console.log(error); },
-            success: function() {
+            success: function(data) {
                 $("#champModal").modal('hide');
                 console.log("modal hidden");
-                $appendChampToProfile();
+                // $appendChamp(data);
             }
         });
     }
@@ -200,13 +215,26 @@ $(document).ready(function() {
     //DELETE A FAVORITE FROM THE USERS FAVORITE LIST
     $('#favorite_list').on('click', '.remove-favorite', function(e) {
         e.preventDefault();
-        var favToRemove = $(this).parents('.favorite-list-item');
-        console.log(favToRemove);
+        var $creatorId = $('#current_User')[0].innerHTML;
+        var $favToRemove = $(this).parents('.champion')[0].dataset.favoriteId;
+        console.log($favToRemove);
+
+        $removeChampFromFavorites($creatorId, $favToRemove);
     });
 
-    // function $removeChampFromFavorites(user, favorite) {
-    //     console.log(user);
+    function $removeChampFromFavorites(user, favorite) {
+        console.log(user);
+        console.log(favorite);
+        $.ajax({
+            method: 'delete',
+            url: '/api/favorites/' + user + '/' + favorite,
+            failure: function(err) { return console.log(err); },
+            success: function(data) {
+                console.log(data);
+            }
 
+        });
+    }
     //             var parsedChampion = JSON.parse(champions.responseText);
     // for (var i = 0; i < parsedChampion.length; i++) {
     //     $renderChampion(parsedChampion[i]);
