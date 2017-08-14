@@ -2,7 +2,7 @@
 	
 <div class="container-fluid">
 <% if(currentUser) { %>
-	<h1 class="page-title text-center"><%= currentUser.summoner.name  %></h1>
+	<h1 id="sum_name" class="page-title text-center"><%= currentUser.summoner.name  %></h1>
 <% } %>
 
 
@@ -26,11 +26,30 @@
 						</h4>
 					</div>
 					</div>
-					<div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">
+					<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
 						<div class="panel-body">
 							<ul id="favorite_list" class='list-group'>
 
 							</ul>
+						</div>
+					</div>
+				</div>
+					<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="headingFour">
+					<div class="row">
+						<h4 class="panel-title">
+							<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">Your Summoner Stats</a>
+							<div  class="summoner_stats">
+								<% if(currentUser) { %>
+
+								<% } %>
+							</div>
+						</h4>
+					</div>
+					</div>
+					<div id="collapseFour" class="panel-collapse collapse " role="tabpanel" aria-labelledby="headingFour">
+						<div class="panel-body">
+				
 						</div>
 					</div>
 				</div>

@@ -210,10 +210,6 @@ $(document).ready(function() {
         });
     }
 
-    //AJAX REQUEST TO COMPILE USERS FAV CHAMPS AND SEND TO THE BROWSER       
-
-
-
     //DELETE A FAVORITE FROM THE USERS FAVORITE LIST
     $('#favorite_list').on('click', '.remove-favorite', function(e) {
         e.preventDefault();
@@ -245,5 +241,26 @@ $(document).ready(function() {
 
         });
     }
+
+    // var userDataReqURL = 'https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/';
+    // var user_sum_name = $('#sum_name')[0].innerHTML;
+    // console.log(user_sum_name);
+    // var $userData = $.ajax({
+    //     method: 'get',
+    //     url: userDataReqURL + user_sum_name,
+    //     headers: {
+    //         "Access-Control-Allow-Origin": "https://localhost:3000",
+    //         "Accept-Charset": "application/x-www-form-urlencoded; charset=UTF-8",
+    //         "X-Riot-Token": "RGAPI-e695f795-8cd6-47c5-ae4b-b63060e1ab6d",
+    //         "Accept-Language": "en-US,en;q=0.8",
+    //         "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36"
+    //     },
+    //     failure: function(err) { if (err) return console.log(err); },
+    //     success: function(data) {
+    //         console.log(data);
+    //         res.send('sucess');
+    //     }
+    // });
+
 
 }); //<--CLOSES DOCUMENT.READY
