@@ -13,7 +13,6 @@ var userController = require('../controllers/user_controller.js');
 var championController = require('../controllers/champion_controller.js');
 var favoriteController = require('../controllers/favorite_controller.js');
 
-var apiKey = require('../apikey.js');
 var riotURL = 'https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/';
 
 
