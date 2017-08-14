@@ -238,7 +238,7 @@ $(document).ready(function() {
                 champ.forEach(function(champ) {
                     if (champ !== null) {
                         console.log(champ);
-                        $renderFavorite(champ);
+                        // $renderFavorite(champ);
                     }
                 });
             }
