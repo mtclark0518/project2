@@ -41,8 +41,8 @@ router.route("/champions")
 
 
 //JSON RESPONSE
-router.route(riotURL + '/:user.summoner.name' + apiKey)
-    .get(viewController.getUserStats);
+// router.route(riotURL + '/:user.summoner.name' + apiKey)
+//     .get(viewController.getUserStats);
 
 
 router.route("/api/champions")
