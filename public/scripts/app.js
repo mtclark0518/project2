@@ -3,7 +3,7 @@ var ddragonLoadSkinJPG = "https://ddragon.leagueoflegends.com/cdn/img/champion/l
 var $champ_modal;
 var $modal_content;
 
-
+////////////////////
 // HTML STRING BUILDS
 /////////////////////
 
@@ -36,7 +36,7 @@ function $renderChampion(champion) {
 }
 
 
-
+//Favorite HTML for favorite list item
 function $renderFavorite(champion) {
     // $('.favoite_content').remove();
     var favoriteHTML =
@@ -106,9 +106,6 @@ function $renderModal(champion) {
         "</div> " +
         "</div>" +
 
-
-
-
         "<div class='col-xs-7'>" +
         "<div class='row'>" +
         "<h4 class='modal-title page-title'>" + champion.name + "</h4>" +
@@ -162,6 +159,7 @@ $(document).ready(function() {
         });
     });
 
+
     //AJAX GET CHAMPIONS AND SEND TO BE RENDERED ON THE PAGE
     var champions = $.get('/api/champions')
         .done(function(data) {
@@ -170,6 +168,8 @@ $(document).ready(function() {
                 $renderChampion(parsedChampion[i]);
             }
         });
+
+
 
     //ADD CHAMPIONS TO CURRENT USER'S FAVORITE LIST
     // function $appendChampToProfile() {
@@ -187,6 +187,7 @@ $(document).ready(function() {
         });
 
 
+    //Add a champ to the database
     function $addChampToFavorites(e, champion) {
         e.preventDefault();
         var $creatorId = $('.current_User')[0].innerHTML;
@@ -194,7 +195,7 @@ $(document).ready(function() {
             '_creator': $creatorId,
             'champion': champion
         };
-        // AJAX REQUEST TO UPDATE USER FAVORITE LIST
+        // AJAX REQUEST TO UPDATE USER FAVORITE LIST IN DATABASE
         $.ajax({
             method: 'PUT',
             data: newFavorite,
@@ -205,8 +206,6 @@ $(document).ready(function() {
                 $("#champModal").modal('hide');
                 console.log("modal hidden");
                 $('.modal_content_wrapper').remove();
-
-                // $appendChamp(data);
             }
         });
     }
@@ -222,8 +221,11 @@ $(document).ready(function() {
         var $favToRemove = $(this).parents('.champion')[0].dataset.favoriteId;
         console.log($favToRemove);
         $removeChampFromFavorites($creatorId, $favToRemove);
+        var liToRemove = $(this).parents('.champion');
+        $(liToRemove).remove();
     });
 
+    //REMOVES CHAMP FROM FAVORITE LIST IN DATABASE
     function $removeChampFromFavorites(user, favorite) {
         console.log(user);
         console.log(favorite);
