@@ -37,7 +37,7 @@ The target market being specifically new, inexperienced players looking to short
 Have at least 2 software unit tests using Mocha and Chai
 
 ## 3rd Party API
-** Data is collected from two sources. Riot games provides a temporary developer key that can be regenerated for use on a daily basis. Permanent keys can be applied for as a project reaches production status.
+** Data is collected from two sources. Riot games provides a temporary developer key that can be regenerated for use on a daily basis. Additionally Riot hosts a static data api which was used to cut down on apiKey usage limits. Permanent keys can be applied for as a project reaches production status.
 
 ## Funtionality -v.0.01
 ** Passport.js - Login & Registration information is collected, passwords are hashed and authenticated. 
